@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BannerView" customModule="GymCare" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="Vmq-ge-J2G" id="HJf-Bc-kw6"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="zMr-cy-I0K"/>
+                <outlet property="pageControl" destination="fKr-Ky-FQ9" id="AVZ-HR-41n"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="192"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EgS-TB-TM8">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="108"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="108" id="Ksm-XB-80S"/>
+                    </constraints>
+                </imageView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Vmq-ge-J2G">
+                    <rect key="frame" x="0.0" y="2" width="393" height="164"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="164" id="bYr-rD-mwd"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="x9f-Px-8Vv">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="lkZ-0D-ifT"/>
+                        <outlet property="delegate" destination="-1" id="wGW-p3-dH5"/>
+                    </connections>
+                </collectionView>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="fKr-Ky-FQ9">
+                    <rect key="frame" x="138.66666666666666" y="166" width="116" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="26" id="Ssq-a5-ZJN"/>
+                    </constraints>
+                    <color key="pageIndicatorTintColor" name="color_FFC198"/>
+                    <color key="currentPageIndicatorTintColor" name="main_color"/>
+                </pageControl>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <constraints>
+                <constraint firstItem="fKr-Ky-FQ9" firstAttribute="top" secondItem="Vmq-ge-J2G" secondAttribute="bottom" id="8Rf-1Q-fIS"/>
+                <constraint firstItem="EgS-TB-TM8" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="8jf-8O-xzb"/>
+                <constraint firstItem="Vmq-ge-J2G" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="9Aa-z7-R0P"/>
+                <constraint firstItem="EgS-TB-TM8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="O7p-cS-xsT"/>
+                <constraint firstItem="Vmq-ge-J2G" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="2" id="RQ4-5c-CBq"/>
+                <constraint firstItem="EgS-TB-TM8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="RkD-kX-44s"/>
+                <constraint firstItem="fKr-Ky-FQ9" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="aCu-KS-FqS"/>
+                <constraint firstItem="Vmq-ge-J2G" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="waV-Dc-hgQ"/>
+                <constraint firstItem="fKr-Ky-FQ9" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="zF1-91-t90"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="132.06106870229007" y="-340.84507042253523"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="color_FFC198">
+            <color red="1" green="0.75700002908706665" blue="0.59600001573562622" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="main_color">
+            <color red="0.94499999284744263" green="0.6470000147819519" blue="0.25099998712539673" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateTargetVC" customModule="GymCare" customModuleProvider="target">
+            <connections>
+                <outlet property="cutomNavi" destination="vhh-lc-EU0" id="rN3-Hc-jgD"/>
+                <outlet property="roadFieldView" destination="Ovm-No-kwh" id="mye-jG-POs"/>
+                <outlet property="runFieldView" destination="XWX-hM-fCL" id="zYt-RS-0b4"/>
+                <outlet property="sleepPickerView" destination="hyI-Cz-dCt" id="8xD-IS-B6m"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhh-lc-EU0" customClass="TypeNavigator" customModule="GymCare" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="88"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="88" id="QGf-we-bXn"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Tạo mục tiêu"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isBackButton" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NFb-ZC-lAF">
+                    <rect key="frame" x="0.0" y="88" width="393" height="730"/>
+                    <subviews>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hwj-hr-Qjp">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="730"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vFA-Ru-Ns4">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="411"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YbK-Gb-YU6">
+                                            <rect key="frame" x="18" y="37" width="357" height="261"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XWX-hM-fCL" customClass="InputFieldView" customModule="GymCare" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="357" height="87"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="87" id="Rw8-BN-Eg3"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isDate" value="NO"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Số bước chạy"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isNote" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="editingIsAllow" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isFormatMoney" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                            <integer key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hyI-Cz-dCt" customClass="InputPickerView" customModule="GymCare" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="87" width="357" height="87"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="87" id="FGs-8b-Led"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isDate" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Địa điểm"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isNote" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ovm-No-kwh" customClass="InputFieldView" customModule="GymCare" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="174" width="357" height="87"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="87" id="dqc-Mi-IJU"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isDate" value="NO"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Quãng đường đi"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="typeDate">
+                                                            <integer key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isNote" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isFormatMoney" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                            <integer key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                        </stackView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Iw-vh-Hpz" customClass="PitDefaultButton" customModule="GymCare" customModuleProvider="target">
+                                            <rect key="frame" x="18" y="333" width="357" height="48"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="48" id="8Io-9r-cMO"/>
+                                            </constraints>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="Đồng ý"/>
+                                            <connections>
+                                                <action selector="onClickSubmit:" destination="-1" eventType="touchUpInside" id="SxB-Ok-ZAI"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="YbK-Gb-YU6" secondAttribute="trailing" constant="18" id="J0p-R7-Kw9"/>
+                                        <constraint firstItem="YbK-Gb-YU6" firstAttribute="leading" secondItem="vFA-Ru-Ns4" secondAttribute="leading" constant="18" id="WBE-xc-ydQ"/>
+                                        <constraint firstAttribute="trailing" secondItem="6Iw-vh-Hpz" secondAttribute="trailing" constant="18" id="XUq-jR-3Jt"/>
+                                        <constraint firstAttribute="bottom" secondItem="6Iw-vh-Hpz" secondAttribute="bottom" constant="30" id="gRB-mc-gDr"/>
+                                        <constraint firstItem="YbK-Gb-YU6" firstAttribute="top" secondItem="vFA-Ru-Ns4" secondAttribute="top" constant="37" id="lqE-YP-E9I"/>
+                                        <constraint firstItem="6Iw-vh-Hpz" firstAttribute="leading" secondItem="vFA-Ru-Ns4" secondAttribute="leading" constant="18" id="s4L-cK-2mc"/>
+                                        <constraint firstItem="6Iw-vh-Hpz" firstAttribute="top" secondItem="YbK-Gb-YU6" secondAttribute="bottom" constant="35" id="wXP-qM-B6b"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="vFA-Ru-Ns4" firstAttribute="top" secondItem="Hwj-hr-Qjp" secondAttribute="top" id="BYE-1L-K5v"/>
+                                <constraint firstItem="vFA-Ru-Ns4" firstAttribute="width" secondItem="Hwj-hr-Qjp" secondAttribute="width" id="P1e-lT-1ZG"/>
+                                <constraint firstAttribute="trailing" secondItem="vFA-Ru-Ns4" secondAttribute="trailing" id="TRf-iM-dTE"/>
+                                <constraint firstItem="vFA-Ru-Ns4" firstAttribute="leading" secondItem="Hwj-hr-Qjp" secondAttribute="leading" id="TwT-Gj-bw7"/>
+                                <constraint firstAttribute="bottom" secondItem="vFA-Ru-Ns4" secondAttribute="bottom" id="qRP-PS-OWM"/>
+                            </constraints>
+                        </scrollView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Hwj-hr-Qjp" firstAttribute="leading" secondItem="NFb-ZC-lAF" secondAttribute="leading" id="3XX-IX-LmN"/>
+                        <constraint firstAttribute="bottom" secondItem="Hwj-hr-Qjp" secondAttribute="bottom" id="OuI-8E-9Rz"/>
+                        <constraint firstAttribute="trailing" secondItem="Hwj-hr-Qjp" secondAttribute="trailing" id="fFU-ms-xVH"/>
+                        <constraint firstItem="Hwj-hr-Qjp" firstAttribute="top" secondItem="NFb-ZC-lAF" secondAttribute="top" id="v6z-vL-GMQ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="NFb-ZC-lAF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="B6g-eY-Nhw"/>
+                <constraint firstItem="vhh-lc-EU0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Crr-b8-b8s"/>
+                <constraint firstItem="NFb-ZC-lAF" firstAttribute="top" secondItem="vhh-lc-EU0" secondAttribute="bottom" id="DZK-qF-ipt"/>
+                <constraint firstItem="vhh-lc-EU0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="K3f-MW-Ino"/>
+                <constraint firstItem="NFb-ZC-lAF" firstAttribute="top" secondItem="vhh-lc-EU0" secondAttribute="bottom" id="RLb-wY-jMa"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="NFb-ZC-lAF" secondAttribute="trailing" id="Wmg-jE-U1M"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="NFb-ZC-lAF" secondAttribute="bottom" id="bch-s9-tfg"/>
+                <constraint firstAttribute="trailing" secondItem="vhh-lc-EU0" secondAttribute="trailing" id="toh-iI-gMQ"/>
+            </constraints>
+            <point key="canvasLocation" x="71" y="-12"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

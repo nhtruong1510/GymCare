@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SFProDisplay-Bold.ttf">
+            <string>SFProDisplay-Bold</string>
+        </array>
+        <array key="SFProDisplay-Regular.ttf">
+            <string>SFProDisplay-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BookingVC" customModule="GymCare" customModuleProvider="target">
+            <connections>
+                <outlet property="addressPickerView" destination="3W6-RQ-gh1" id="Ta0-bW-QZN"/>
+                <outlet property="avatarView" destination="2Lc-wr-EZF" id="xkB-J4-EdD"/>
+                <outlet property="choosePTView" destination="iGz-9X-0tr" id="2jI-pR-NFR"/>
+                <outlet property="cutomNavi" destination="V1l-KZ-cvH" id="JvW-WH-fN9"/>
+                <outlet property="dayPickerView" destination="leW-3t-2Rr" id="1b4-NV-xtr"/>
+                <outlet property="fromDatePickerView" destination="jZi-pW-s3V" id="xXM-1t-nbQ"/>
+                <outlet property="namePTLabel" destination="cL2-3E-O9D" id="gRt-xg-Jbc"/>
+                <outlet property="namePickerView" destination="ngk-rK-gIr" id="Ndd-QP-AmL"/>
+                <outlet property="timePickerView" destination="eBM-Ma-fk8" id="tYE-qv-07t"/>
+                <outlet property="toDatePickerView" destination="bSK-sD-dpW" id="Rly-iM-Lbg"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ccz-qz-Mdc">
+                    <rect key="frame" x="0.0" y="100" width="393" height="752"/>
+                    <subviews>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GZq-49-htI">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="752"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BZ0-UX-wC5">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="600"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cUj-Xh-M60">
+                                            <rect key="frame" x="18" y="37" width="357" height="435"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ngk-rK-gIr" customClass="InputFieldView" customModule="GymCare" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="357" height="87"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="87" id="hYw-Af-Zc8"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isDate" value="NO"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Gói tập"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isNote" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="editingIsAllow" value="NO"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3W6-RQ-gh1" customClass="InputFieldView" customModule="GymCare" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="87" width="357" height="87"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="87" id="UDX-1S-jEC"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isDate" value="NO"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Địa điểm"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isNote" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="editingIsAllow" value="NO"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="leW-3t-2Rr" customClass="InputPickerView" customModule="GymCare" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="174" width="357" height="87"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="87" id="eBv-Wd-qrq"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isDate" value="NO"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Ngày"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isNote" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eBM-Ma-fk8" customClass="InputPickerView" customModule="GymCare" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="261" width="357" height="87"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="87" id="fQ8-Bh-l6p"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isDate" value="NO"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Giờ"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isNote" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Xzw-4q-UVU">
+                                                    <rect key="frame" x="0.0" y="348" width="357" height="87"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jZi-pW-s3V" customClass="InputPickerView" customModule="GymCare" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="173.66666666666666" height="87"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="87" id="Tkt-Vc-lF1"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isDate" value="YES"/>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Từ ngày"/>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="typeDate">
+                                                                    <integer key="value" value="1"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isNote" value="YES"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bSK-sD-dpW" customClass="InputPickerView" customModule="GymCare" customModuleProvider="target">
+                                                            <rect key="frame" x="183.66666666666663" y="0.0" width="173.33333333333337" height="87"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="87" id="D4q-2y-Itx"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isDate" value="YES"/>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Đến ngày"/>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="typeDate">
+                                                                    <integer key="value" value="1"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isNote" value="YES"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                    </subviews>
+                                                </stackView>
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGz-9X-0tr">
+                                                    <rect key="frame" x="0.0" y="435" width="357" height="87"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Huấn luyện viên" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAN-lg-E91">
+                                                            <rect key="frame" x="0.0" y="20" width="357" height="17"/>
+                                                            <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="14"/>
+                                                            <color key="textColor" name="color_3E4041"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_checked_radio_button" translatesAutoresizingMaskIntoConstraints="NO" id="L3e-95-UIN">
+                                                            <rect key="frame" x="0.0" y="48.666666666666629" width="20" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="Wae-1l-Pcv"/>
+                                                                <constraint firstAttribute="width" constant="20" id="dsB-pB-mFB"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Lc-wr-EZF" customClass="AvatarView" customModule="GymCare" customModuleProvider="target">
+                                                            <rect key="frame" x="30" y="43.666666666666629" width="30" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="30" id="DaP-Ps-FMd"/>
+                                                                <constraint firstAttribute="height" constant="30" id="MVj-Lw-LSc"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nguyễn PT" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cL2-3E-O9D">
+                                                            <rect key="frame" x="70" y="50" width="65.333333333333314" height="17"/>
+                                                            <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
+                                                            <color key="textColor" name="color_3E4041"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="localization" value="content_fee"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X98-2h-TjY">
+                                                            <rect key="frame" x="29.999999999999993" y="43.666666666666629" width="105.33333333333331" height="30"/>
+                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                            <connections>
+                                                                <action selector="onClickTrainer:" destination="-1" eventType="touchUpInside" id="dzZ-i4-JH6"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="2Lc-wr-EZF" firstAttribute="leading" secondItem="L3e-95-UIN" secondAttribute="trailing" constant="10" id="3jx-W5-Zeo"/>
+                                                        <constraint firstItem="L3e-95-UIN" firstAttribute="leading" secondItem="iGz-9X-0tr" secondAttribute="leading" id="Dg6-gD-qmm"/>
+                                                        <constraint firstAttribute="height" constant="87" id="IXJ-B0-l7h"/>
+                                                        <constraint firstItem="2Lc-wr-EZF" firstAttribute="centerY" secondItem="iGz-9X-0tr" secondAttribute="centerY" constant="15" id="JjH-VS-dz4"/>
+                                                        <constraint firstItem="cL2-3E-O9D" firstAttribute="centerY" secondItem="iGz-9X-0tr" secondAttribute="centerY" constant="15" id="KZQ-Zi-vwu"/>
+                                                        <constraint firstItem="cL2-3E-O9D" firstAttribute="leading" secondItem="2Lc-wr-EZF" secondAttribute="trailing" constant="10" id="P1I-Bm-HZi"/>
+                                                        <constraint firstItem="X98-2h-TjY" firstAttribute="centerY" secondItem="iGz-9X-0tr" secondAttribute="centerY" constant="15" id="bVU-dB-4Kh"/>
+                                                        <constraint firstAttribute="trailing" secondItem="AAN-lg-E91" secondAttribute="trailing" id="bnv-Ej-pJ3"/>
+                                                        <constraint firstItem="L3e-95-UIN" firstAttribute="centerY" secondItem="iGz-9X-0tr" secondAttribute="centerY" constant="15" id="kmu-6H-mC1"/>
+                                                        <constraint firstItem="X98-2h-TjY" firstAttribute="trailing" secondItem="cL2-3E-O9D" secondAttribute="trailing" id="oht-x5-76g"/>
+                                                        <constraint firstItem="AAN-lg-E91" firstAttribute="leading" secondItem="iGz-9X-0tr" secondAttribute="leading" id="rVe-3c-zLc"/>
+                                                        <constraint firstItem="X98-2h-TjY" firstAttribute="leading" secondItem="2Lc-wr-EZF" secondAttribute="leading" id="spf-Lh-k8u"/>
+                                                        <constraint firstItem="AAN-lg-E91" firstAttribute="top" secondItem="iGz-9X-0tr" secondAttribute="top" constant="20" id="yFY-ie-GCy"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </stackView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EgJ-Ej-enu" customClass="PitDefaultButton" customModule="GymCare" customModuleProvider="target">
+                                            <rect key="frame" x="18" y="522" width="357" height="48"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="48" id="Ekm-aR-VGm"/>
+                                            </constraints>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="Đồng ý"/>
+                                            <connections>
+                                                <action selector="onClickSubmit:" destination="-1" eventType="touchUpInside" id="PLY-pW-Ixh"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="cUj-Xh-M60" firstAttribute="top" secondItem="BZ0-UX-wC5" secondAttribute="top" constant="37" id="3kn-LE-AGm"/>
+                                        <constraint firstAttribute="trailing" secondItem="EgJ-Ej-enu" secondAttribute="trailing" constant="18" id="53t-mJ-4lI"/>
+                                        <constraint firstItem="EgJ-Ej-enu" firstAttribute="leading" secondItem="BZ0-UX-wC5" secondAttribute="leading" constant="18" id="5gK-Go-4Tn"/>
+                                        <constraint firstItem="EgJ-Ej-enu" firstAttribute="top" secondItem="cUj-Xh-M60" secondAttribute="bottom" constant="50" id="Ual-ts-dGk"/>
+                                        <constraint firstItem="cUj-Xh-M60" firstAttribute="leading" secondItem="BZ0-UX-wC5" secondAttribute="leading" constant="18" id="g6Q-og-WHl"/>
+                                        <constraint firstAttribute="trailing" secondItem="cUj-Xh-M60" secondAttribute="trailing" constant="18" id="gdp-4d-DVb"/>
+                                        <constraint firstAttribute="bottom" secondItem="EgJ-Ej-enu" secondAttribute="bottom" constant="30" id="yVU-ba-e15"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="BZ0-UX-wC5" firstAttribute="leading" secondItem="GZq-49-htI" secondAttribute="leading" id="1Zl-3P-3zC"/>
+                                <constraint firstItem="BZ0-UX-wC5" firstAttribute="top" secondItem="GZq-49-htI" secondAttribute="top" id="DgX-7m-dC5"/>
+                                <constraint firstItem="BZ0-UX-wC5" firstAttribute="width" secondItem="GZq-49-htI" secondAttribute="width" id="bmK-Id-7gP"/>
+                                <constraint firstAttribute="bottom" secondItem="BZ0-UX-wC5" secondAttribute="bottom" id="dgH-qC-uMq"/>
+                                <constraint firstAttribute="trailing" secondItem="BZ0-UX-wC5" secondAttribute="trailing" id="qQu-7Z-mmc"/>
+                            </constraints>
+                        </scrollView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="GZq-49-htI" firstAttribute="leading" secondItem="Ccz-qz-Mdc" secondAttribute="leading" id="7Ih-sI-nFu"/>
+                        <constraint firstAttribute="trailing" secondItem="GZq-49-htI" secondAttribute="trailing" id="NhY-zs-m9B"/>
+                        <constraint firstItem="GZq-49-htI" firstAttribute="top" secondItem="Ccz-qz-Mdc" secondAttribute="top" id="QdD-dq-9sW"/>
+                        <constraint firstAttribute="bottom" secondItem="GZq-49-htI" secondAttribute="bottom" id="qNH-u8-UQf"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V1l-KZ-cvH" customClass="TypeNavigator" customModule="GymCare" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="RhM-vR-akc"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Đặt lịch tập"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isBackButton" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Ccz-qz-Mdc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="67o-zV-nHO"/>
+                <constraint firstItem="Ccz-qz-Mdc" firstAttribute="top" secondItem="V1l-KZ-cvH" secondAttribute="bottom" id="ExM-Ze-oq5"/>
+                <constraint firstItem="V1l-KZ-cvH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="GYu-bg-PSX"/>
+                <constraint firstItem="V1l-KZ-cvH" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="K3Y-jr-YPt"/>
+                <constraint firstItem="Ccz-qz-Mdc" firstAttribute="top" secondItem="V1l-KZ-cvH" secondAttribute="bottom" id="LuC-n4-tT3"/>
+                <constraint firstItem="V1l-KZ-cvH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Mjp-f8-aNd"/>
+                <constraint firstItem="Ccz-qz-Mdc" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="eUx-gZ-TQ4"/>
+                <constraint firstAttribute="bottom" secondItem="Ccz-qz-Mdc" secondAttribute="bottom" id="elq-2G-mNU"/>
+            </constraints>
+            <point key="canvasLocation" x="70.992366412213741" y="-12.67605633802817"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_checked_radio_button" width="24.333333969116211" height="24"/>
+        <namedColor name="color_3E4041">
+            <color red="0.24300000071525574" green="0.25099998712539673" blue="0.25499999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

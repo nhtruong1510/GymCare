@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SFProDisplay-Bold.ttf">
+            <string>SFProDisplay-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScheduleVC" customModule="GymCare" customModuleProvider="target">
+            <connections>
+                <outlet property="calendarView" destination="nOX-oD-GMR" id="LXm-Z8-twi"/>
+                <outlet property="scrollView" destination="CfR-7q-II7" id="mwd-My-KYK"/>
+                <outlet property="tableView" destination="ZY8-jb-26V" id="ZtJ-WB-Tvm"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GAH-2w-0Te" customClass="TypeNavigator" customModule="GymCare" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="110"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="110" id="Gz1-vS-ghF"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="setTitle" value="fee"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="infoShowBackButton" value="NO"/>
+                        <userDefinedRuntimeAttribute type="image" keyPath="setHeaderImage" value="header_fee"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="typeShowBackButton" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="typeShowSearchButton" value="NO"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="showInfoNavi" value="NO"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Lịch tập"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CfR-7q-II7">
+                    <rect key="frame" x="0.0" y="110" width="393" height="708"/>
+                    <subviews>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="nOX-oD-GMR" customClass="JTACMonthView" customModule="JTAppleCalendar">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="400"/>
+                            <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="400" id="ZeT-q2-aJh"/>
+                            </constraints>
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="cjk-wS-GRv">
+                                <size key="itemSize" width="85" height="84"/>
+                                <size key="headerReferenceSize" width="50" height="50"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                            <cells/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="SWF-lw-F4f"/>
+                                <outlet property="delegate" destination="-1" id="tkw-dH-2kT"/>
+                                <outlet property="ibCalendarDataSource" destination="-1" id="tzR-ox-6jZ"/>
+                                <outlet property="ibCalendarDelegate" destination="-1" id="nHW-za-a5L"/>
+                            </connections>
+                        </collectionView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="whx-HN-Zfg">
+                            <rect key="frame" x="0.0" y="430" width="393" height="150"/>
+                            <subviews>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="none" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZY8-jb-26V" customClass="ContentSizedTableView" customModule="GymCare" customModuleProvider="target">
+                                    <rect key="frame" x="30" y="0.0" width="333" height="150"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <connections>
+                                        <outlet property="dataSource" destination="-1" id="2O9-pT-YCB"/>
+                                        <outlet property="delegate" destination="-1" id="QgZ-7a-CD1"/>
+                                    </connections>
+                                </tableView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="150" id="Au8-s8-Lzx"/>
+                                <constraint firstAttribute="trailing" secondItem="ZY8-jb-26V" secondAttribute="trailing" constant="30" id="XPK-aI-hp7"/>
+                                <constraint firstAttribute="bottom" secondItem="ZY8-jb-26V" secondAttribute="bottom" id="thl-Q5-ruA"/>
+                                <constraint firstItem="ZY8-jb-26V" firstAttribute="leading" secondItem="whx-HN-Zfg" secondAttribute="leading" constant="30" id="u0l-lg-VuZ"/>
+                                <constraint firstItem="ZY8-jb-26V" firstAttribute="top" secondItem="whx-HN-Zfg" secondAttribute="top" id="y61-BV-14B"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbT-bh-Gc2">
+                            <rect key="frame" x="139" y="610" width="115" height="30"/>
+                            <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="115" id="tWf-a0-Twn"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="15"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Sửa lịch tập">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="6"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="updateSchedule" destination="-1" eventType="touchUpInside" id="MiI-GI-4OX"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="wbT-bh-Gc2" firstAttribute="top" secondItem="whx-HN-Zfg" secondAttribute="bottom" constant="30" id="Gif-oh-JPU"/>
+                        <constraint firstAttribute="trailing" secondItem="nOX-oD-GMR" secondAttribute="trailing" id="Js3-gG-FfJ"/>
+                        <constraint firstItem="wbT-bh-Gc2" firstAttribute="centerX" secondItem="CfR-7q-II7" secondAttribute="centerX" id="Mdm-8j-5Hs"/>
+                        <constraint firstAttribute="bottom" secondItem="wbT-bh-Gc2" secondAttribute="bottom" constant="50" id="OcN-7y-lER"/>
+                        <constraint firstItem="nOX-oD-GMR" firstAttribute="leading" secondItem="CfR-7q-II7" secondAttribute="leading" id="QKB-CQ-duf"/>
+                        <constraint firstItem="nOX-oD-GMR" firstAttribute="width" secondItem="CfR-7q-II7" secondAttribute="width" id="VAR-lM-kbY"/>
+                        <constraint firstItem="whx-HN-Zfg" firstAttribute="top" secondItem="nOX-oD-GMR" secondAttribute="bottom" constant="30" id="hBb-VS-YIl"/>
+                        <constraint firstAttribute="trailing" secondItem="whx-HN-Zfg" secondAttribute="trailing" id="iCf-nD-gEK"/>
+                        <constraint firstItem="nOX-oD-GMR" firstAttribute="top" secondItem="CfR-7q-II7" secondAttribute="top" id="l3S-GJ-alQ"/>
+                        <constraint firstItem="whx-HN-Zfg" firstAttribute="leading" secondItem="CfR-7q-II7" secondAttribute="leading" id="zox-NA-5j4"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="CfR-7q-II7" firstAttribute="top" secondItem="GAH-2w-0Te" secondAttribute="bottom" id="5hN-dN-Hxp"/>
+                <constraint firstItem="CfR-7q-II7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="M0x-rh-zc5"/>
+                <constraint firstItem="GAH-2w-0Te" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="OUt-ez-320"/>
+                <constraint firstItem="GAH-2w-0Te" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Oz7-TN-Pq5"/>
+                <constraint firstAttribute="trailing" secondItem="GAH-2w-0Te" secondAttribute="trailing" id="doc-pt-YZD"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="CfR-7q-II7" secondAttribute="bottom" id="gud-Gj-FWA"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CfR-7q-II7" secondAttribute="trailing" id="vx7-Hp-xvp"/>
+            </constraints>
+            <point key="canvasLocation" x="45.038167938931295" y="-50"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="header_fee" width="2000" height="530"/>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Compact-Regular.otf">
+            <string>SFCompactDisplay-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="KGk-i7-Jjw" customClass="NotificationViewCell" customModule="GymCare" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="471" height="75"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="471" height="75"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_read" highlightedImage="ic_unread" translatesAutoresizingMaskIntoConstraints="NO" id="1lr-68-bIA">
+                        <rect key="frame" x="437" y="17" width="16" height="16"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08/14/2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ob-qI-XZh">
+                        <rect key="frame" x="43.000000000000007" y="15.666666666666664" width="71.666666666666686" height="17"/>
+                        <fontDescription key="fontDescription" name="SFCompactDisplay-Regular" family="SF Compact Display" pointSize="14"/>
+                        <color key="textColor" systemColor="systemGrayColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uTo-RE-UXh">
+                        <rect key="frame" x="0.0" y="0.0" width="471" height="74"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <connections>
+                            <action selector="showDetailButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="zVk-h9-KNb"/>
+                        </connections>
+                    </button>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="252" image="calendar_today" translatesAutoresizingMaskIntoConstraints="NO" id="zpp-OI-s5b">
+                        <rect key="frame" x="18" y="16" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="mAC-ck-PjK"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4EH-SY-dr1">
+                        <rect key="frame" x="0.0" y="74" width="471" height="1"/>
+                        <color key="backgroundColor" name="line_border_color"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="myo-xA-tx8"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bạn cần chỉnh sửa hồ sơ, thiếu MST" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6a-tD-fDW">
+                        <rect key="frame" x="18" y="40" width="435" height="18.666666666666671"/>
+                        <fontDescription key="fontDescription" name="SFCompactDisplay-Regular" family="SF Compact Display" pointSize="16"/>
+                        <color key="textColor" name="color_3E4041"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="r6a-tD-fDW" firstAttribute="top" secondItem="zpp-OI-s5b" secondAttribute="bottom" constant="8" id="1ux-1I-2HM"/>
+                    <constraint firstAttribute="trailing" secondItem="uTo-RE-UXh" secondAttribute="trailing" id="91c-5b-09B"/>
+                    <constraint firstItem="4EH-SY-dr1" firstAttribute="top" secondItem="uTo-RE-UXh" secondAttribute="bottom" id="A4U-wi-d17"/>
+                    <constraint firstAttribute="bottom" secondItem="4EH-SY-dr1" secondAttribute="bottom" id="Iii-4n-D6X"/>
+                    <constraint firstAttribute="trailing" secondItem="r6a-tD-fDW" secondAttribute="trailing" constant="18" id="Mu7-dj-tL7"/>
+                    <constraint firstAttribute="trailing" secondItem="1lr-68-bIA" secondAttribute="trailing" constant="18" id="Q1n-NM-PnV"/>
+                    <constraint firstItem="4EH-SY-dr1" firstAttribute="top" secondItem="r6a-tD-fDW" secondAttribute="bottom" constant="15.33" id="RU9-AO-5ie"/>
+                    <constraint firstItem="uTo-RE-UXh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="V1g-iX-Xmb"/>
+                    <constraint firstItem="4EH-SY-dr1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="VkE-Rw-QwB"/>
+                    <constraint firstItem="zpp-OI-s5b" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="Z5c-Ai-rdM"/>
+                    <constraint firstAttribute="trailing" secondItem="4EH-SY-dr1" secondAttribute="trailing" id="gr9-Db-fai"/>
+                    <constraint firstItem="zpp-OI-s5b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="igk-ca-mOJ"/>
+                    <constraint firstItem="r6a-tD-fDW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="jsU-UD-yTl"/>
+                    <constraint firstItem="1lr-68-bIA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="17" id="off-RG-2IZ"/>
+                    <constraint firstItem="uTo-RE-UXh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="pj2-hf-3Hf"/>
+                    <constraint firstItem="4Ob-qI-XZh" firstAttribute="leading" secondItem="zpp-OI-s5b" secondAttribute="trailing" constant="9" id="smX-9Z-rTz"/>
+                    <constraint firstItem="4Ob-qI-XZh" firstAttribute="centerY" secondItem="zpp-OI-s5b" secondAttribute="centerY" id="zaQ-R3-AgI"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="alertImageView" destination="1lr-68-bIA" id="WHR-Tj-9li"/>
+                <outlet property="contentLabel" destination="r6a-tD-fDW" id="Fen-YM-Qh7"/>
+                <outlet property="dateLabel" destination="4Ob-qI-XZh" id="nJ7-11-gSx"/>
+            </connections>
+            <point key="canvasLocation" x="177.86259541984731" y="30.633802816901412"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="calendar_today" width="16.333333969116211" height="16.333333969116211"/>
+        <image name="ic_read" width="16.333333969116211" height="16.333333969116211"/>
+        <image name="ic_unread" width="16.333333969116211" height="16.333333969116211"/>
+        <namedColor name="color_3E4041">
+            <color red="0.24300000071525574" green="0.25099998712539673" blue="0.25499999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="line_border_color">
+            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
