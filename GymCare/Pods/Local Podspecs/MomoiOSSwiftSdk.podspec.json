@@ -1,0 +1,22 @@
+{
+  "name": "MomoiOSSwiftSdk",
+  "version": "3.0.4",
+  "summary": "Momo iOS Swift Sdk V3",
+  "description": "Mobile sdk iOS",
+  "homepage": "https://github.com/momo-wallet/mobile-sdk/tree/release_swift",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "momodevelopment": "lanh.luu@mservice.com.vn"
+  },
+  "source": {
+    "git": "https://github.com/momo-wallet/mobile-sdk.git",
+    "tag": "3.0.4"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "Pod/**/*.{swift}"
+}

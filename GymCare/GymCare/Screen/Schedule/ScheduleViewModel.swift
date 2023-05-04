@@ -49,7 +49,16 @@ final class ScheduleViewModel: BaseViewModel {
         var times: [Time] = []
         for dateElement in getDateElements() where date == dateElement.date {
             guard let time = dateElement.time else { continue }
+            time.date = date
             times.append(time)
+        }
+        let futureTimes = times.filter({castToString($0.date).formatToDate(Constants.DATE_PARAM_FORMAT) >= Date()})
+        if futureTimes.count > 0 {
+            var listNextSchedule: [Time] = [futureTimes[0]]
+            if futureTimes.count > 1 {
+                listNextSchedule.append(futureTimes[1])
+            }
+            ServiceSettings.shared.listLastestSchedule = listNextSchedule
         }
         return times
     }

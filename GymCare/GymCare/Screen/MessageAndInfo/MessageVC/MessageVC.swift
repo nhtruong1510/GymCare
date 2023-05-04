@@ -12,7 +12,7 @@ class MessageVC: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private let viewModel = MessageViewModel()
-    private var topics: [TopicDetailModel] = []
+    private var topics: [Chat] = []
     private let refreshControl = UIRefreshControl()
     private var isRefresh: Bool = false
 
@@ -29,21 +29,19 @@ class MessageVC: BaseViewController {
     }
 
     @objc private func refresh(_ sender: AnyObject) {
-        self.isRefresh = true
-        self.viewModel.page = 1
-        refreshControl.endRefreshing()
         self.getTopics()
     }
 
     private func getTopics() {
         viewModel.getTopics() { [weak self] data, msg in
             guard let `self` = self else { return }
-            if let data = data {
-                self.topics = data.datas
+            if let data = data?.chats {
+                self.topics = data
                 self.tableView.reloadData()
             } else {
-//                AlertVC.show(msg)
+                AlertVC.show(viewController: self, msg: msg)
             }
+            self.refreshControl.endRefreshing()
         }
     }
 
@@ -56,30 +54,23 @@ extension MessageVC: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1//topics.count
+        return topics.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = MessageViewCell.dequeueReuse(tableView: tableView)
-//        cell.fillData(data: topics[indexPath.row])
+        cell.fillData(data: topics[indexPath.row])
         return cell
-    }
-
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        let currentOffset = scrollView.contentOffset.y
-        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
-        if maximumOffset - currentOffset <= 10.0 {
-            if viewModel.loadMore(topics: self.topics) {
-                self.getTopics()
-            }
-        }
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let vc = ChatRoomVC()
-//        vc.idTop = self.topics[indexPath.row].id
+        vc.idChat = self.topics[indexPath.row].id
+        vc.trainer = self.topics[indexPath.row].trainer
         self.nextScreen(ctrl: vc)
+        topics[indexPath.row].isReadCustomer = 1
+        tableView.reloadData()
     }
 
 }

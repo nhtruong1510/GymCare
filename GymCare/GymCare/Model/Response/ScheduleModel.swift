@@ -11,6 +11,8 @@ import Foundation
 class ScheduleModel: Codable {
     var schedules: [Schedule]?
 
+    init() {}
+
     init(schedules: [Schedule]?) {
         self.schedules = schedules
     }

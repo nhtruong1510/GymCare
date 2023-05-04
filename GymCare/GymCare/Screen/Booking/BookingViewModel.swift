@@ -31,7 +31,7 @@ final class BookingViewModel: BaseViewModel {
         return listRegion
     }
     
-    func callApiGetTrainer(trainerId: Int, completion: @escaping (TrainerModel?, String?) -> Void) {
+    func callApiGetTrainer(trainerId: Int, completion: @escaping (Trainer?, String?) -> Void) {
         self.repository.getTrainer(trainerId: trainerId) { data, msg in
             completion(data, msg)
         }

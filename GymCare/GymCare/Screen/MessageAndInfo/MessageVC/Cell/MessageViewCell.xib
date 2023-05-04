@@ -41,9 +41,9 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 20/06" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3L-fR-w0E">
-                        <rect key="frame" x="265" y="24.333333333333332" width="35" height="14.999999999999996"/>
+                        <rect key="frame" x="265" y="24.333333333333332" width="35" height="13.999999999999996"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="35" id="n7Z-eO-gxz"/>
+                            <constraint firstAttribute="width" priority="1" constant="35" id="n7Z-eO-gxz"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="12"/>
                         <nil key="textColor"/>

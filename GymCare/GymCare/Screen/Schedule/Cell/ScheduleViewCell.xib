@@ -72,6 +72,7 @@
                             <constraint firstAttribute="trailing" secondItem="xtH-Hx-7pB" secondAttribute="trailing" id="LZ6-zb-FuY"/>
                             <constraint firstItem="xtH-Hx-7pB" firstAttribute="leading" secondItem="lq2-vH-7Fu" secondAttribute="leading" id="MhO-Au-n58"/>
                             <constraint firstItem="xtH-Hx-7pB" firstAttribute="top" secondItem="lq2-vH-7Fu" secondAttribute="top" constant="10" id="g8G-GB-k1R"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="lk1-Vr-JRx" secondAttribute="bottom" constant="15" id="zRl-XU-ipO"/>
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="737-LL-Sc1">
@@ -106,6 +107,7 @@
                     <constraint firstItem="737-LL-Sc1" firstAttribute="leading" secondItem="lq2-vH-7Fu" secondAttribute="trailing" constant="5" id="M3z-mG-OKH"/>
                     <constraint firstAttribute="bottom" secondItem="lq2-vH-7Fu" secondAttribute="bottom" id="To8-7j-zVf"/>
                     <constraint firstItem="QVk-ma-wnF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Zjy-xT-ua3"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="737-LL-Sc1" secondAttribute="bottom" constant="15" id="duq-CW-4fU"/>
                     <constraint firstAttribute="trailing" secondItem="737-LL-Sc1" secondAttribute="trailing" id="iJR-iD-eoA"/>
                     <constraint firstItem="737-LL-Sc1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="z3J-7S-KMb"/>
                 </constraints>

@@ -1,0 +1,63 @@
+PODS:
+  - Alamofire (5.6.4)
+  - HGCircularSlider (2.2.0)
+  - JTAppleCalendar (8.0.4)
+  - MomoiOSSwiftSdk (3.0.4)
+  - Moya (15.0.0):
+    - Moya/Core (= 15.0.0)
+  - Moya/Core (15.0.0):
+    - Alamofire (~> 5.0)
+  - SDWebImage (5.15.6):
+    - SDWebImage/Core (= 5.15.6)
+  - SDWebImage/Core (5.15.6)
+  - SVProgressHUD (2.2.5)
+  - SwiftDate (6.3.1)
+  - TLPhotoPicker (2.1.9)
+
+DEPENDENCIES:
+  - HGCircularSlider
+  - JTAppleCalendar
+  - MomoiOSSwiftSdk (from `https://github.com/momo-wallet/mobile-sdk.git`, branch `release_swift`)
+  - Moya (~> 15.0)
+  - SDWebImage
+  - SVProgressHUD (~> 2.2.5)
+  - SwiftDate
+  - TLPhotoPicker
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - HGCircularSlider
+    - JTAppleCalendar
+    - Moya
+    - SDWebImage
+    - SVProgressHUD
+    - SwiftDate
+    - TLPhotoPicker
+
+EXTERNAL SOURCES:
+  MomoiOSSwiftSdk:
+    :branch: release_swift
+    :git: https://github.com/momo-wallet/mobile-sdk.git
+    :submodules: true
+
+CHECKOUT OPTIONS:
+  MomoiOSSwiftSdk:
+    :commit: 718656a0a208e859628297f05272468e00b912b0
+    :git: https://github.com/momo-wallet/mobile-sdk.git
+    :submodules: true
+
+SPEC CHECKSUMS:
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  HGCircularSlider: afb1942743a2df156dcc7a3500216e523e14266b
+  JTAppleCalendar: f95b02c64f56d6f938fbf6582a04dcab9d709ebd
+  MomoiOSSwiftSdk: ad902b67b7f51787f0dd29130051da3692f8d9bf
+  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+  SDWebImage: d47d81bea8a77187896b620dc79c3c528e8906b9
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
+  TLPhotoPicker: 939c40eaad130b69f9571e61e021e8120fa76329
+
+PODFILE CHECKSUM: eedae29b3b89ccf93123adbac1abd5edc561faa2
+
+COCOAPODS: 1.11.3

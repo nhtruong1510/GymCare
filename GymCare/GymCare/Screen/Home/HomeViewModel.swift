@@ -14,4 +14,10 @@ class HomeViewModel: BaseViewModel {
             completion(data, msg)
         }
     }
+    
+    func callApiGetNews(completion: @escaping ([NewsModel]?, String?) -> Void) {
+        self.repository.getNews { data, msg in
+            completion(data, msg)
+        }
+    }
 }

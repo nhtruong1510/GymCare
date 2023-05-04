@@ -20,20 +20,6 @@ extension APIRouter {
         return formData
     }
 
-    func createMultipartFormData(listImage: [UIImage], fileName: String) -> [Moya.MultipartFormData] {
-        var formData = [Moya.MultipartFormData]()
-        for (index, file) in listImage.enumerated() {
-//            let imageData = ImageCompresor()
-//            imageData.image = file
-//            imageData.shrinkImage(Constants.MAX_UPLOAD_IMAGE)
-//            formData.append(MultipartFormData(provider: .data(imageData.data),
-//                                              name: fileName + "[\(index)]",
-//                                              fileName: "image\(index).jpg",
-//                                              mimeType: "image/jpeg"))
-        }
-        return formData
-    }
-
     func addAvatar(image: UIImage) -> [Moya.MultipartFormData] {
         var formData = [Moya.MultipartFormData]()
 //        let imageData = ImageCompresor()

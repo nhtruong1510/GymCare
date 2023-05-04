@@ -44,12 +44,12 @@ struct TabbarView: View {
                     }
                     .ignoresSafeArea()
             }
-            .accentColor(.main_color)
-            .toolbar(.hidden, for: .navigationBar)
-            .navigationBarHidden(true)
-            .navigationBarBackButtonHidden(true)
-            .navigationBarTitle("", displayMode: .inline)
         }
+        .accentColor(.main_color)
+        .toolbar(.hidden, for: .navigationBar)
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
+        .navigationBarTitle("", displayMode: .inline)
     //    @ViewBuilder
     //    func TabButton(Tab: Tab)-> some View {
     //        Button {

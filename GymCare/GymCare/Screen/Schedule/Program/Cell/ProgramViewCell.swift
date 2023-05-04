@@ -12,8 +12,9 @@ class ProgramViewCell: UITableViewCell {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var iconImageView: UIImageView!
     @IBOutlet private weak var registerLabel: UILabel!
-    @IBOutlet private weak var registerButton: UIButton!
-    
+    @IBOutlet private weak var registerView: UIView!
+    @IBOutlet private weak var timeLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,14 +22,30 @@ class ProgramViewCell: UITableViewCell {
 
     func fillData(data: Class) {
         titleLabel.text = data.name
-        iconImageView.loadImage(urlString: data.thump_img)
+        iconImageView.loadImage(urlString: data.image, access: "class")
         if let current = data.currentParticipate, let max = data.maxParticipate {
-            registerButton.backgroundColor = current == max ? .lightGray : .color_46C0FF
+            registerView.backgroundColor = current == max ? .lightGray : .color_46C0FF
             registerLabel.text = "Còn " + castToString(max - current)
         } else {
             registerLabel.isHidden = true
         }
-
+        registerView.isHidden = false
+    }
+    
+    func fillDataEdit(data: ScheduleModel) {
+        titleLabel.text = castToInt(data.schedules?.count) > 0 ? data.schedules?[0].scheduleClass?.name : nil
+        iconImageView.isHidden = true
+        registerLabel.isHidden = true
+        registerView.isHidden = true
+    }
+    
+    func fillDataEdit1(data: Schedule) {
+        titleLabel.text = data.address?.address
+        let date = castToString(data.start_date) + " - " + castToString(data.end_date)
+        timeLabel.text = date
+        iconImageView.isHidden = true
+        registerLabel.isHidden = true
+        registerView.isHidden = false
     }
     
 }

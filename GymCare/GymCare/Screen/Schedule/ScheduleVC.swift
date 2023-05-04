@@ -41,10 +41,14 @@ class ScheduleVC: BaseViewController {
         self.calendarView.selectDates([ Date() ])
         times = viewModel.getAllTimeElement(date: self.selectedDate.toString(Constants.DATE_PARAM_FORMAT))
         scrollView.refreshControl = UIRefreshControl()
-        scrollView.refreshControl?.addTarget(self, action: #selector(getSchedule), for: .valueChanged)
+        scrollView.refreshControl?.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
     }
     
-    @objc func getSchedule() {
+    @objc private func refresh(_ sender: AnyObject) {
+        getSchedule()
+    }
+    
+    func getSchedule() {
         viewModel.callApiGetSchedule(customerId: castToInt(userInfo?.id)) { msg in
             if let msg = msg {
                 AlertVC.show(viewController: self, msg: msg)
@@ -52,6 +56,7 @@ class ScheduleVC: BaseViewController {
                 self.calendarView.reloadData()
                 self.tableView.reloadData()
             }
+            self.scrollView.refreshControl?.endRefreshing()
         }
     }
     
@@ -65,11 +70,11 @@ class ScheduleVC: BaseViewController {
     func handleCellTextColor(cell: DateCell, cellState: CellState) {
         
         if cellState.isSelected {
-            cell.backgroundColor = .main_color
+            cell.containerView.backgroundColor = .main_color
             cell.dotView.backgroundColor = .white
             cell.dateLabel.textColor = .white
         } else {
-            cell.backgroundColor = .clear
+            cell.containerView.backgroundColor = .clear
             cell.dotView.backgroundColor = .main_color
             cell.dateLabel.textColor = .black
         }
@@ -168,7 +173,7 @@ extension ScheduleVC: UITableViewDelegate, UITableViewDataSource {
         cell.fillData(data: times[indexPath.row])
         cell.onClickCancel = { [weak self] in
             guard let `self` = self else { return }
-            ConfirmVC.show(title: "Xác nhận", msg: "Bạn có chắc chắn thực hiện thao tác này?") {
+            ConfirmVC.show(viewController: self, title: "Xác nhận", msg: "Bạn có chắc chắn thực hiện thao tác này?") {
                 self.viewModel.callApiCancelSchedule(timeId: castToInt(self.times[indexPath.row].id)) { success, msg in
                     if success {
                         AlertVC.show(viewController: self, msg: msg) {

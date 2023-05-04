@@ -9,8 +9,8 @@ import UIKit
 
 final class ChatRoomViewModel: BaseViewModel {
     
-    func getChatDetail(id: Int, page: Int, completion: @escaping (TopicDetailModel?, String?) -> Void) {
-        self.repository.getChatDetail(id: id, page: page) { data, msg in
+    func getChatDetail(id: Int, completion: @escaping (TopicDetailModel?, String?) -> Void) {
+        self.repository.getTopicDetail(id: id) { data, msg in
             completion(data, msg)
         }
     }
@@ -21,8 +21,8 @@ final class ChatRoomViewModel: BaseViewModel {
         }
     }
 
-    func sendChatMessage(id: Int, content: String, image: UIImage?, completion: @escaping (Bool, String?) -> Void) {
-        self.repository.sendChatMessage(id: id, content: content, image: image) { status, msg in
+    func sendChatMessage(id: Int, content: String, ins_datetime: String, completion: @escaping (Bool, String?) -> Void) {
+        self.repository.chatMessage(id: id, content: content, ins_datetime: ins_datetime) { status, msg in
             completion(status, msg)
         }
     }

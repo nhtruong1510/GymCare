@@ -14,33 +14,40 @@ struct ContentView: View {
     @State var isHidden: Bool = true
     @State private var phone: String = ""
     @State private var password: String = ""
+    let viewModel = LoginViewModel()
 
     var body: some View {
         NavigationView {
-            VStack {
+            ZStack {
                 VStack {
-                    Image("running")
-                        .resizable()
-                        .frame(width: 150, height: 150)
-                        .padding(50)
-                        .foregroundColor(.main_color)
-                }
-                VStack {
-                    TextField("Nhập email hoặc số điện thoại", text: $phone)
-                        .textFieldStyle(CustomTextField(systemImageString: "envelope.fill"))
-                        .padding(.bottom)
-                    SecureField("Nhập mật khẩu", text: $password)
-                        .textFieldStyle(CustomTextField(systemImageString: "lock.fill"))
-                        .padding(.bottom)
-                }
-                
-                HStack {
-                    NavigationLink(destination: TabbarView(), isActive: $showTabbarView) {
+                    VStack {
+                        Image("running")
+                            .resizable()
+                            .frame(width: 150, height: 150)
+                            .padding(50)
+                            .foregroundColor(.main_color)
+                    }
+                    VStack {
+                        TextField("Nhập email hoặc số điện thoại", text: $phone)
+                            .textFieldStyle(CustomTextField(systemImageString: "envelope.fill"))
+                            .padding(.bottom)
+                        SecureField("Nhập mật khẩu", text: $password)
+                            .textFieldStyle(CustomTextField(systemImageString: "lock.fill"))
+                            .padding(.bottom)
+                    }
+                    
+                    VStack {
+                        NavigationLink(destination: TabbarView(), isActive: $showTabbarView) {
+                            EmptyView()
+                        }
+                        .isDetailLink(false)
+                        .hidden()
                         Button("Đăng nhập", action: {
-                            let viewModel = LoginViewModel()
                             viewModel.callApiLogin(email: $phone.wrappedValue, pass: $password.wrappedValue) { success, error in
                                 if success {
-                                    showTabbarView = true
+                                    self.showTabbarView = true
+                                } else {
+                                    self.showTabbarView = false
                                 }
                             }
                         })
@@ -51,33 +58,22 @@ struct ContentView: View {
                             .font(.system(size: 16, weight: Font.Weight.bold))
                             .frame(width: 300)
                     }
+                    .background(Color.main_color)
+                    .clipShape(Capsule())
+                    .padding(10)
                     
+                    NavigationLink(destination: RegisterView()) {
+                        Text("Đăng ký")
+                            .foregroundColor(Color.main_color)
+                            .font(.system(size: 16, weight: Font.Weight.regular))
+                    }
+                    
+                    NavigationLink(destination: EmptyView()) {
+                        EmptyView()
+                    }
                 }
-                .background(Color.main_color)
-                .clipShape(Capsule())
-                .padding(10)
-                
-                NavigationLink(destination: RegisterView()) {
-                    Text("Đăng ký")
-                        .foregroundColor(Color.main_color)
-                        .font(.system(size: 16, weight: Font.Weight.regular))
-                }
-                .toolbar(.hidden, for: .navigationBar)
-                .navigationBarHidden(true)
-                .onAppear {
-                    self.isNavigationBarHidden = true
-                }
-                .navigationBarBackButtonHidden(true)
-                .navigationBarTitle("", displayMode: .inline)
+                .padding()
             }
-            .padding()
-            .toolbar(.hidden, for: .navigationBar)
-            .navigationBarHidden(true)
-            .onAppear {
-                self.isNavigationBarHidden = true
-            }
-            .navigationBarBackButtonHidden(true)
-            .navigationBarTitle("", displayMode: .inline)
         }
         .toolbar(.hidden, for: .navigationBar)
         .onAppear {

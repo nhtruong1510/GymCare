@@ -14,7 +14,7 @@ class NotiView: UIView {
     @IBOutlet private weak var moreButton: UIButton!
     @IBOutlet private weak var emptyLabel: UILabel!
 
-    private var notis: [NotificationModel] = []
+    private var notis: [Time] = []
     var onClickNoti: ((Int?) -> Void)?
     var onClickMore: (() -> Void)?
 
@@ -41,9 +41,9 @@ class NotiView: UIView {
         tableView.registerCells(from: .notiViewCell)
     }
 
-    func reloadData(notis: [NotificationModel]) {
+    func reloadData(notis: [Time]) {
         emptyLabel.isHidden = notis.count != 0
-//        moreButton.isHidden = notis.count == 0
+        moreButton.isHidden = notis.count == 0
         self.notis = notis
         tableView.reloadTable()
     }
@@ -63,12 +63,12 @@ extension NotiView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3//notis.count
+        return notis.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = NotiViewCell.dequeueReuse(tableView: tableView)
-//        cell.fillData(data: notis[indexPath.row])
+        cell.fillData(data: notis[indexPath.row])
         return cell
     }
 

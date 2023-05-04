@@ -28,7 +28,7 @@ class AvatarView: UIView {
     }
 
     func setupAvatarView(avatar: String?, gender: Int?) {
-        avatarView.loadImage(urlString: avatar)
+        avatarView.loadImage(urlString: avatar, access: "user")
         avatarView.borderColor = castToInt(gender) == 1 ? .color_FFACCB : .color_46C0FF
     }
     

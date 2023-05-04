@@ -27,7 +27,7 @@ class SearchViewCell: UITableViewCell {
         let iconImage = data._id == seletedData?._id ? #imageLiteral(resourceName: "ic_checked_radio_button") : #imageLiteral(resourceName: "ic_uncheck_radio_button")
         iconImageView.image = iconImage
         if let avatar = data.avatar {
-            avatarImageView.loadImage(urlString: avatar)
+            avatarImageView.loadImage(urlString: avatar, access: "user")
             avatarImageView.isHidden = false
             iconImageView.image = nil
         }

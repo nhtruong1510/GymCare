@@ -10,9 +10,10 @@ import SDWebImage
 
 extension UIImageView {
 
-    func loadImage(urlString: String?, placehoderImage: UIImage = #imageLiteral(resourceName: "no_image")) {
+    func loadImage(urlString: String?, placehoderImage: UIImage = #imageLiteral(resourceName: "no_image"), access: String) {
         self.sd_imageIndicator = SDWebImageActivityIndicator.gray
-        self.sd_setImage(with: URL(string: castToString(urlString).encodingUTF8())) { [weak self] (image: UIImage?, _, _, _) in
+//        print(EndPointURL.IMAGE_URL + access + "/" + castToString(urlString).encodingUTF8())
+        self.sd_setImage(with: URL(string: EndPointURL.IMAGE_URL + access + "/" + castToString(urlString).encodingUTF8())) { [weak self] (image: UIImage?, _, _, _) in
             self?.image = image != nil ? image : placehoderImage
         }
     }

@@ -18,13 +18,14 @@ class ChatRoomVC: KUIViewController {
     @IBOutlet private weak var imageContaintView: UIView!
     
     var idChat: Int?
-    var page: Int = 1
+    var trainer: Trainer?
     private let viewModel = ChatRoomViewModel()
     private var messages: [MessageModel] = []
     private var chatDetail = TopicDetailModel()
     private var timer = Timer()
     private var isLoadDone: Bool = false
     private let total: Int = 10
+    private var currentDatetime: Date = Date()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,79 +43,78 @@ class ChatRoomVC: KUIViewController {
     }
 
     private func setTimer() {
-//        timer = Timer.scheduledTimer(timeInterval: 5, target: self,
-//                                         selector: #selector(self.getChatDetailReload),
-//                                         userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self,
+                                         selector: #selector(self.getChatDetail),
+                                         userInfo: nil, repeats: true)
     }
 
     private func configUI() {
         tableView.registerCells(from: .ownerMessageDetailCell, .teacherMessageDetailCell)
         timer.invalidate()
         setTimer()
-        avatarView.setupAvatarView(avatar: nil, gender: nil)
+        avatarView.setupAvatarView(avatar: trainer?.avatar, gender: trainer?.gender)
+        titleLabel.text = trainer?.name
 
     }
 
     private func reloadData(canScrollBottom: Bool) {
-//        tableView.reloadData { [weak self] in
-//            if let `self` = self, self.messages.count > 0, canScrollBottom {
-//                if self.page <= 1 {
-//                    let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
-//                    self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
-//                } else {
-//                    let row = self.messages.count - (self.page-1)*self.total
-//                    self.tableView.scrollToRow(at: IndexPath(row: row, section: 0), at: .middle, animated: false)
-//                }
-//                self.isLoadDone = true
-//            }
-//        }
+        tableView.reloadData { [weak self] in
+            if let `self` = self, self.messages.count > 0, canScrollBottom {
+                let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
+                self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+            }
+        }
     }
     
-    private func getChatDetail() {
+    @objc private func getChatDetail() {
         guard let idChat = idChat else { return }
-//        viewModel.getChatDetail(id: idChat, page: page) { [weak self] data, msg in
-//            guard let `self` = self else { return }
-//            if let data = data, let messages = data.messages, messages.count > 0 {
-//                self.chatDetail = data
-//                self.messages.insert(contentsOf: messages.reversed(), at: 0)
-//                self.reloadData(canScrollBottom: true)
-//            } else {
-////                AlertVC.show(msg: msg)
-//            }
-//        }
+        viewModel.getChatDetail(id: idChat) { [weak self] data, msg in
+            guard let `self` = self else { return }
+            if let data = data, let messages = data.messages {
+                self.chatDetail = data
+                self.messages = messages
+                self.reloadData(canScrollBottom: true)
+                self.currentDatetime = Date() - 5
+            } else {
+                AlertVC.show(viewController: self, msg: msg)
+            }
+        }
     }
 
     @objc private func getChatDetailReload() {
-//        let time = Date().toString(Constants.DATE_TIME_FORMAT)
-//        viewModel.getReloadChatDetail(id: castToInt(idChat), time: castToString(time)) { [weak self] (data, msg) in
-//            guard let `self` = self else {return}
-//            if let messages = data?.messages, messages.count > 0 {
-//                let indexOfLastCell = self.tableView.indexPathsForVisibleRows?.last
-//                let numOfMessages = castToInt(self.messages.count)
-//                self.messages.append(contentsOf: messages.reversed())
-//                self.messages = self.viewModel.filterDupplicateMessages(messages: self.messages)
-//                self.reloadData(canScrollBottom: indexOfLastCell?.row == numOfMessages - 1)
-//            }
-//        }
+        let time = currentDatetime.toString(Constants.DATE_TIME_FORMAT)
+        viewModel.getReloadChatDetail(id: castToInt(idChat), time: castToString(time)) { [weak self] (data, msg) in
+            guard let `self` = self else {return}
+            if let messages = data?.messages, messages.count > 0 {
+                let indexOfLastCell = self.tableView.indexPathsForVisibleRows?.last
+                let numOfMessages = castToInt(self.messages.count)
+                self.messages.append(contentsOf: messages)
+                self.messages = self.viewModel.filterDupplicateMessages(messages: self.messages)
+                self.currentDatetime = Date()
+                self.reloadData(canScrollBottom: indexOfLastCell?.row == numOfMessages - 1)
+            }
+        }
     }
 
     private func chatMessage() {
         guard let idChat = idChat else { return }
-//        viewModel.sendChatMessage(id: idChat,
-//                              content: contentTextField.text!,
-//                              image: imageView.image) { [weak self] status, msg in
-//            guard let `self` = self else { return }
-//            if status {
-//                self.contentTextField.text = nil
-//                if self.imageView.image != nil {
-//                    self.imageView.image = nil
-//                    self.imageContaintView.isHidden = true
-////                    self.reloadData(canScrollBottom: true)
-//                }
-//            } else {
-////                AlertVC.show(msg: msg)
-//            }
-//        }
+        let insDatetime = castToString(Date().toString(Constants.DATE_TIME_FORMAT_2))
+        viewModel.sendChatMessage(id: idChat,
+                              content: contentTextField.text!,
+                                  ins_datetime: insDatetime) { [weak self] status, msg in
+            guard let `self` = self else { return }
+            if status {
+                self.contentTextField.text = nil
+                if self.imageView.image != nil {
+                    self.imageView.image = nil
+                    self.imageContaintView.isHidden = true
+                    self.reloadData(canScrollBottom: true)
+                }
+//                self.getChatDetail()
+            } else {
+                AlertVC.show(viewController: self, msg: msg)
+            }
+        }
     }
 
     private func viewImageDetail(linkImage: String?) {
@@ -138,12 +138,12 @@ class ChatRoomVC: KUIViewController {
     }
 
     @IBAction private func onClickSendMessage(_ sender: Any) {
-//        if let content = contentTextField.text, content.isEmpty {
-//            let msg = String(format: "%@ validate_required".localized, "comment".localized)
-////            AlertVC.show(msg: msg)
-//        } else {
-//            chatMessage()
-//        }
+        if let content = contentTextField.text, content.isEmpty {
+            let msg = "Nội dung tin nhắn không được để trống"
+            AlertVC.show(viewController: self, msg: msg)
+        } else {
+            chatMessage()
+        }
     }
 
     @IBAction private func onClickDeleteImage(_ sender: Any) {
@@ -156,7 +156,7 @@ class ChatRoomVC: KUIViewController {
 extension ChatRoomVC: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2//messages.count
+        return messages.count
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -166,22 +166,22 @@ extension ChatRoomVC: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let message = self.messages[indexPath.row]
-        if indexPath.row == 0 {//message.isOwner() {
+        let message = self.messages[indexPath.row]
+        if message.isCustomer()  {
             let cell = OwnerMessageDetailCell.dequeueReuse(tableView: tableView)
-//            cell.fillData(data: message)
-//            cell.viewImage = { [weak self] in
-//                guard let `self` = self else { return }
+            cell.fillData(data: message)
+            cell.viewImage = { [weak self] in
+                guard let `self` = self else { return }
 //                self.viewImageDetail(linkImage: message.attachments[0].sourceUrl)
-//            }
+            }
             return cell
         }
         let cell = TeacherMessageDetailCell.dequeueReuse(tableView: tableView)
-//        cell.fillData(data: message)
-//        cell.viewImage = { [weak self] in
-//            guard let `self` = self else { return }
+        cell.fillData(data: message, teacher: trainer)
+        cell.viewImage = { [weak self] in
+            guard let `self` = self else { return }
 //            self.viewImageDetail(linkImage: message.attachments[0].sourceUrl)
-//        }
+        }
         return cell
     }
     

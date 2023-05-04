@@ -24,15 +24,31 @@ class TeacherMessageDetailCell: UITableViewCell {
         attachmentImageView.layer.cornerRadius = 20
     }
 
-    func fillData(data: MessageModel) {
-        let teacher = data.owner
+    func fillData(data: MessageModel, teacher: Trainer?) {
         avatarView.setupAvatarView(avatar: teacher?.avatar, gender: teacher?.gender)
         contentLabel.text = data.content
-        imageContantView.isHidden = data.attachments.count == 0
-        if data.attachments.count > 0 {
-            attachmentImageView.loadImage(urlString: data.attachments[0].sourceUrl)
+        imageContantView.isHidden = castToInt(data.image?.count) == 0
+        attachmentImageView.loadImage(urlString: data.image, access: "chat")
+        let year = formatDateString(dateString: castToString(data.insDatetime),
+                                    Constants.DATE_TIME_FORMAT,
+                                    Constants.YEAR_STRING)
+        let date = formatDateString(dateString: castToString(data.insDatetime),
+                                    Constants.DATE_TIME_FORMAT,
+                                    Constants.DATE_FORMAT)
+        if year == Date().toString(Constants.YEAR_STRING) {
+            timeLabel.text = formatDateString(dateString: castToString(data.insDatetime),
+                                              Constants.DATE_TIME_FORMAT,
+                                              Constants.DATE_TIME_FORMAT_4)
+            if date == Date().toString() {
+                timeLabel.text = formatDateString(dateString: castToString(data.insDatetime),
+                                                  Constants.DATE_TIME_FORMAT,
+                                                  Constants.HOUR_STRING)
+            }
+        } else {
+            timeLabel.text = formatDateString(dateString: castToString(data.insDatetime),
+                                              Constants.DATE_TIME_FORMAT,
+                                              Constants.DATE_TIME_FORMAT_3)
         }
-        timeLabel.text = data.insDatetime
     }
 
     @IBAction private func onClickButton(_ sender: Any) {

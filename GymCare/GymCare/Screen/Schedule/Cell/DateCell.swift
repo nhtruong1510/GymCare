@@ -9,6 +9,7 @@ import JTAppleCalendar
 import UIKit
 
 class DateCell: JTACDayCell {
+    @IBOutlet var containerView: UIView!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var dotView: UIView!
     

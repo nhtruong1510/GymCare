@@ -182,7 +182,7 @@
                     <rect key="frame" x="0.0" y="112" width="375" height="666"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BOQ-zR-qU3">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
+                            <rect key="frame" x="0.0" y="15" width="375" height="0.0"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PG6-NQ-KKK">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
@@ -196,7 +196,7 @@
                         </stackView>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="BOQ-zR-qU3" firstAttribute="top" secondItem="4hl-nv-b7k" secondAttribute="top" id="6yh-YP-U54"/>
+                        <constraint firstItem="BOQ-zR-qU3" firstAttribute="top" secondItem="4hl-nv-b7k" secondAttribute="top" constant="15" id="6yh-YP-U54"/>
                         <constraint firstAttribute="trailing" secondItem="BOQ-zR-qU3" secondAttribute="trailing" id="9Nd-qC-MEs"/>
                         <constraint firstAttribute="bottom" secondItem="BOQ-zR-qU3" secondAttribute="bottom" id="CYw-IV-tgr"/>
                         <constraint firstItem="BOQ-zR-qU3" firstAttribute="width" secondItem="4hl-nv-b7k" secondAttribute="width" id="JoC-PX-ViS"/>

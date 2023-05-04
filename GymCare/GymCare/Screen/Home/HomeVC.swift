@@ -43,6 +43,14 @@ class HomeVC: BaseViewController {
                 AlertVC.show(viewController: self, msg: msg)
             }
         }
+        viewModel.callApiGetNews { [weak self] (response, msg) in
+            guard let `self` = self else { return }
+            if let response = response {
+                self.fillDataBanner(data: response)
+            } else {
+                AlertVC.show(viewController: self, msg: msg)
+            }
+        }
     }
 
     private func configUI() {
@@ -58,14 +66,19 @@ class HomeVC: BaseViewController {
     }
 
     private func setupNavi() {
-
+        DispatchQueue.main.async {
+            self.notiView.reloadData(notis: ServiceSettings.shared.listLastestSchedule)
+        }
     }
 
+    private func fillDataBanner(data: [NewsModel]) {
+        if data.count > 0 {
+            bannerView.isHidden = false
+            bannerView.reloadData(datas: data)
+        }
+    }
+    
     private func fillData(classModel: ClassModel) {
-//        if let banners = data.banners, banners.count > 0 {
-//            bannerView.isHidden = false
-//            bannerView.reloadData(datas: banners)
-//        }
         managementView.isHidden = false
         managementView.reloadData(items: classModel.classes ?? [])
         managementView.onClick = { [weak self] classModel in
@@ -90,9 +103,9 @@ class HomeVC: BaseViewController {
             let response: [String: Int] = ["type": Constants.notification]
             NotificationCenter.default.post(name: .GO_TAP_MESSAGE, object: nil, userInfo: response)
         }
-//        DispatchQueue.main.async {
-//            self.notiView.reloadData(notis: data.notifications ?? [])
-//        }
+        DispatchQueue.main.async {
+            self.notiView.reloadData(notis: ServiceSettings.shared.listLastestSchedule)
+        }
     }
 }
 

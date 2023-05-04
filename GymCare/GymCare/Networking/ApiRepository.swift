@@ -15,6 +15,55 @@ protocol IApiRepository {
 }
 
 class ApiRepository: IApiRepository {
+    func callApiRegister(phone: String, name: String, pass: String, completion: @escaping (Bool, String?) -> Void) {
+        NetworkManager.request(.register(phone, name, pass)) { result in
+            switch result {
+            case let .success(res):
+                if let response = try? JSONDecoder().decode(ResponseModel<String>.self, from: res.data),
+                   let status = response.status
+                {
+                    completion(status, response.message)
+                }
+            case let .failure(err):
+                completion(false, err.localizedDescription)
+            }
+        }
+    }
+
+    func callApiEditProfile(param: UserModel, completion: @escaping (Bool, String?) -> Void) {
+        NetworkManager.request(.editProfile(param)) { result in
+            switch result {
+            case let .success(res):
+                if let response = try? JSONDecoder().decode(ResponseModel<String>.self, from: res.data),
+                   let status = response.status
+                {
+                    completion(status, response.message)
+                }
+            case let .failure(err):
+                completion(false, err.localizedDescription)
+            }
+        }
+    }
+    
+    func getUserDetail(id: Int, completion: @escaping (UserModel?, String?) -> Void) {
+        NetworkManager.request(.getUser(id)) { result in
+            switch result {
+            case let .success(res):
+                if let response = try? JSONDecoder().decode(ResponseModel<UserModel>.self, from: res.data),
+                   let status = response.status
+                {
+                    if status {
+                        completion(response.data, nil)
+                    } else {
+                        completion(nil, response.message)
+                    }
+                }
+            case let .failure(err):
+                completion(nil, err.localizedDescription)
+            }
+        }
+    }
+    
     func callApiForgotPass(email: String, completion: @escaping (Bool, String?) -> Void) {
         NetworkManager.request(.resetPass(email)) { result in
             switch result {
@@ -81,8 +130,8 @@ class ApiRepository: IApiRepository {
         }
     }
 
-    func getTopics(page: Int, completion: @escaping (TopicModel?, String?) -> Void) {
-        NetworkManager.request(.getTopics(page)) { result in
+    func getTopics(customerId: Int, completion: @escaping (TopicModel?, String?) -> Void) {
+        NetworkManager.request(.getTopics(customerId)) { result in
             switch result {
             case .success(let res):
                 if let response = try? JSONDecoder().decode(ResponseModel<TopicModel>.self, from: res.data),
@@ -117,8 +166,8 @@ class ApiRepository: IApiRepository {
         }
     }
 
-    func chatMessage(id: Int, content: String, image: UIImage?, completion: @escaping (Bool, String?) -> Void) {
-        NetworkManager.request(.chatMessage(id, content, image)) { result in
+    func chatMessage(id: Int, content: String, ins_datetime: String, completion: @escaping (Bool, String?) -> Void) {
+        NetworkManager.request(.chatMessage(castToString(id), content, ins_datetime)) { result in
             switch result {
             case .success(let res):
                 if let response = try? JSONDecoder().decode(ResponseModel<String>.self, from: res.data),
@@ -127,39 +176,6 @@ class ApiRepository: IApiRepository {
                 }
             case .failure(let err):
                 completion(false, err.localizedDescription)
-            }
-        }
-    }
-    
-    func logout(completion: @escaping (Bool, String?) -> Void) {
-        NetworkManager.request(.logout) { result in
-            switch result {
-            case .success(let res):
-                if let response = try? JSONDecoder().decode(ResponseModel<String>.self, from: res.data),
-                   let status = response.status {
-                    completion(status, response.message)
-                }
-            case .failure(let err):
-                completion(false, err.localizedDescription)
-                break
-            }
-        }
-    }
-
-    func getChatDetail(id: Int, page: Int, completion: @escaping (TopicDetailModel?, String?) -> Void) {
-        NetworkManager.request(.getChatDetail(id, page)) { result in
-            switch result {
-            case .success(let res):
-                if let response = try? JSONDecoder().decode(ResponseModel<TopicDetailModel>.self, from: res.data),
-                   let status = response.status {
-                    if status {
-                        completion(response.data, nil)
-                    } else {
-                        completion(nil, response.message)
-                    }
-                }
-            case .failure(let err):
-                completion(nil, err.localizedDescription)
             }
         }
     }
@@ -218,11 +234,11 @@ class ApiRepository: IApiRepository {
         }
     }
     
-    func getTrainer(trainerId: Int, completion: @escaping (TrainerModel?, String?) -> Void) {
+    func getTrainer(trainerId: Int, completion: @escaping (Trainer?, String?) -> Void) {
         NetworkManager.request(.getTrainer(trainerId)) { result in
             switch result {
             case .success(let res):
-                if let response = try? JSONDecoder().decode(ResponseModel<TrainerModel>.self, from: res.data),
+                if let response = try? JSONDecoder().decode(ResponseModel<Trainer>.self, from: res.data),
                    let status = response.status {
                     if status {
                         completion(response.data, nil)
@@ -250,20 +266,6 @@ class ApiRepository: IApiRepository {
                 }
             case .failure(let err):
                 completion(nil, err.localizedDescription)
-            }
-        }
-    }
-    
-    func sendChatMessage(id: Int, content: String, image: UIImage?, completion: @escaping (Bool, String?) -> Void) {
-        NetworkManager.request(.sendChatMessage(id, content, image)) { result in
-            switch result {
-            case .success(let res):
-                if let response = try? JSONDecoder().decode(ResponseModel<String>.self, from: res.data),
-                   let status = response.status {
-                    completion(status, response.message)
-                }
-            case .failure(let err):
-                completion(false, err.localizedDescription)
             }
         }
     }
@@ -379,6 +381,70 @@ class ApiRepository: IApiRepository {
             switch result {
             case .success(let res):
                 if let response = try? JSONDecoder().decode(ResponseModel<PaymentModel>.self, from: res.data),
+                   let status = response.status {
+                    if status {
+                        completion(response.data, nil)
+                    } else {
+                        completion(nil, response.message)
+                    }
+                }
+            case .failure(let err):
+                completion(nil, err.localizedDescription)
+            }
+        }
+    }
+    
+    func getTarget(customerId: Int, completion: @escaping (TargetModel?, String?) -> Void) {
+        NetworkManager.request(.getTarget(customerId)) { result in
+            switch result {
+            case .success(let res):
+                if let response = try? JSONDecoder().decode(ResponseModel<TargetModel>.self, from: res.data),
+                   let status = response.status {
+                    if status {
+                        completion(response.data, nil)
+                    } else {
+                        completion(nil, response.message)
+                    }
+                }
+            case .failure(let err):
+                completion(nil, err.localizedDescription)
+            }
+        }
+    }
+    
+    func createTarget(param: TargetParamObject, completion: @escaping (Bool, String?) -> Void) {
+        NetworkManager.request(.createTarget(param)) { result in
+            switch result {
+            case .success(let res):
+                if let response = try? JSONDecoder().decode(ResponseModel<String>.self, from: res.data),
+                   let status = response.status {
+                    completion(status, response.message)
+                }
+            case .failure(let err):
+                completion(false, err.localizedDescription)
+            }
+        }
+    }
+    
+    func updateTarget(param: TargetParamObject, completion: @escaping (Bool, String?) -> Void) {
+        NetworkManager.request(.updateTarget(param)) { result in
+            switch result {
+            case .success(let res):
+                if let response = try? JSONDecoder().decode(ResponseModel<String>.self, from: res.data),
+                   let status = response.status {
+                    completion(status, response.message)
+                }
+            case .failure(let err):
+                completion(false, err.localizedDescription)
+            }
+        }
+    }
+    
+    func getNews(completion: @escaping ([NewsModel]?, String?) -> Void) {
+        NetworkManager.request(.news) { result in
+            switch result {
+            case .success(let res):
+                if let response = try? JSONDecoder().decode(ResponseModel<[NewsModel]>.self, from: res.data),
                    let status = response.status {
                     if status {
                         completion(response.data, nil)

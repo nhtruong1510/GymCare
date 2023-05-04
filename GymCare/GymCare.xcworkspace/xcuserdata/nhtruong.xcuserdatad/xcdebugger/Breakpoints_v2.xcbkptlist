@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "972188B8-044C-4DBE-A702-C32D708D0839"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ABDAE552-36FF-4865-8C08-767C83E8BC64"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GymCare/Screen/Booking/Payment/PaymentViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "setTokenZLP(amount:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B214500E-1F12-4951-B0C0-D2C99D97180D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GymCare/Screen/Health/HealthVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
+            landmarkName = "loadInfoHealth(target:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "946B8700-BC12-4EFE-8A82-DBEA6C58417B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GymCare/Screen/Health/HealthVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "326"
+            endingLineNumber = "326"
+            landmarkName = "loadInfoHealth(target:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DC19DDB2-726E-4D4B-8858-35D9064A8540"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GymCare/Screen/Health/HealthVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
+            landmarkName = "loadInfoHealth(target:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DC19DDB2-726E-4D4B-8858-35D9064A8540 - c549315ee66faf39"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.HKStatistics, Swift.UnsafeMutablePointer&lt;ObjectiveC.ObjCBool&gt;) -&gt; () in closure #1 (__C.HKStatisticsCollectionQuery, Swift.Optional&lt;__C.HKStatisticsCollection&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GymCare.HealthVC.loadInfoHealth(target: Swift.Optional&lt;GymCare.Target&gt;) -&gt; ()"
+                  moduleName = "GymCare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nhtruong/GymCare/GymCare/GymCare/Screen/Health/HealthVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "181"
+                  endingLineNumber = "181"
+                  offsetFromSymbolStart = "748">
+               </Location>
+               <Location
+                  uuid = "DC19DDB2-726E-4D4B-8858-35D9064A8540 - 48b5dfdd40b195ee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 ((step: Swift.Double, date: Swift.String)) -&gt; Swift.Bool in closure #1 (__C.HKStatistics, Swift.UnsafeMutablePointer&lt;ObjectiveC.ObjCBool&gt;) -&gt; () in closure #1 (__C.HKStatisticsCollectionQuery, Swift.Optional&lt;__C.HKStatisticsCollection&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GymCare.HealthVC.loadInfoHealth(target: Swift.Optional&lt;GymCare.Target&gt;) -&gt; ()"
+                  moduleName = "GymCare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nhtruong/GymCare/GymCare/GymCare/Screen/Health/HealthVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "181"
+                  endingLineNumber = "181"
+                  offsetFromSymbolStart = "164">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "72BF130A-9ED0-44A0-96E5-49CA0FD32887"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GymCare/Screen/Health/HealthVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "setTargetView()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3FE9BB33-EC16-4B2F-867D-86CD350F043D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GymCare/Extension/UIImageView+Extension.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "loadImage(urlString:placehoderImage:access:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3FE9BB33-EC16-4B2F-867D-86CD350F043D - 898f7fffde05049c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__C.UIImageView.loadImage(urlString: Swift.Optional&lt;Swift.String&gt;, placehoderImage: __C.UIImage, access: Swift.String) -&gt; ()"
+                  moduleName = "GymCare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nhtruong/GymCare/GymCare/GymCare/Extension/UIImageView+Extension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "276">
+               </Location>
+               <Location
+                  uuid = "3FE9BB33-EC16-4B2F-867D-86CD350F043D - f17f515c9b21aed8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.UIImage&gt;, Swift.Optional&lt;Swift.Error&gt;, __C.SDImageCacheType, Swift.Optional&lt;Foundation.URL&gt;) -&gt; () in __C.UIImageView.loadImage(urlString: Swift.Optional&lt;Swift.String&gt;, placehoderImage: __C.UIImage, access: Swift.String) -&gt; ()"
+                  moduleName = "GymCare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nhtruong/GymCare/GymCare/GymCare/Extension/UIImageView+Extension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E731C101-7A58-430F-831B-6ED4CC307ACC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GymCare/Screen/Health/HealthVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "setTargetView()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "26E16CE3-5257-4235-BA0F-1F31D233AF18"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GymCare/Screen/Health/HealthVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "setTargetView()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8620F44E-26A2-4748-B4B3-C08C06A42AF7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GymCare/Screen/Health/HealthVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "327"
+            endingLineNumber = "327"
+            landmarkName = "loadInfoHealth(target:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8620F44E-26A2-4748-B4B3-C08C06A42AF7 - 9cb1ecc5d0f115cf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #6 (__C.HKSampleQuery, Swift.Optional&lt;Swift.Array&lt;__C.HKSample&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GymCare.HealthVC.loadInfoHealth(target: Swift.Optional&lt;GymCare.Target&gt;) -&gt; ()"
+                  moduleName = "GymCare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nhtruong/GymCare/GymCare/GymCare/Screen/Health/HealthVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "319"
+                  endingLineNumber = "319"
+                  offsetFromSymbolStart = "2084">
+               </Location>
+               <Location
+                  uuid = "8620F44E-26A2-4748-B4B3-C08C06A42AF7 - d6d7f7e8da8e438c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #6 (__C.HKSampleQuery, Swift.Optional&lt;Swift.Array&lt;__C.HKSample&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GymCare.HealthVC.loadInfoHealth(target: Swift.Optional&lt;GymCare.Target&gt;) -&gt; ()"
+                  moduleName = "GymCare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nhtruong/GymCare/GymCare/GymCare/Screen/Health/HealthVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "320"
+                  endingLineNumber = "320"
+                  offsetFromSymbolStart = "360">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "01EE4FDA-827F-4501-A392-79A8E3F42C7C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GymCare/Screen/Health/HealthVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "330"
+            endingLineNumber = "330"
+            landmarkName = "loadInfoHealth(target:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3A96E28E-F094-4A82-81A5-93B62EB7B216"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GymCare/Screen/Health/HealthVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "328"
+            endingLineNumber = "328"
+            landmarkName = "loadInfoHealth(target:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3A96E28E-F094-4A82-81A5-93B62EB7B216 - d6d7f7e8da8e438c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #6 (__C.HKSampleQuery, Swift.Optional&lt;Swift.Array&lt;__C.HKSample&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GymCare.HealthVC.loadInfoHealth(target: Swift.Optional&lt;GymCare.Target&gt;) -&gt; ()"
+                  moduleName = "GymCare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nhtruong/GymCare/GymCare/GymCare/Screen/Health/HealthVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "320"
+                  endingLineNumber = "320"
+                  offsetFromSymbolStart = "360">
+               </Location>
+               <Location
+                  uuid = "3A96E28E-F094-4A82-81A5-93B62EB7B216 - 6b83b1ce064557d1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 ((sleep: Swift.Int, date: Swift.String)) -&gt; Swift.Bool in closure #1 @Swift.MainActor () -&gt; () in closure #6 (__C.HKSampleQuery, Swift.Optional&lt;Swift.Array&lt;__C.HKSample&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GymCare.HealthVC.loadInfoHealth(target: Swift.Optional&lt;GymCare.Target&gt;) -&gt; ()"
+                  moduleName = "GymCare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nhtruong/GymCare/GymCare/GymCare/Screen/Health/HealthVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "320"
+                  endingLineNumber = "320"
+                  offsetFromSymbolStart = "80">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

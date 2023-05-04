@@ -17,9 +17,44 @@ public func castToInt(_ data: Any?) -> Int {
     return 0
 }
 
+public func castToInt(_ data: Double?) -> Int {
+    if let data = data {
+        return Int(data)
+    }
+    return 0
+}
+
 public func castToDouble(_ data: Any?) -> Double {
     if let data = data as? Double {
         return data
+    }
+    return 0
+}
+
+public func castToDouble(_ data: Double?) -> Double {
+    if let data = data {
+        return data
+    }
+    return 0
+}
+
+public func castToDouble(_ data: Int?) -> Double {
+    if let data = data {
+        return Double(data)
+    }
+    return 0
+}
+
+public func castToFloat(_ data: Float?) -> Float {
+    if let data = data {
+        return data
+    }
+    return 0
+}
+
+public func castToFloat(_ data: Int?) -> Float {
+    if let data = data {
+        return Float(data)
     }
     return 0
 }

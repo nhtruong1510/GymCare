@@ -13,7 +13,7 @@ class BannerView: UIView {
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var pageControl: UIPageControl!
 
-    private var banners: [BannerModel] = []
+    private var banners: [NewsModel] = []
     private var index = 0
 
     override init(frame: CGRect) {
@@ -40,7 +40,8 @@ class BannerView: UIView {
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
 
-    func reloadData(datas: [BannerModel]) {
+    func reloadData(datas: [NewsModel]) {
+        layoutCollectionView()
         self.banners = datas
         self.pageControl.currentPage = 0
         self.pageControl.numberOfPages = datas.count
@@ -57,6 +58,16 @@ class BannerView: UIView {
 
         guard let indexPath = collectionView.indexPathForItem(at: visiblePoint) else { return 0}
         return indexPath.row
+    }
+    
+    private func layoutCollectionView() {
+        let layout = PagingCollectionViewLayout()
+        layout.minimumLineSpacing = 15
+        layout.scrollDirection = .horizontal
+        let spacing = CGFloat(35)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
+        layout.itemSize = CGSize(width: Constants.WIDTH_SCREEN - 70, height: collectionView.frame.height)
+        collectionView.setCollectionViewLayout(layout, animated: false)
     }
 }
 
@@ -77,9 +88,8 @@ extension BannerView: UICollectionViewDelegate, UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        if let url = banners[indexPath.row].linkUrl {
-//            self.openSafari(linkUrl: url)
-//        }
+        guard let urlStr = banners[indexPath.row].url, let url = URL(string: urlStr) else { return }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -115,10 +125,10 @@ extension BannerView: UICollectionViewDelegate, UICollectionViewDataSource {
 //    }
 }
 
-extension BannerView: UICollectionViewDelegateFlowLayout {
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.collectionView.bounds.width, height: self.collectionView.bounds.height)
-    }
-
-}
+//extension BannerView: UICollectionViewDelegateFlowLayout {
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(width: self.collectionView.bounds.width, height: self.collectionView.bounds.height)
+//    }
+//
+//}

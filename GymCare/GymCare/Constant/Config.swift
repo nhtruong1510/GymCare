@@ -33,7 +33,7 @@ class Config {
     private var policyUrl: String = ""
 
     init() {
-        baseUrl = "http://localhost"
+        baseUrl = "http://172.20.10.2"
         version = "/v1/controller/"
         versionOny = "/v1.0.3/"
     }

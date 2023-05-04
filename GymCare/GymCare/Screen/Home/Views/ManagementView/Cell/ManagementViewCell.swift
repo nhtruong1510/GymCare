@@ -20,7 +20,7 @@ class ManagementViewCell: UICollectionViewCell {
     }
 
     func fillData(item: Class) {
-        iconImageView.loadImage(urlString: item.thump_img)
+        iconImageView.loadImage(urlString: item.image, access: "class")
         titleLable.text = item.name
     }
 

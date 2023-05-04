@@ -9,6 +9,13 @@ import SwiftUI
 
 struct RegisterView: View {
     @Environment(\.presentationMode) var presentationMode
+    @State private var showLoginView = false
+    @State private var phone: String = ""
+    @State private var password: String = ""
+    @State private var name: String = ""
+    @State private var confirmPassword: String = ""
+    let viewModel = RegisterViewModel()
+
     var body: some View {
         NavigationView {
             VStack(spacing: 15) {
@@ -31,23 +38,30 @@ struct RegisterView: View {
                         .padding(50)
                 }
                 VStack {
-                    TextField("Nhập email hoặc số điện thoại", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+                    TextField("Nhập email hoặc số điện thoại", text: $phone)
                         .textFieldStyle(CustomTextField(systemImageString: "envelope.fill"))
                         .padding(.bottom)
-                    TextField("Nhập tên đăng nhập", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+                    TextField("Nhập tên đăng nhập", text: $name)
                         .textFieldStyle(CustomTextField(systemImageString: "person.fill"))
                         .padding(.bottom)
-                    SecureField("Nhập mật khẩu", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+                    SecureField("Nhập mật khẩu", text: $password)
                         .textFieldStyle(CustomTextField(systemImageString: "lock.fill"))
                         .padding(.bottom)
-                    SecureField("Xác nhận mật khẩu", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+                    SecureField("Xác nhận mật khẩu", text: $confirmPassword)
                         .textFieldStyle(CustomTextField(systemImageString: "lock.fill"))
                         .padding(.bottom)
                 }
                 .padding(.bottom)
                 HStack {
                     Button("Đăng ký") {
-                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                        viewModel.callApiRegister(email: $phone.wrappedValue, name: $name.wrappedValue,
+                                                  pass: $password.wrappedValue, confirmPass: $confirmPassword.wrappedValue) { success, error in
+                            if success {
+                                self.showLoginView = true
+                            } else {
+                                self.showLoginView = false
+                            }
+                        }
                     }.buttonStyle(DefaultButton())
                 }
                 .background(Color.main_color)

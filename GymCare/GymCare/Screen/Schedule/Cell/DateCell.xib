@@ -17,22 +17,40 @@
                 <rect key="frame" x="0.0" y="0.0" width="256" height="166"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dateHere" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zHO-u5-snj">
-                        <rect key="frame" x="92.666666666666686" y="102" width="71" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7lR-Fl-90T">
-                        <rect key="frame" x="123" y="127" width="10" height="10"/>
-                        <color key="backgroundColor" name="main_color"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jeD-sT-VXO">
+                        <rect key="frame" x="103" y="87.666666666666671" width="50" height="50.000000000000014"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dateHere" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zHO-u5-snj">
+                                <rect key="frame" x="-10.333333333333329" y="14.333333333333329" width="71" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7lR-Fl-90T">
+                                <rect key="frame" x="20" y="37.333333333333329" width="10" height="10"/>
+                                <color key="backgroundColor" name="main_color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="Hjs-fa-vTP"/>
+                                    <constraint firstAttribute="width" constant="10" id="PhO-Qa-QnW"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
                         <constraints>
-                            <constraint firstAttribute="height" constant="10" id="Hjs-fa-vTP"/>
-                            <constraint firstAttribute="width" constant="10" id="PhO-Qa-QnW"/>
+                            <constraint firstItem="zHO-u5-snj" firstAttribute="centerX" secondItem="jeD-sT-VXO" secondAttribute="centerX" id="0fh-O4-CII"/>
+                            <constraint firstItem="zHO-u5-snj" firstAttribute="centerY" secondItem="jeD-sT-VXO" secondAttribute="centerY" id="IxC-Xo-xDs"/>
+                            <constraint firstAttribute="height" constant="50" id="P2o-Mt-smL"/>
+                            <constraint firstAttribute="width" constant="50" id="Qbq-g4-dIr"/>
+                            <constraint firstItem="7lR-Fl-90T" firstAttribute="centerX" secondItem="jeD-sT-VXO" secondAttribute="centerX" id="Uhr-OI-7Br"/>
+                            <constraint firstItem="7lR-Fl-90T" firstAttribute="top" secondItem="zHO-u5-snj" secondAttribute="bottom" constant="2" id="gnG-i8-sgm"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="5"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="25"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
@@ -40,18 +58,17 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="7lR-Fl-90T" firstAttribute="top" secondItem="zHO-u5-snj" secondAttribute="bottom" constant="4" id="BZS-Wq-bjN"/>
-                <constraint firstItem="7lR-Fl-90T" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="S9Q-3s-NDQ"/>
-                <constraint firstItem="zHO-u5-snj" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="cYR-4G-Gja"/>
-                <constraint firstItem="zHO-u5-snj" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="tM8-E6-bOA"/>
+                <constraint firstItem="jeD-sT-VXO" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="dQ6-kK-aaC"/>
+                <constraint firstItem="jeD-sT-VXO" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="gTb-xe-ca9"/>
             </constraints>
             <size key="customSize" width="256" height="166"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                    <real key="value" value="30"/>
+                    <real key="value" value="25"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <connections>
+                <outlet property="containerView" destination="jeD-sT-VXO" id="a5z-r0-l30"/>
                 <outlet property="dateLabel" destination="zHO-u5-snj" id="tDl-HU-xYd"/>
                 <outlet property="dotView" destination="7lR-Fl-90T" id="yor-7O-7hk"/>
             </connections>

@@ -7,16 +7,27 @@
 
 import Foundation
 
-class TopicModel: Codable {
-    
-    var currentPage: Int?
-    var total: Int?
-    var datas: [TopicDetailModel] = []
-
-    private enum CodingKeys: String, CodingKey {
-        case currentPage = "current_page"
-        case total
-        case datas = "data"
-    }
-
+// MARK: - DataClass
+struct TopicModel: Codable {
+    var chats: [Chat]?
 }
+
+// MARK: - Chat
+struct Chat: Codable {
+    var id: Int?
+    var trainer: Trainer?
+    var isReadCustomer: Int?
+    var insDatetime, lastMessage: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id, trainer
+        case isReadCustomer = "is_read_customer"
+        case insDatetime = "ins_datetime"
+        case lastMessage = "last_message"
+    }
+    
+    func isRead() -> Bool {
+        return isReadCustomer == 1
+    }
+}
+

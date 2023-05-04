@@ -15,15 +15,15 @@ class EditInforAcCountVC: BaseViewController {
     @IBOutlet private weak var phoneTextField: UITextField!
     @IBOutlet private weak var addressTextField: UITextField!
     @IBOutlet private weak var emailTextField: UITextField!
-    @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var nameTitleLabel: UILabel!
     @IBOutlet private weak var emailTitleLabel: UILabel!
     @IBOutlet private weak var phoneNumberTitleLabel: UILabel!
     @IBOutlet private weak var addressTitleLabel: UILabel!
 
-    private var viewModel = SettingViewModel()
+    private var viewModel = EditProfileViewModel()
     private var isChangedAvatar: Bool = false
+    private var userInfo = ServiceSettings.shared.userInfo
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,64 +32,57 @@ class EditInforAcCountVC: BaseViewController {
     }
 
     private func getDetailTeacher(completion: (() -> Void)? = nil) {
-//        viewModel.getTeacherInfo { [weak self] data, msg in
-//            guard let `self` = self else { return }
-//            if let data = data {
-//                self.configUI(data: data)
-//                if let completion = completion {
-//                    completion()
-//                }
-//            } else {
-//                AlertVC.show(msg: msg)
-//            }
-//        }
+        viewModel.callApiGetUserDetail(id: userInfo?.id) { [weak self] data, msg in
+            guard let `self` = self else { return }
+            if let data = data {
+                self.configUI(data: data)
+                if let completion = completion {
+                    completion()
+                }
+            } else {
+                AlertVC.show(viewController: self, msg: msg)
+            }
+        }
     }
 
     private func updateTeacher() {
-//        ConfirmVC.show(title: "confirm".localized, msg: "are_you_sure".localized,
-//                       titleButtonLeft: "ok".localized, titleButtonRight: "cancel".localized ) { [weak self] in
-//            guard let `self` = self else { return }
-//            let param = TeacherModel()
-//            param.id = ServiceSettings.shared.parentInfo?.id
-//            param.name = self.nameTextField.text
-//            param.email = self.emailTextField.text
-//            param.phoneNumber = self.phoneTextField.text
-//            param.address = self.addressTextField.text
-//            if self.isChangedAvatar {
-//                param.avatarFile = self.imageAvatar.avatarView.image
-//            }
-//            self.viewModel.updateTeacherInfo(value: param) { status, msg in
-//                if status {
-//                    self.getDetailTeacher() {
-//                        AlertVC.show(msg: msg) { [weak self] in
-//                            guard let `self` = self else { return }
-//                            self.backScreen()
-//                        }
-//                    }
-//                } else {
-//                    AlertVC.show(msg: msg)
-//                }
-//            }
-//        }
+        let param = UserModel()
+        param.id = userInfo?.id
+        param.name = self.nameTextField.text
+        param.email = self.emailTextField.text
+        param.phone = self.phoneTextField.text
+        param.address = self.addressTextField.text
+        if self.isChangedAvatar {
+            param.avatarFile = self.imageAvatar.avatarView.image
+        }
+        self.viewModel.callApiEditProfile(param: param) { status, msg in
+            if status {
+                AlertVC.show(viewController: self, msg: msg) { [weak self] in
+                    guard let `self` = self else { return }
+                    self.backScreen()
+                }
+            } else {
+                AlertVC.show(viewController: self, msg: msg)
+            }
+        }
     }
 
-//    private func configUI(data: TeacherModel) {
-//        imageAvatar.setupAvatarView(avatar: data.avatar, gender: data.gender)
-//        nameLabel.text = castToString(data.name)
-//        nameTextField.text = castToString(data.name)
-//        phoneTextField.text = castToString(data.phoneNumber)
-//        addressTextField.text = castToString(data.address)
-//        emailTextField.text = castToString(data.email)
-//        self.viewModel.saveUserInfor(teacherDetail: data)
-//    }
+    private func configUI(data: UserModel) {
+        imageAvatar.setupAvatarView(avatar: data.avatar, gender: data.gender)
+        nameLabel.text = castToString(data.name)
+        nameTextField.text = castToString(data.name)
+        phoneTextField.text = castToString(data.phone)
+        addressTextField.text = castToString(data.address)
+        emailTextField.text = castToString(data.email)
+        ServiceSettings.shared.userInfo = data
+    }
 
     @IBAction func backClick(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
 
     @IBAction func openCameraClick(_ sender: Any) {
-        guard let topView = UIApplication.shared.windows.first?.rootViewController else {return}
-        ImagePickerManager().pickImage(topView, chooseVideo: false, singleSelectedMode: true) { [weak self] assets in
+        ImagePickerManager().pickImage(self, chooseVideo: false, singleSelectedMode: true) { [weak self] assets in
             guard let `self` = self, assets.count > 0 else { return }
             let image = assets[0].fullResolutionImage ?? UIImage()
             self.imageAvatar.avatarView.image = image
@@ -98,21 +91,20 @@ class EditInforAcCountVC: BaseViewController {
     }
 
     @IBAction func updateInforClick(_ sender: Any) {
-//        ConfirmVC.show(title: "confirm".localized, msg: "are_you_sure".localized,
-//                       titleButtonLeft: "ok".localized, titleButtonRight: "cancel".localized ) { [weak self] in
-//            guard let `self` = self else { return }
-//            self.updateTeacher()
-//        }
+        ConfirmVC.show(viewController: self, title: "Xác nhận", msg: "Bạn có chắc chắn thực hiện thao tác này?") { [weak self] in
+            guard let `self` = self else { return }
+            self.updateTeacher()
+        }
     }
 }
 
 extension EditInforAcCountVC: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
-//        setHightlightLabel(textField, color: .color_46C0FF)
+        setHightlightLabel(textField, color: .main_color)
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-//        setHightlightLabel(textField, color: .color_707070)
+        setHightlightLabel(textField, color: .darkGray)
     }
 
     func setHightlightLabel(_ textField: UITextField, color: UIColor) {

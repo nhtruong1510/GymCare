@@ -62,6 +62,7 @@ class NotificationVC: BaseViewController {
                                             time: castToString(notify.time),
                                             money: notify.money)
             vc.param = param
+            vc.address = listNotifi[index].address ?? Address()
             nextScreen(ctrl: vc)
             return
         }

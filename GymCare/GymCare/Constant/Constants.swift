@@ -14,11 +14,14 @@ struct Constants {
     static let TIME_OUT: Double = 60
     static let MAX_UPLOAD_IMAGE: Float = 2.0
     static let DEALY_TIME = DispatchTimeInterval.seconds(1)
-    static let DATE_TIME_FORMAT = "yyyy-MM-dd hh:mm:ss"
+    static let DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss"
     static let DATE_MONTH_FORMAT = "dd/MM"
     static let DATE_FORMAT = "dd/MM/yyyy"
     static let DATE_FORMAT_2 = "yyyy/MM/dd"
     static let DATE_PARAM_FORMAT = "yyyy-MM-dd"
+    static let DATE_TIME_FORMAT_2 = "dd/MM/yyyy HH:mm:ss"
+    static let DATE_TIME_FORMAT_3 = "hh:mm, dd/MM/yyyy"
+    static let DATE_TIME_FORMAT_4 = "hh:mm, dd/MM"
     static let YEAR_STRING = "yyyy"
     static let MONTH_STRING = "MM"
     static let MONTH_STYLE_STRING = "MM/yyyy"
@@ -54,7 +57,10 @@ struct EndPointURL {
     static let POLICY_URL: String = Config.shared.POLICY_URL
     static let versionJson = Config.shared.versionJson
     static let versionJsonOnly = Config.shared.versionJsonOnly
+    static let IMAGE_URL: String = Config.shared.BASE_API_URL + "/" + "gymcare/"
     static let LOGIN: String = versionJson + "login" + Constants.SUFFIX_JSON
+    static let REGISTER: String = versionJson + "register" + Constants.SUFFIX_JSON
+    static let USER: String = versionJson + "customer" + Constants.SUFFIX_JSON
     static let RESET_PASS: String = versionJson + "password/reset" + Constants.SUFFIX_JSON
     static let UPDATE_PASS: String = versionJson + "password/update" + Constants.SUFFIX_JSON
     static let CHANGE_PASS: String = versionJson + "password/change" + Constants.SUFFIX_JSON
@@ -62,18 +68,16 @@ struct EndPointURL {
     static let GET_CLASS_INFO: String = versionJson + "get_class" + Constants.SUFFIX_JSON
     static let GET_ADDRESS: String = versionJson + "address" + Constants.SUFFIX_JSON
     static let GET_CLASS_DETAIL: String = versionJson + "class" + Constants.SUFFIX_JSON
-    static let GET_CHAT_DETAIL: String = versionJson + "chat-room/detail" + Constants.SUFFIX_JSON
-    static let RELOAD_CHAT_DETAIL: String = versionJson + "chat-room/reload-detail" + Constants.SUFFIX_JSON
-    static let SEND_CHAT_MESSAGE: String = versionJson + "chat-message/send" + Constants.SUFFIX_JSON
-    static let GET_TOPICS: String = versionJson + "chat-message/send" + Constants.SUFFIX_JSON
-    static let GET_TOPIC_DETAIL: String = versionJson + "chat-message/send" + Constants.SUFFIX_JSON
-    static let CHAT_MESSAGE: String = versionJson + "chat-message/send" + Constants.SUFFIX_JSON
-    static let LOGOUT: String = versionJson + "chat-message/send" + Constants.SUFFIX_JSON
+    static let GET_TOPICS: String = versionJson + "chat" + Constants.SUFFIX_JSON
+    static let GET_TOPIC_DETAIL: String = versionJson + "message" + Constants.SUFFIX_JSON
+    static let RELOAD_CHAT_DETAIL: String = versionJson + "reload_message" + Constants.SUFFIX_JSON
     static let GET_TRAINER: String = versionJson + "trainer" + Constants.SUFFIX_JSON
     static let CREATE_SCHEDULE: String = versionJson + "schedule" + Constants.SUFFIX_JSON
     static let CREATE_NOTIFICATION: String = versionJson + "notification" + Constants.SUFFIX_JSON
     static let UPDATE_STATUS_NOTIFICATION: String = versionJson + "update_noti_status" + Constants.SUFFIX_JSON
     static let PAYMENT: String = versionJson + "payment" + Constants.SUFFIX_JSON
+    static let TARGET: String = versionJson + "target" + Constants.SUFFIX_JSON
+    static let NEWS: String = versionJson + "news" + Constants.SUFFIX_JSON
 
 }
 

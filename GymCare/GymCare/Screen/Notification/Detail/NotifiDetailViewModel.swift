@@ -7,6 +7,10 @@
 
 import Foundation
 
-final class NotifiDetailViewModel {
-    
+final class NotifiDetailViewModel: BaseViewModel {
+    func updateStatusNoti(notiId: Int, completion: @escaping () -> Void) {
+        self.repository.updateStatusNoti(notiId: notiId) { data, msg in
+            completion()
+        }
+    }
 }

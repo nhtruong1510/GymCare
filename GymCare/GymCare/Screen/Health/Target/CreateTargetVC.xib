@@ -29,7 +29,7 @@
                         <constraint firstAttribute="height" constant="88" id="QGf-we-bXn"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Tạo mục tiêu"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Chi tiết"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isBackButton" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </view>
@@ -60,9 +60,12 @@
                                                         <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
                                                             <integer key="value" value="20"/>
                                                         </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="keyboard">
+                                                            <integer key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hyI-Cz-dCt" customClass="InputPickerView" customModule="GymCare" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hyI-Cz-dCt" customClass="InputFieldView" customModule="GymCare" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="87" width="357" height="87"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -70,8 +73,11 @@
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="isDate" value="YES"/>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Địa điểm"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Số giờ ngủ"/>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="isNote" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="keyboard">
+                                                            <integer key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ovm-No-kwh" customClass="InputFieldView" customModule="GymCare" customModuleProvider="target">
@@ -82,7 +88,7 @@
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="isDate" value="NO"/>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Quãng đường đi"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Số phút vận động"/>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="typeDate">
                                                             <integer key="value" value="1"/>
                                                         </userDefinedRuntimeAttribute>
@@ -90,6 +96,9 @@
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="isFormatMoney" value="YES"/>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
                                                             <integer key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="keyboard">
+                                                            <integer key="value" value="4"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		002DCFAA67E2F62E9051B5E5 /* Pods_GymCare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 671D79514AC0214C9BE1A7C8 /* Pods_GymCare.framework */; };
+		0704FEA729DB3B8B004D5DA5 /* TargetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0704FEA629DB3B8B004D5DA5 /* TargetModel.swift */; };
+		0704FEA929DB3C19004D5DA5 /* TargetParamObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0704FEA829DB3C19004D5DA5 /* TargetParamObject.swift */; };
+		0704FEAF29DC8A3F004D5DA5 /* HealthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0704FEAE29DC8A3F004D5DA5 /* HealthViewModel.swift */; };
+		0704FEB129DC944C004D5DA5 /* HealthKitSetupAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0704FEB029DC944C004D5DA5 /* HealthKitSetupAssistant.swift */; };
+		0704FEB329DC96D0004D5DA5 /* UserHealthProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0704FEB229DC96D0004D5DA5 /* UserHealthProfile.swift */; };
+		0704FEB529DC9774004D5DA5 /* ProfileDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0704FEB429DC9773004D5DA5 /* ProfileDataStore.swift */; };
 		070E16AD299D4B8400F7B5CC /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070E16AC299D4B8400F7B5CC /* RegisterView.swift */; };
 		071437F129AC778C0050C71B /* PitDefaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071437F029AC778C0050C71B /* PitDefaultButton.swift */; };
 		0717234B29A267B30022E71B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0717234A29A267B20022E71B /* Colors.xcassets */; };
@@ -30,6 +37,8 @@
 		07255EEF29D0880100157732 /* ListPaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07255EEE29D0880100157732 /* ListPaymentViewModel.swift */; };
 		07255EF329D0899800157732 /* PaymentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07255EF129D0899800157732 /* PaymentViewCell.swift */; };
 		07255EF429D0899800157732 /* PaymentViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07255EF229D0899800157732 /* PaymentViewCell.xib */; };
+		0728DA7529ED40BF006571FF /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0728DA7429ED40BF006571FF /* RegisterViewModel.swift */; };
+		0728DA7729EE2F78006571FF /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0728DA7629EE2F78006571FF /* EditProfileViewModel.swift */; };
 		072CA7E1299BF2D700D473DA /* DefaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072CA7E0299BF2D700D473DA /* DefaultButton.swift */; };
 		072CA7E3299BF89700D473DA /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072CA7E2299BF89700D473DA /* CustomTextField.swift */; };
 		0739AAE529BB3B62005E94D9 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0739AADB29BB3B62005E94D9 /* SVRadialGradientLayer.m */; };
@@ -37,9 +46,9 @@
 		0739AAE729BB3B62005E94D9 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0739AAE129BB3B62005E94D9 /* SVProgressHUD.m */; };
 		0739AAE829BB3B62005E94D9 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0739AAE229BB3B62005E94D9 /* SVIndefiniteAnimatedView.m */; };
 		0739AAE929BB3B62005E94D9 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0739AAE329BB3B62005E94D9 /* SVProgressHUD.bundle */; };
-		0739AAEC29BB3BE4005E94D9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0739AAEB29BB3BE4005E94D9 /* QuartzCore.framework */; };
 		0739AAF729BB7424005E94D9 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0739AAF629BB7424005E94D9 /* Double+Extension.swift */; };
-		0739AAFA29BB96EF005E94D9 /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 0739AAF929BB96EF005E94D9 /* SwiftDate */; };
+		075229BD2A0123EB00BA7DFE /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075229BC2A0123EB00BA7DFE /* NewsModel.swift */; };
+		075229C12A01276600BA7DFE /* PagingCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075229BF2A01276600BA7DFE /* PagingCollectionViewLayout.swift */; };
 		0753A61E29AA19CC00853301 /* ProgramVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0753A61C29AA19CC00853301 /* ProgramVC.swift */; };
 		0753A61F29AA19CC00853301 /* ProgramVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0753A61D29AA19CC00853301 /* ProgramVC.xib */; };
 		0753A62529AA1CAA00853301 /* TopResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0753A62229AA1CAA00853301 /* TopResponse.swift */; };
@@ -74,8 +83,6 @@
 		0774F1C629A67A1300DD0200 /* MessageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0774F1A829A67A1200DD0200 /* MessageViewCell.swift */; };
 		0774F1C729A67A1300DD0200 /* MessageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0774F1A929A67A1200DD0200 /* MessageViewCell.xib */; };
 		0774F1C829A67A1300DD0200 /* MessageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0774F1AA29A67A1200DD0200 /* MessageVC.xib */; };
-		0774F1D429A67C9400DD0200 /* TLPhotoPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 0774F1D329A67C9400DD0200 /* TLPhotoPicker */; };
-		0774F1D729A67D2F00DD0200 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0774F1D629A67D2F00DD0200 /* SDWebImage */; };
 		0774F1EA29A67DA200DD0200 /* AlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0774F1E029A67DA200DD0200 /* AlertVC.swift */; };
 		0774F1EB29A67DA200DD0200 /* AlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0774F1E129A67DA200DD0200 /* AlertVC.xib */; };
 		0774F1EC29A67DA200DD0200 /* ConfirmVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0774F1E329A67DA200DD0200 /* ConfirmVC.xib */; };
@@ -104,8 +111,7 @@
 		0774F27D29A738D200DD0200 /* SearchDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0774F27829A738D200DD0200 /* SearchDataVC.swift */; };
 		0774F28029A738D200DD0200 /* SearchDataVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0774F27C29A738D200DD0200 /* SearchDataVC.xib */; };
 		0774F28229A738FA00DD0200 /* RegionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0774F28129A738FA00DD0200 /* RegionObject.swift */; };
-		077B680B29ABA5BA00E36826 /* HGCircularSlider in Frameworks */ = {isa = PBXBuildFile; productRef = 077B680A29ABA5BA00E36826 /* HGCircularSlider */; };
-		07A2E03229CE160A00E74483 /* CustomProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A2E03129CE160A00E74483 /* CustomProgressHUD.swift */; };
+		07843F7529D164F200FEBF43 /* CustomProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07843F7429D164F100FEBF43 /* CustomProgressHUD.swift */; };
 		07B1F05629B9B4E300DA417D /* AddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B1F05529B9B4E300DA417D /* AddressModel.swift */; };
 		07C46B3929B646F9001134AD /* ClassModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C46B3829B646F9001134AD /* ClassModel.swift */; };
 		07CA3E56299EA1B80042232A /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CA3E55299EA1B80042232A /* TabbarView.swift */; };
@@ -115,7 +121,8 @@
 		07CA3E60299EA6780042232A /* InfoUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CA3E5F299EA6780042232A /* InfoUserView.swift */; };
 		07CA3E62299EA6A30042232A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CA3E61299EA6A30042232A /* HomeView.swift */; };
 		07CA3E64299EA6C80042232A /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CA3E63299EA6C80042232A /* ChatView.swift */; };
-		07DFC7DA29AB578400AD7512 /* JTAppleCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 07DFC7D929AB578400AD7512 /* JTAppleCalendar */; };
+		07CD55FC29FEA9C000A910D5 /* zpdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07CD55FB29FEA9C000A910D5 /* zpdk.framework */; };
+		07DDEE3629FEC2020055D1C9 /* CryptoAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DDEE3529FEC2020055D1C9 /* CryptoAlgorithm.swift */; };
 		07DFC7E429AB634300AD7512 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DFC7E229AB634300AD7512 /* DateCell.swift */; };
 		07DFC7E529AB634300AD7512 /* DateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07DFC7E329AB634300AD7512 /* DateCell.xib */; };
 		07DFC7E829AB635B00AD7512 /* DateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DFC7E629AB635B00AD7512 /* DateHeader.swift */; };
@@ -168,7 +175,6 @@
 		07FBD88329A5327C00DCB5F7 /* ImageCompresor.m in Sources */ = {isa = PBXBuildFile; fileRef = 07FBD88029A5327C00DCB5F7 /* ImageCompresor.m */; };
 		07FBD88829A5328800DCB5F7 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBD88629A5328800DCB5F7 /* AlertManager.swift */; };
 		07FBD88929A5328800DCB5F7 /* ServiceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBD88729A5328800DCB5F7 /* ServiceSettings.swift */; };
-		07FBD88D29A5363500DCB5F7 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 07FBD88C29A5363500DCB5F7 /* Moya */; };
 		07FBD89229A5370B00DCB5F7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBD88F29A5370B00DCB5F7 /* Constants.swift */; };
 		07FBD89329A5370B00DCB5F7 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBD89029A5370B00DCB5F7 /* Config.swift */; };
 		07FBD89429A5370B00DCB5F7 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBD89129A5370B00DCB5F7 /* Enum.swift */; };
@@ -199,6 +205,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0704FEA629DB3B8B004D5DA5 /* TargetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetModel.swift; sourceTree = "<group>"; };
+		0704FEA829DB3C19004D5DA5 /* TargetParamObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetParamObject.swift; sourceTree = "<group>"; };
+		0704FEAE29DC8A3F004D5DA5 /* HealthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthViewModel.swift; sourceTree = "<group>"; };
+		0704FEB029DC944C004D5DA5 /* HealthKitSetupAssistant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitSetupAssistant.swift; sourceTree = "<group>"; };
+		0704FEB229DC96D0004D5DA5 /* UserHealthProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserHealthProfile.swift; sourceTree = "<group>"; };
+		0704FEB429DC9773004D5DA5 /* ProfileDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDataStore.swift; sourceTree = "<group>"; };
 		070E16AC299D4B8400F7B5CC /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		071437F029AC778C0050C71B /* PitDefaultButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PitDefaultButton.swift; sourceTree = "<group>"; };
 		0717234A29A267B20022E71B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -222,6 +234,9 @@
 		07255EEE29D0880100157732 /* ListPaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPaymentViewModel.swift; sourceTree = "<group>"; };
 		07255EF129D0899800157732 /* PaymentViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewCell.swift; sourceTree = "<group>"; };
 		07255EF229D0899800157732 /* PaymentViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentViewCell.xib; sourceTree = "<group>"; };
+		0728DA7429ED40BF006571FF /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		0728DA7629EE2F78006571FF /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+		0728DA7B29EE5175006571FF /* GymCare-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GymCare-Bridging-Header.h"; sourceTree = "<group>"; };
 		072CA7E0299BF2D700D473DA /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
 		072CA7E2299BF89700D473DA /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		0739AADB29BB3B62005E94D9 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
@@ -234,8 +249,9 @@
 		0739AAE229BB3B62005E94D9 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
 		0739AAE329BB3B62005E94D9 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		0739AAE429BB3B62005E94D9 /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressAnimatedView.h; sourceTree = "<group>"; };
-		0739AAEB29BB3BE4005E94D9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS16.2.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		0739AAF629BB7424005E94D9 /* Double+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		075229BC2A0123EB00BA7DFE /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		075229BF2A01276600BA7DFE /* PagingCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingCollectionViewLayout.swift; sourceTree = "<group>"; };
 		0753A61C29AA19CC00853301 /* ProgramVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramVC.swift; sourceTree = "<group>"; };
 		0753A61D29AA19CC00853301 /* ProgramVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgramVC.xib; sourceTree = "<group>"; };
 		0753A62229AA1CAA00853301 /* TopResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopResponse.swift; sourceTree = "<group>"; };
@@ -300,7 +316,7 @@
 		0774F27829A738D200DD0200 /* SearchDataVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDataVC.swift; sourceTree = "<group>"; };
 		0774F27C29A738D200DD0200 /* SearchDataVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchDataVC.xib; sourceTree = "<group>"; };
 		0774F28129A738FA00DD0200 /* RegionObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionObject.swift; sourceTree = "<group>"; };
-		07A2E03129CE160A00E74483 /* CustomProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomProgressHUD.swift; path = ../../../../GymCareForTrainer/GymCareForTrainer/CustomView/ProgressHUD/CustomProgressHUD.swift; sourceTree = "<group>"; };
+		07843F7429D164F100FEBF43 /* CustomProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomProgressHUD.swift; sourceTree = "<group>"; };
 		07B1F05529B9B4E300DA417D /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
 		07C46B3829B646F9001134AD /* ClassModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassModel.swift; sourceTree = "<group>"; };
 		07CA3E55299EA1B80042232A /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
@@ -310,6 +326,9 @@
 		07CA3E5F299EA6780042232A /* InfoUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoUserView.swift; sourceTree = "<group>"; };
 		07CA3E61299EA6A30042232A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		07CA3E63299EA6C80042232A /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		07CD55FB29FEA9C000A910D5 /* zpdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = zpdk.framework; sourceTree = "<group>"; };
+		07DDEE3229FEC05C0055D1C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		07DDEE3529FEC2020055D1C9 /* CryptoAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoAlgorithm.swift; sourceTree = "<group>"; };
 		07DFC7E229AB634300AD7512 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		07DFC7E329AB634300AD7512 /* DateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateCell.xib; sourceTree = "<group>"; };
 		07DFC7E629AB635B00AD7512 /* DateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeader.swift; sourceTree = "<group>"; };
@@ -361,7 +380,6 @@
 		07FBD87A29A5327400DCB5F7 /* APIRouter+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIRouter+Extension.swift"; sourceTree = "<group>"; };
 		07FBD88029A5327C00DCB5F7 /* ImageCompresor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCompresor.m; sourceTree = "<group>"; };
 		07FBD88129A5327C00DCB5F7 /* ImageCompresor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCompresor.h; sourceTree = "<group>"; };
-		07FBD88229A5327C00DCB5F7 /* SchoolUpTeacher-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SchoolUpTeacher-Bridging-Header.h"; sourceTree = "<group>"; };
 		07FBD88629A5328800DCB5F7 /* AlertManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		07FBD88729A5328800DCB5F7 /* ServiceSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceSettings.swift; sourceTree = "<group>"; };
 		07FBD88F29A5370B00DCB5F7 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -391,6 +409,9 @@
 		07FBD91429A53B6F00DCB5F7 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		07FBD91629A53BC300DCB5F7 /* KUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KUIViewController.swift; sourceTree = "<group>"; };
 		07FBD91729A53BC300DCB5F7 /* ImagePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		0D71C63141B8BA6B5F4CBF7E /* Pods-GymCare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GymCare.debug.xcconfig"; path = "Target Support Files/Pods-GymCare/Pods-GymCare.debug.xcconfig"; sourceTree = "<group>"; };
+		671D79514AC0214C9BE1A7C8 /* Pods_GymCare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GymCare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88EF653D4F9CCFC7A168B07A /* Pods-GymCare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GymCare.release.xcconfig"; path = "Target Support Files/Pods-GymCare/Pods-GymCare.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -398,13 +419,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0739AAEC29BB3BE4005E94D9 /* QuartzCore.framework in Frameworks */,
-				07FBD88D29A5363500DCB5F7 /* Moya in Frameworks */,
-				07DFC7DA29AB578400AD7512 /* JTAppleCalendar in Frameworks */,
-				0774F1D429A67C9400DD0200 /* TLPhotoPicker in Frameworks */,
-				0739AAFA29BB96EF005E94D9 /* SwiftDate in Frameworks */,
-				0774F1D729A67D2F00DD0200 /* SDWebImage in Frameworks */,
-				077B680B29ABA5BA00E36826 /* HGCircularSlider in Frameworks */,
+				07CD55FC29FEA9C000A910D5 /* zpdk.framework in Frameworks */,
+				002DCFAA67E2F62E9051B5E5 /* Pods_GymCare.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +457,7 @@
 		0717234F29A283C70022E71B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0704FEB229DC96D0004D5DA5 /* UserHealthProfile.swift */,
 				071C767229C78506003587AE /* NotificationModel.swift */,
 				0753A62729AA1D7E00853301 /* MenuItemModel.swift */,
 				0753A62029AA1CAA00853301 /* Top */,
@@ -450,6 +467,9 @@
 				0717235129A283C70022E71B /* Slider.swift */,
 				075C976129BA54F100BE74BE /* ScheduleParamObject.swift */,
 				07255EE229D0574A00157732 /* PaymentModel.swift */,
+				0704FEA629DB3B8B004D5DA5 /* TargetModel.swift */,
+				0704FEA829DB3C19004D5DA5 /* TargetParamObject.swift */,
+				075229BC2A0123EB00BA7DFE /* NewsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -518,7 +538,8 @@
 		072CA7DD299BF24B00D473DA /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
-				075C976329BB05D700BE74BE /* ProgressHUD */,
+				075229BE2A01276600BA7DFE /* CollectionViewLayout */,
+				07843F7329D164F100FEBF43 /* ProgressHUD */,
 				071437F029AC778C0050C71B /* PitDefaultButton.swift */,
 				07E4058629ABC95800E7D757 /* BaseView.swift */,
 				07E4058129ABC70000E7D757 /* InputFieldView */,
@@ -554,9 +575,18 @@
 		0739AAEA29BB3BE4005E94D9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0739AAEB29BB3BE4005E94D9 /* QuartzCore.framework */,
+				07CD55FB29FEA9C000A910D5 /* zpdk.framework */,
+				671D79514AC0214C9BE1A7C8 /* Pods_GymCare.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		075229BE2A01276600BA7DFE /* CollectionViewLayout */ = {
+			isa = PBXGroup;
+			children = (
+				075229BF2A01276600BA7DFE /* PagingCollectionViewLayout.swift */,
+			);
+			path = CollectionViewLayout;
 			sourceTree = "<group>";
 		};
 		0753A61B29AA19B200853301 /* Program */ = {
@@ -600,15 +630,6 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		075C976329BB05D700BE74BE /* ProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				07A2E03129CE160A00E74483 /* CustomProgressHUD.swift */,
-			);
-			name = ProgressHUD;
-			path = ../../../schoolup_teacher_ios/SchoolUpTeacher/CustomView/ProgressHUD;
-			sourceTree = "<group>";
-		};
 		075FFD8629ACB9CE00EC5D7C /* ContentProgram */ = {
 			isa = PBXGroup;
 			children = (
@@ -625,6 +646,7 @@
 				076754D22998013A005FC40A /* GymCare */,
 				076754D12998013A005FC40A /* Products */,
 				0739AAEA29BB3BE4005E94D9 /* Frameworks */,
+				74D0D8586A02C7E7AE489815 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -639,6 +661,7 @@
 		076754D22998013A005FC40A /* GymCare */ = {
 			isa = PBXGroup;
 			children = (
+				07DDEE3229FEC05C0055D1C9 /* Info.plist */,
 				0774F25729A6870A00DD0200 /* Resource */,
 				07FBD8ED29A5388600DCB5F7 /* Common */,
 				07FBD88E29A5370B00DCB5F7 /* Constant */,
@@ -759,6 +782,7 @@
 			children = (
 				0774F21B29A685D500DD0200 /* EditInforAcCountVC.xib */,
 				0774F21C29A685D500DD0200 /* EditInforAcCountVC.swift */,
+				0728DA7629EE2F78006571FF /* EditProfileViewModel.swift */,
 			);
 			path = EditInforAcCount;
 			sourceTree = "<group>";
@@ -828,11 +852,20 @@
 			path = SearchData;
 			sourceTree = "<group>";
 		};
+		07843F7329D164F100FEBF43 /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				07843F7429D164F100FEBF43 /* CustomProgressHUD.swift */,
+			);
+			path = ProgressHUD;
+			sourceTree = "<group>";
+		};
 		07CA3E57299EA1EE0042232A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				076B69A029B5BECA00B061F8 /* LoginViewModel.swift */,
 				07CA3E58299EA1EE0042232A /* BaseViewModel.swift */,
+				0728DA7429ED40BF006571FF /* RegisterViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -915,8 +948,11 @@
 			children = (
 				07E8E07329A92E7B00AE3AB1 /* Target */,
 				07E8E06D29A9294400AE3AB1 /* Cell */,
+				0704FEB029DC944C004D5DA5 /* HealthKitSetupAssistant.swift */,
 				07E8E06929A9293100AE3AB1 /* HealthVC.swift */,
 				07E8E06A29A9293100AE3AB1 /* HealthVC.xib */,
+				0704FEAE29DC8A3F004D5DA5 /* HealthViewModel.swift */,
+				0704FEB429DC9773004D5DA5 /* ProfileDataStore.swift */,
 			);
 			path = Health;
 			sourceTree = "<group>";
@@ -1066,7 +1102,7 @@
 			children = (
 				07FBD88029A5327C00DCB5F7 /* ImageCompresor.m */,
 				07FBD88129A5327C00DCB5F7 /* ImageCompresor.h */,
-				07FBD88229A5327C00DCB5F7 /* SchoolUpTeacher-Bridging-Header.h */,
+				0728DA7B29EE5175006571FF /* GymCare-Bridging-Header.h */,
 			);
 			path = CompressImage;
 			sourceTree = "<group>";
@@ -1076,6 +1112,7 @@
 			children = (
 				07FBD88529A5328800DCB5F7 /* AlertManager */,
 				07FBD88729A5328800DCB5F7 /* ServiceSettings.swift */,
+				07DDEE3529FEC2020055D1C9 /* CryptoAlgorithm.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1154,6 +1191,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		74D0D8586A02C7E7AE489815 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0D71C63141B8BA6B5F4CBF7E /* Pods-GymCare.debug.xcconfig */,
+				88EF653D4F9CCFC7A168B07A /* Pods-GymCare.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1161,9 +1207,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 076754DF29980140005FC40A /* Build configuration list for PBXNativeTarget "GymCare" */;
 			buildPhases = (
+				0F3F2803DE17F54AAC6C80B6 /* [CP] Check Pods Manifest.lock */,
 				076754CC2998013A005FC40A /* Sources */,
 				076754CD2998013A005FC40A /* Frameworks */,
 				076754CE2998013A005FC40A /* Resources */,
+				036D2914659A971058F61904 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1171,12 +1219,6 @@
 			);
 			name = GymCare;
 			packageProductDependencies = (
-				07FBD88C29A5363500DCB5F7 /* Moya */,
-				0774F1D329A67C9400DD0200 /* TLPhotoPicker */,
-				0774F1D629A67D2F00DD0200 /* SDWebImage */,
-				07DFC7D929AB578400AD7512 /* JTAppleCalendar */,
-				077B680A29ABA5BA00E36826 /* HGCircularSlider */,
-				0739AAF929BB96EF005E94D9 /* SwiftDate */,
 			);
 			productName = GymCare;
 			productReference = 076754D02998013A005FC40A /* GymCare.app */;
@@ -1207,12 +1249,6 @@
 			);
 			mainGroup = 076754C72998013A005FC40A;
 			packageReferences = (
-				07FBD88B29A5363400DCB5F7 /* XCRemoteSwiftPackageReference "Moya" */,
-				0774F1D229A67C9400DD0200 /* XCRemoteSwiftPackageReference "TLPhotoPicker" */,
-				0774F1D529A67D2F00DD0200 /* XCRemoteSwiftPackageReference "SDWebImage" */,
-				07DFC7D829AB578300AD7512 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */,
-				077B680929ABA5BA00E36826 /* XCRemoteSwiftPackageReference "HGCircularSlider" */,
-				0739AAF829BB96EF005E94D9 /* XCRemoteSwiftPackageReference "SwiftDate" */,
 			);
 			productRefGroup = 076754D12998013A005FC40A /* Products */;
 			projectDirPath = "";
@@ -1288,6 +1324,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		036D2914659A971058F61904 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GymCare/Pods-GymCare-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GymCare/Pods-GymCare-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GymCare/Pods-GymCare-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0F3F2803DE17F54AAC6C80B6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GymCare-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		076754CC2998013A005FC40A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1309,6 +1387,7 @@
 				07E8E09E29A9CE5100AE3AB1 /* NotiViewCell.swift in Sources */,
 				07FBD8E329A537AA00DCB5F7 /* LoginResponse.swift in Sources */,
 				07E4058529ABC70100E7D757 /* InputFieldView.swift in Sources */,
+				07DDEE3629FEC2020055D1C9 /* CryptoAlgorithm.swift in Sources */,
 				07FBD90D29A53B1600DCB5F7 /* UITableView+Extension.swift in Sources */,
 				07FBD88329A5327C00DCB5F7 /* ImageCompresor.m in Sources */,
 				07E8E09C29A9CE5100AE3AB1 /* NotiView.swift in Sources */,
@@ -1326,11 +1405,14 @@
 				072CA7E3299BF89700D473DA /* CustomTextField.swift in Sources */,
 				075FFD8D29ACBC4E00EC5D7C /* ProgramViewCell.swift in Sources */,
 				0774F25029A685D500DD0200 /* SettingVC.swift in Sources */,
+				0704FEB129DC944C004D5DA5 /* HealthKitSetupAssistant.swift in Sources */,
 				07DFC7EB29AB74F100AD7512 /* Color+Extension.swift in Sources */,
 				0774F26929A735DE00DD0200 /* BookingVC.swift in Sources */,
+				07843F7529D164F200FEBF43 /* CustomProgressHUD.swift in Sources */,
 				07FBD91529A53B6F00DCB5F7 /* BaseViewController.swift in Sources */,
 				07E8E06629A9271200AE3AB1 /* ScheduleViewCell.swift in Sources */,
 				0769964E29BC5DAC00EE8626 /* ScheduleModel.swift in Sources */,
+				0704FEB529DC9774004D5DA5 /* ProfileDataStore.swift in Sources */,
 				07E8E07629A92EBA00AE3AB1 /* CreateTargetVC.swift in Sources */,
 				07DFC7E429AB634300AD7512 /* DateCell.swift in Sources */,
 				076F67F629C2EBED000DA808 /* ProgramViewModel.swift in Sources */,
@@ -1360,13 +1442,14 @@
 				07255EEF29D0880100157732 /* ListPaymentViewModel.swift in Sources */,
 				07FBD90229A53A8D00DCB5F7 /* TeacherMessageDetailCell.swift in Sources */,
 				07FBD91929A53BC300DCB5F7 /* ImagePickerView.swift in Sources */,
+				0704FEA729DB3B8B004D5DA5 /* TargetModel.swift in Sources */,
 				07FBD88829A5328800DCB5F7 /* AlertManager.swift in Sources */,
 				0753A62829AA1D7E00853301 /* MenuItemModel.swift in Sources */,
 				075C975D29BA2EC800BE74BE /* AddressViewCell.swift in Sources */,
 				07FBD90F29A53B1600DCB5F7 /* String+Extension.swift in Sources */,
-				07A2E03229CE160A00E74483 /* CustomProgressHUD.swift in Sources */,
 				071C767329C78506003587AE /* NotificationModel.swift in Sources */,
 				07FBD87D29A5327400DCB5F7 /* APIRouter+Extension.swift in Sources */,
+				075229BD2A0123EB00BA7DFE /* NewsModel.swift in Sources */,
 				075FFD9329ACBD2000EC5D7C /* ContentProgramVC.swift in Sources */,
 				07CA3E62299EA6A30042232A /* HomeView.swift in Sources */,
 				07DFC7E829AB635B00AD7512 /* DateHeader.swift in Sources */,
@@ -1380,20 +1463,25 @@
 				0739AAE729BB3B62005E94D9 /* SVProgressHUD.m in Sources */,
 				0774F28229A738FA00DD0200 /* RegionObject.swift in Sources */,
 				07E8E0A429A9CE5100AE3AB1 /* BannerView.swift in Sources */,
+				0704FEAF29DC8A3F004D5DA5 /* HealthViewModel.swift in Sources */,
 				076754D62998013A005FC40A /* ContentView.swift in Sources */,
 				07255EE329D0574A00157732 /* PaymentModel.swift in Sources */,
+				0704FEB329DC96D0004D5DA5 /* UserHealthProfile.swift in Sources */,
 				07FBD91029A53B1600DCB5F7 /* Date+Extension.swift in Sources */,
 				07E4058B29ABD12800E7D757 /* UIFont+Extension.swift in Sources */,
 				07FBD8FA29A5398800DCB5F7 /* TopicDetailModel.swift in Sources */,
 				0774F1C529A67A1300DD0200 /* MessageViewModel.swift in Sources */,
 				07FBD91229A53B1600DCB5F7 /* UIImageView+Extension.swift in Sources */,
+				0728DA7529ED40BF006571FF /* RegisterViewModel.swift in Sources */,
 				07FBD8F529A5388600DCB5F7 /* AboutApp.swift in Sources */,
 				07CA3E5C299EA6310042232A /* ScheduleView.swift in Sources */,
 				072CA7E1299BF2D700D473DA /* DefaultButton.swift in Sources */,
 				075C976029BA4E4E00BE74BE /* AddressViewModel.swift in Sources */,
+				0704FEA929DB3C19004D5DA5 /* TargetParamObject.swift in Sources */,
 				07FBD90129A53A8D00DCB5F7 /* OwnerMessageDetailCell.swift in Sources */,
 				07FBD89429A5370B00DCB5F7 /* Enum.swift in Sources */,
 				076754D42998013A005FC40A /* GymCareApp.swift in Sources */,
+				075229C12A01276600BA7DFE /* PagingCollectionViewLayout.swift in Sources */,
 				071437F129AC778C0050C71B /* PitDefaultButton.swift in Sources */,
 				07E8E0A229A9CE5100AE3AB1 /* ManagementViewCell.swift in Sources */,
 				07CA3E5E299EA6450042232A /* CareView.swift in Sources */,
@@ -1418,6 +1506,7 @@
 				07E8E0A029A9CE5100AE3AB1 /* ManagementView.swift in Sources */,
 				07E4058029ABC60500E7D757 /* CreateTargetViewModel.swift in Sources */,
 				07FBD89229A5370B00DCB5F7 /* Constants.swift in Sources */,
+				0728DA7729EE2F78006571FF /* EditProfileViewModel.swift in Sources */,
 				0774F1F529A6815300DD0200 /* AvatarView.swift in Sources */,
 				0739AAE529BB3B62005E94D9 /* SVRadialGradientLayer.m in Sources */,
 			);
@@ -1537,9 +1626,11 @@
 		};
 		076754E029980140005FC40A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D71C63141B8BA6B5F4CBF7E /* Pods-GymCare.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_ENTITLEMENTS = GymCare/GymCare.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1547,15 +1638,24 @@
 				DEVELOPMENT_TEAM = 74MRQW9NHL;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GymCare/Screen/Schedule/Program/ContentProgram",
+					"$(PROJECT_DIR)",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GymCare/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Bạn cần chia sẻ dữ liệu sức khoẻ";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Bạn cần chia sẻ dữ liệu sức khoẻ";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Bạn cần chia sẻ vị trí";
 				INFOPLIST_KEY_NSLocationUsageDescription = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -1571,11 +1671,13 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = truongnh.GymCare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1583,9 +1685,11 @@
 		};
 		076754E129980140005FC40A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88EF653D4F9CCFC7A168B07A /* Pods-GymCare.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_ENTITLEMENTS = GymCare/GymCare.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1593,15 +1697,24 @@
 				DEVELOPMENT_TEAM = 74MRQW9NHL;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GymCare/Screen/Schedule/Program/ContentProgram",
+					"$(PROJECT_DIR)",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GymCare/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Bạn cần chia sẻ dữ liệu sức khoẻ";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Bạn cần chia sẻ dữ liệu sức khoẻ";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Bạn cần chia sẻ vị trí";
 				INFOPLIST_KEY_NSLocationUsageDescription = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -1617,11 +1730,13 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = truongnh.GymCare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1649,90 +1764,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		0739AAF829BB96EF005E94D9 /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/malcommac/SwiftDate";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
-			};
-		};
-		0774F1D229A67C9400DD0200 /* XCRemoteSwiftPackageReference "TLPhotoPicker" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/tilltue/TLPhotoPicker";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
-		0774F1D529A67D2F00DD0200 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-		077B680929ABA5BA00E36826 /* XCRemoteSwiftPackageReference "HGCircularSlider" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/HamzaGhazouani/HGCircularSlider.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
-		07DFC7D829AB578300AD7512 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/patchthecode/JTAppleCalendar.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 8.0.0;
-			};
-		};
-		07FBD88B29A5363400DCB5F7 /* XCRemoteSwiftPackageReference "Moya" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Moya/Moya";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		0739AAF929BB96EF005E94D9 /* SwiftDate */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0739AAF829BB96EF005E94D9 /* XCRemoteSwiftPackageReference "SwiftDate" */;
-			productName = SwiftDate;
-		};
-		0774F1D329A67C9400DD0200 /* TLPhotoPicker */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0774F1D229A67C9400DD0200 /* XCRemoteSwiftPackageReference "TLPhotoPicker" */;
-			productName = TLPhotoPicker;
-		};
-		0774F1D629A67D2F00DD0200 /* SDWebImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0774F1D529A67D2F00DD0200 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImage;
-		};
-		077B680A29ABA5BA00E36826 /* HGCircularSlider */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 077B680929ABA5BA00E36826 /* XCRemoteSwiftPackageReference "HGCircularSlider" */;
-			productName = HGCircularSlider;
-		};
-		07DFC7D929AB578400AD7512 /* JTAppleCalendar */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 07DFC7D829AB578300AD7512 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */;
-			productName = JTAppleCalendar;
-		};
-		07FBD88C29A5363500DCB5F7 /* Moya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 07FBD88B29A5363400DCB5F7 /* XCRemoteSwiftPackageReference "Moya" */;
-			productName = Moya;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 076754C82998013A005FC40A /* Project object */;
 }

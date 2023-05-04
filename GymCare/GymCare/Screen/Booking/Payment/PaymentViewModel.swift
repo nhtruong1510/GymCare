@@ -46,4 +46,74 @@ final class PaymentViewModel: BaseViewModel {
             completion(success, msg)
         }
     }
+    
+    func setTokenZLP(amount: String?, completion: @escaping (String?) -> Void) {
+
+        let currentDate = Date()
+        let random = Int.random(in: 0...10000000)
+       
+        let appTransPrefix = GetCurrentDateInFormatYYMMDD()
+
+        let appTransID = "\(appTransPrefix)_\(random)"
+      
+        let appId = 2554
+        let appUser = "demo"
+        let appTime = Int(currentDate.timeIntervalSince1970*1000)
+        print(appTime)
+        let embedData = "{}"
+        let item = "[]"
+        let description = "Merchant payment for order #" + appTransID
+
+        let AmountInString: String = castToString(amount)
+        
+        let hmacInput = "\(appId)" + "|" + "\(appTransID)" + "|" + appUser + "|" + "\(AmountInString)" + "|" + "\(appTime)" + "|"
+        + embedData + "|" + item
+        
+        let mac = hmacInput.hmac(algorithm: CryptoAlgorithm.SHA256, key: "sdngKKJmqEMzvh5QQcdD2A9XBSKUNaYn")//2554 sb
+
+        //merchant can change the url to merchant's server endpoint which handle create zalopay order
+        let url = URL(string: "https://sb-openapi.zalopay.vn/v2/create")!
+
+        var request = URLRequest(url: url)
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+
+        let postString = "app_id=\(appId)&app_user=\(appUser)&app_time=\(appTime)&amount=\(AmountInString)&app_trans_id=\(appTransID)&embed_data=\(embedData)&item=\(item)&description=\(description)&mac=\(mac)"
+        request.httpBody = postString.data(using: .utf8)
+        DispatchQueue.main.async {
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let data = data, error == nil else {
+                    return // check for fundamental networking error
+                }
+
+                // Getting values from JSON Response
+                let responseString = String(data: data, encoding: .utf8)
+                print("responseString = \(String(describing: responseString))")
+                do {
+                    let jsonResponse = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as? NSDictionary
+                    let returncode =  jsonResponse?.object(forKey: "return_code") as? Int
+                    if returncode != 1{
+                        DispatchQueue.main.async {
+                            print("Create order failed, error:\(String(describing: returncode))")
+                        }
+                    } else {
+                        let zptranstoken = jsonResponse?.object(forKey: "zp_trans_token") as? String
+                        DispatchQueue.main.async {
+                            completion(zptranstoken)
+                            print(zptranstoken)
+                        }
+                    }
+                } catch _ {
+                    print ("OOps not good JSON formatted response")
+                }
+            }
+            task.resume()
+        }
+    }
+
+    func GetCurrentDateInFormatYYMMDD() -> String {
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "yyMMdd"
+       return dateFormatterPrint.string(from:Date())
+    }
 }

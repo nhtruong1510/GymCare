@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: - DataClass
 class TrainerModel: Codable {
@@ -34,9 +35,22 @@ class UserModel: Codable {
     var id: Int?
     var name, phone, email: String?
     var avatar: String?
+    var avatarFile: UIImage?
     var address: String?
     var gender: Int?
     var birth: String?
+    var password: String?
+
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case email
+        case birth
+        case gender
+        case avatar
+        case phone
+        case address
+    }
 
     init(id: Int?, name: String?, phone: String?, email: String?,
          avatar: String?, address: String?, gender: Int?, birth: String?) {
@@ -48,5 +62,16 @@ class UserModel: Codable {
         self.address = address
         self.gender = gender
         self.birth = birth
+    }
+    
+    init() {}
+
+    func toDictionary() -> [String: Any] {
+        var dictionary = [String: Any]()
+        dictionary.updateValue(castToString(id), forKey: "id")
+        dictionary.updateValue(castToString(name), forKey: "name")
+        dictionary.updateValue(castToString(phone), forKey: "phone")
+        dictionary.updateValue(castToString(password), forKey: "password")
+        return dictionary
     }
 }

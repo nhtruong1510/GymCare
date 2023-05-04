@@ -10,6 +10,9 @@ import Foundation
 final class LoginViewModel: BaseViewModel {
 
     func callApiLogin(email: String?, pass: String?, completion: @escaping (_ result: Bool, _ error: String?) -> Void) {
+        if let error = validate(email: email, pass: pass) {
+            return
+        }
         self.repository.callApiLogin(email: email!, pass: pass!) { userObject, msgError in
             if let userObject = userObject {
                 ServiceSettings.shared.userInfo = userObject
@@ -20,7 +23,7 @@ final class LoginViewModel: BaseViewModel {
         }
     }
 
-    func validateEmail(email: String?) -> String? {
+    func validate(email: String?, pass: String?) -> String? {
         if castToString(email).isEmpty {
             return "Email không được để trống"
         }
@@ -34,10 +37,6 @@ final class LoginViewModel: BaseViewModel {
                 return "Sai định dạng email"
             }
         }
-        return nil
-    }
-
-    func validatePass(pass: String?) -> String? {
         if castToString(pass).isEmpty {
             return "Mật khẩu không được để trống"
         }

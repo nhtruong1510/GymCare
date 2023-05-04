@@ -50,19 +50,22 @@ class NotifiDetailVC: BaseViewController {
         dayLabel.text = notify.day
         timeLabel.text = notify.time
         expiredLabel.text = castToString(notify.start_date) + " - " + castToString(notify.end_date)
+        if let id = notify.id {
+            updateStatusNoti(id: (id))
+        }
 //        param.start_date = formatDateString(dateString: castToString(param.start_date), Constants.DATE_FORMAT, Constants.DATE_PARAM_FORMAT)
 //        param.end_date = formatDateString(dateString: castToString(param.end_date), Constants.DATE_FORMAT, Constants.DATE_PARAM_FORMAT)
     }
 
-    private func updateStatusNoti(id: String) {
-//        viewModel.updateStatusNoti(id: id) { [weak self] status, msg in
-//            guard let `self` = self else { return }
+    private func updateStatusNoti(id: Int) {
+        viewModel.updateStatusNoti(notiId: id) { [weak self] in
+            guard let `self` = self else { return }
 //            if status {
 ////                self.getDetailNoti(id: id)
 //            } else {
 //                UIAlertController.showDefaultAlert(andMessage: msg)
 //            }
-//        }
+        }
     }
 
     private func getDetailNoti(noti: NotifiObject) {
@@ -95,7 +98,7 @@ class NotifiDetailVC: BaseViewController {
     }
     
     @IBAction private func createPayment() {
-        ConfirmVC.show(title: "Xác nhận", msg: "Bạn có chắc chắn thực hiện thao tác này?") {
+        ConfirmVC.show(viewController: self, title: "Xác nhận", msg: "Bạn có chắc chắn thực hiện thao tác này?") {
 //            self.viewModel.createSchedule(param: self.param) { success, msg in
 //                if success {
 //                    AlertVC.show(viewController: self, msg: msg) {

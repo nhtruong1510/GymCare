@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 import Moya
 import Alamofire
 
@@ -64,20 +65,20 @@ private func JSONResponseDataFormatter(_ data: Data) -> String {
 let NetworkManager = MoyaProvider<APIRouter>(plugins: [NetworkPlugin(), NetworkLoggerPlugin(configuration: .init(formatter: .init(responseData: JSONResponseDataFormatter),logOptions: .verbose))])
 
 enum APIRouter {
+    case register(String, String, String)
     case login(String, String)
+    case editProfile(UserModel)
+    case getUser(Int)
     case resetPass(String)
     case updatePass(String, String, String)
     case changePass(String, String, String)
     case getTopics(Int)
     case getTopicDetail(Int)
-    case chatMessage(Int, String, UIImage?)
-    case logout
-    case getChatDetail(Int, Int)
+    case chatMessage(String, String, String)
     case getClass
     case getClassInfo(Int)
     case getAddress(Int)
     case getReloadChatDetail(Int, String)
-    case sendChatMessage(Int, String, UIImage?)
     case getTrainer(Int)
     case createSchedule(ScheduleParamObject)
     case getSchedule(Int)
@@ -87,6 +88,10 @@ enum APIRouter {
     case createNoti(ScheduleParamObject)
     case updateStatusNoti(Int)
     case payment(Int)
+    case getTarget(Int)
+    case createTarget(TargetParamObject)
+    case updateTarget(TargetParamObject)
+    case news
 
 }
 
@@ -102,16 +107,14 @@ extension APIRouter: TargetType {
     var path: String {
         switch self {
         case .login: return EndPointURL.LOGIN
+        case .editProfile, .getUser: return EndPointURL.USER
+        case .register: return EndPointURL.REGISTER
         case .resetPass: return EndPointURL.RESET_PASS
         case .updatePass: return EndPointURL.UPDATE_PASS
         case .changePass: return EndPointURL.CHANGE_PASS
         case .getTopics: return EndPointURL.GET_TOPICS
         case .getTopicDetail: return EndPointURL.GET_TOPIC_DETAIL
-        case .chatMessage: return EndPointURL.CHAT_MESSAGE
-        case .logout: return EndPointURL.LOGOUT
-        case .getChatDetail: return EndPointURL.GET_CHAT_DETAIL
         case .getReloadChatDetail: return EndPointURL.RELOAD_CHAT_DETAIL
-        case .sendChatMessage: return EndPointURL.SEND_CHAT_MESSAGE
         case .getClass: return EndPointURL.GET_CLASS
         case .getClassInfo: return EndPointURL.GET_CLASS_INFO
         case .getAddress: return EndPointURL.GET_ADDRESS
@@ -121,16 +124,20 @@ extension APIRouter: TargetType {
         case .createNoti: return EndPointURL.CREATE_NOTIFICATION
         case .updateStatusNoti: return EndPointURL.UPDATE_STATUS_NOTIFICATION
         case .payment: return EndPointURL.PAYMENT
+        case .chatMessage: return EndPointURL.GET_TOPIC_DETAIL
+        case .getTarget, .createTarget, .updateTarget: return EndPointURL.TARGET
+        case .news: return EndPointURL.NEWS
 
         }
     }
 
     var method: Moya.Method {
         switch self {
-        case .login, .resetPass, .updatePass, .changePass, .chatMessage, .logout, .sendChatMessage,
-                .createSchedule, .createNoti, .updateStatusNoti:
+        case .login, .resetPass, .updatePass, .changePass, .chatMessage,
+                .createSchedule, .createNoti, .updateStatusNoti, .createTarget,
+                .register, .editProfile:
             return .post
-        case .updateSchedule:
+        case .updateSchedule, .updateTarget:
             return .put
         case .cancelSchedule:
             return .delete
@@ -143,30 +150,44 @@ extension APIRouter: TargetType {
         switch self {
         case .login(let email, let pass):
             return .requestParameters(parameters: ["phone": email, "password": pass], encoding: JSONEncoding.default)
+        case .register(let email, let name, let pass):
+            return .requestParameters(parameters: ["phone": email, "password": pass, "name": name], encoding: JSONEncoding.default)
+        case .editProfile(let param):
+            var formData = [Moya.MultipartFormData]()
+//            let dictionary = param.toDictionary()
+//            formData.append(contentsOf: createForm(dictionary: dictionary))
+            let dictionary = param.toDictionary()
+            let jsonData = try! JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted)
+            let paramPart = MultipartFormData(provider: .data(jsonData), name: "data")
+            formData.append(paramPart)
+            if let files = param.avatarFile {
+                formData.append(contentsOf: createMultipartFormData(listImage: [files], fileName: "avatarFile"))
+            }
+            return .uploadMultipart(formData)
         case .resetPass(let email):
             return .requestParameters(parameters: ["email": email], encoding: JSONEncoding.default)
+        case .getUser(let id):
+            return .requestParameters(parameters: ["customer_id": id], encoding: URLEncoding.queryString)
         case .updatePass(let pass, let confirmPass, let token):
             return .requestParameters(parameters: ["password": pass, "confirm_password": confirmPass, "token": token], encoding: JSONEncoding.default)
         case .changePass(let pass, let confirmPass, let oldPass):
             return .requestParameters(parameters: ["password": pass, "confirm_password": confirmPass, "old_password": oldPass], encoding: JSONEncoding.default)
         case .createSchedule(let param), .updateSchedule(let param):
             return .requestParameters(parameters: param.toDictionary(), encoding: JSONEncoding.default)
+        case .createTarget(let param), .updateTarget(let param):
+            return .requestParameters(parameters: param.toDictionary(), encoding: JSONEncoding.default)
         case .cancelSchedule(let timeId):
             return .requestParameters(parameters:["time_id": timeId], encoding: JSONEncoding.default)
-        case .getTopics(let page):
-            return .requestParameters(parameters: ["page": page], encoding: URLEncoding.queryString)
+        case .getTopics(let customer_id):
+            return .requestParameters(parameters: ["customer_id": customer_id], encoding: URLEncoding.queryString)
         case .getTopicDetail(let id):
-            return .requestParameters(parameters: ["topic_id": id], encoding: URLEncoding.queryString)
-        case .chatMessage(let id, let message, let image):
-            let formData = getDataChatMessage(id: id, message: message, image: image)
-            return .uploadMultipart(formData)
-        case .getChatDetail(let id, let page):
-            return .requestParameters(parameters: ["id": id, "page": page], encoding: URLEncoding.queryString)
+            return .requestParameters(parameters: ["chat_id": id], encoding: URLEncoding.queryString)
+        case .chatMessage(let id, let message, let insDatetime):
+            return .requestParameters(parameters: ["chat_id": id, "content": message, "ins_datetime": insDatetime], encoding: JSONEncoding.default)
+//            let formData = getDataChatMessage(id: id, message: message, image: image)
+//            return .uploadMultipart(formData)
         case .getReloadChatDetail(let id, let currentDatetime):
-            return .requestParameters(parameters: ["id": id, "current_datetime": currentDatetime], encoding: URLEncoding.queryString)
-        case .sendChatMessage(let id, let message, let image):
-            let formData = getDataChatMessage(id: id, message: message, image: image, idName: "id")
-            return .uploadMultipart(formData)
+            return .requestParameters(parameters: ["chat_id": id, "ins_datetime": currentDatetime], encoding: URLEncoding.queryString)
         case .getAddress(let classId):
             return .requestParameters(parameters: ["class_id": classId], encoding: URLEncoding.queryString)
         case .getTrainer(let trainer_id):
@@ -182,6 +203,8 @@ extension APIRouter: TargetType {
         case .updateStatusNoti(let notiId):
             return .requestParameters(parameters: ["notification_id": notiId], encoding: JSONEncoding.default)
         case .payment(let customer_id):
+            return .requestParameters(parameters: ["customer_id": customer_id], encoding: URLEncoding.queryString)
+        case .getTarget(let customer_id):
             return .requestParameters(parameters: ["customer_id": customer_id], encoding: URLEncoding.queryString)
         default:
             return .requestPlain
@@ -207,5 +230,21 @@ extension APIRouter: TargetType {
             return "Bearer " + accessToken
         }
         return ""
+    }
+    
+    func createMultipartFormData(listImage: [UIImage], fileName: String) -> [Moya.MultipartFormData] {
+        var formData = [Moya.MultipartFormData]()
+        for (index, file) in listImage.enumerated() {
+//            let imageData = ImageCompresor()
+//            imageData.image = file
+//            imageData.shrinkImage(Constants.MAX_UPLOAD_IMAGE)
+            if let image = file.jpegData(compressionQuality: 2.0) {
+                formData.append(MultipartFormData(provider: .data(image),
+                                                  name: fileName,
+                                                  fileName: "image\(index).jpg",
+                                                  mimeType: "image/jpeg"))
+            }
+        }
+        return formData
     }
 }

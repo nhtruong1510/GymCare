@@ -11,6 +11,7 @@ import Foundation
 class ClassModel: Codable {
     var rowsReturned: Int?
     var classes: [Class]?
+    var schedules: [Schedule]?
 
     init() {}
 
@@ -30,7 +31,7 @@ class Class: Codable {
     var id: Int?
     var date: [DateElement]?
     var name: String?
-    var thump_img: String?
+    var image: String?
     var maxParticipate, currentParticipate: Int?
     var description: String?
     var benefit: String?
@@ -43,7 +44,7 @@ class Class: Codable {
     enum CodingKeys: String, CodingKey {
         case id
         case date, name
-        case thump_img
+        case image
         case maxParticipate = "max_participate"
         case currentParticipate = "current_participate"
         case description, benefit, money
@@ -99,6 +100,7 @@ class Time: Codable {
     var trainer: Trainer?
     var address: String?
     var className: String?
+    var date: String?
 
     init(id: Int?, time: String?, trainerId: Int?, trainer: Trainer?, address: String?, className: String?) {
         self.id = id

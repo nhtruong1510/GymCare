@@ -86,12 +86,10 @@ class BookingVC: BaseViewController {
                 let time = self.dateAddress?.time?.filter({$0.id == data._id}).first
                 guard let trainerId = time?.trainerId else { return }
                 self.viewModel.callApiGetTrainer(trainerId: trainerId) { data, msg in
-                    if let trainers = data?.trainer, trainers.count > 0 {
-                        self.trainer = trainers.first
-                        self.avatarView.setupAvatarView(avatar: self.trainer?.avatar, gender: self.trainer?.gender)
-                        self.namePTLabel.text = self.trainer?.name
-                        self.choosePTView.isHidden = false
-                    }
+                    self.trainer = data
+                    self.avatarView.setupAvatarView(avatar: self.trainer?.avatar, gender: self.trainer?.gender)
+                    self.namePTLabel.text = self.trainer?.name
+                    self.choosePTView.isHidden = false
                 }
             }
         }
@@ -117,10 +115,12 @@ class BookingVC: BaseViewController {
     
     @IBAction private func onClickSubmit(_ sender: UIButton) {
         let status = schedule == nil ? TypeStatus.create.rawValue : TypeStatus.update.rawValue
+        let trainerId = trainer != nil ? trainer?.id : schedule?.trainer?.id
+
         let param = ScheduleParamObject(customer_id: userInfo?.id,
                                         address_id: address.id,
                                         class_id: address.addressClass?.id,
-                                        trainer_id: trainer?.id,
+                                        trainer_id: trainerId,
                                         day: dayPickerView.value,
                                         start_date: fromDatePickerView.value,
                                         end_date: toDatePickerView.value,
@@ -129,10 +129,10 @@ class BookingVC: BaseViewController {
                                         method: 0, status: status)
         param.start_date = formatDateString(dateString: castToString(param.start_date), Constants.DATE_FORMAT, Constants.DATE_PARAM_FORMAT)
         param.end_date = formatDateString(dateString: castToString(param.end_date), Constants.DATE_FORMAT, Constants.DATE_PARAM_FORMAT)
-        if let trainer = trainer {
+        if (trainer != nil) || schedule?.trainer != nil {
             param.is_create = schedule == nil ? 0 : 1
             param.schedule_id = schedule?.id
-            ConfirmVC.show(title: "Xác nhận", msg: "Bạn có chắc chắn thực hiện thao tác này?") {
+            ConfirmVC.show(viewController: self, title: "Xác nhận", msg: "Bạn có chắc chắn thực hiện thao tác này?") {
                 self.viewModel.createNoti(param: param) { success, msg in
                     if success {
                         AlertVC.show(viewController: self, msg: msg) {
@@ -147,7 +147,7 @@ class BookingVC: BaseViewController {
         }
         if let schedule = schedule {
             param.schedule_id = schedule.id
-            ConfirmVC.show(title: "Xác nhận", msg: "Bạn có chắc chắn thực hiện thao tác này?") {
+            ConfirmVC.show(viewController: self, title: "Xác nhận", msg: "Bạn có chắc chắn thực hiện thao tác này?") {
                 self.viewModel.updateSchedule(param: param) { success, msg in
                     if success {
                         AlertVC.show(viewController: self, msg: msg) {

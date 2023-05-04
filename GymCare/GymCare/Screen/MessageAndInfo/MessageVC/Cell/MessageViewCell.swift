@@ -20,13 +20,22 @@ class MessageViewCell: UITableViewCell {
         // Initialization code
     }
 
-    func fillData(data: TopicDetailModel) {
-        let owenr = data.owner
+    func fillData(data: Chat) {
+        let owenr = data.trainer
         avatarView.setupAvatarView(avatar: owenr?.avatar, gender: owenr?.gender)
-        nameTeacherLabel.text = data.name
-        dateLabel.text = data.insDatetime
-        titleInfoLabel.text = data.content
-//        isReadView.backgroundColor = data.isRead() ? UIColor.color_CBCBCB : UIColor.color_00BAFF
+        nameTeacherLabel.text = owenr?.name
+        dateLabel.text = formatDateString(dateString: castToString(data.insDatetime),
+                                          Constants.DATE_TIME_FORMAT,
+                                          Constants.DATE_FORMAT)
+        if dateLabel.text == Date().toString() {
+            dateLabel.text = "Hôm nay"
+        }
+        let beginMsg = "Gửi lời chào đến " + castToString(owenr?.name)
+        let isStartMsg = castToInt(data.lastMessage?.count) == 0
+        titleInfoLabel.text = isStartMsg ? beginMsg : data.lastMessage
+        titleInfoLabel.font = data.isRead() ? .Light(size: 12) : .Bold(size: 12)
+        isReadView.backgroundColor = data.isRead() ? UIColor.gray : UIColor.main_color
+        isReadView.isHidden = isStartMsg
     }
     
 }

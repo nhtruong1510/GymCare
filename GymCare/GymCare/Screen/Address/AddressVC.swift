@@ -93,6 +93,7 @@ extension AddressVC: CLLocationManagerDelegate {
         locationManager.stopUpdatingLocation()
         Constants.LONGTITUDE = userLocation.coordinate.longitude
         Constants.LATITUDE = userLocation.coordinate.latitude
+        tableView.reloadData()
     }
 
     private func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {

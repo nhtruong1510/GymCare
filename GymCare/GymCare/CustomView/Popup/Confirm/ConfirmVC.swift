@@ -47,10 +47,7 @@ class ConfirmVC: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    static func show(title: String?, msg: String?, titleButtonLeft: String? = "Xác nhận", titleButtonRight: String? = "Huỷ", completion:(() -> Void)? = nil) {
-        guard let viewController = UIApplication.shared.windows.first?.rootViewController else {
-            return
-        }
+    static func show(viewController: UIViewController, title: String?, msg: String?, titleButtonLeft: String? = "Xác nhận", titleButtonRight: String? = "Huỷ", completion:(() -> Void)? = nil) {
         let confirmVC = ConfirmVC(title: title, msg: msg, titleButtonLeft: titleButtonLeft, titleButtonRight: titleButtonRight)
         confirmVC.onClickConfirm = {
             if let completion = completion {

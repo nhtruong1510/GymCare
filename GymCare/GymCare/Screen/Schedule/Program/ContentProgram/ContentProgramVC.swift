@@ -24,7 +24,7 @@ class ContentProgramVC: BaseViewController {
     }
 
     private func fillData() {
-        imageView.loadImage(urlString: classModel.thump_img)
+        imageView.loadImage(urlString: classModel.image, access: "class")
         titleLabel.text = classModel.name
         if let current = classModel.currentParticipate, let max = classModel.maxParticipate {
             registerLabel.text = "Đã đăng ký: " + castToString(current) + "/" + castToString(max)
