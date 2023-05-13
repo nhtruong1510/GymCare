@@ -94,21 +94,21 @@ class HomeVC: BaseViewController {
             vc.listSearchData = classModel.classes ?? []
             self.nextScreen(ctrl: vc)
         }
-        if ServiceSettings.shared.listLastestSchedule.count > 0 {
-            notiView.isHidden = false
-            DispatchQueue.main.async {
-                self.notiView.reloadData(notis: ServiceSettings.shared.listLastestSchedule)
-            }
-        }
-        notiView.onClickNoti = { [weak self] notiId in
-            guard let `self` = self else  { return }
-            let vc = BookingVC()
-            self.nextScreen(ctrl: vc)
-        }
-        notiView.onClickMore = {
-            let response: [String: Int] = ["type": Constants.notification]
-            NotificationCenter.default.post(name: .GO_TAP_MESSAGE, object: nil, userInfo: response)
-        }
+//        if ServiceSettings.shared.listLastestSchedule.count > 0 {
+//            notiView.isHidden = false
+//            DispatchQueue.main.async {
+//                self.notiView.reloadData(notis: ServiceSettings.shared.listLastestSchedule)
+//            }
+//        }
+//        notiView.onClickNoti = { [weak self] notiId in
+//            guard let `self` = self else  { return }
+//            let vc = BookingVC()
+//            self.nextScreen(ctrl: vc)
+//        }
+//        notiView.onClickMore = {
+//            let response: [String: Int] = ["type": Constants.notification]
+//            NotificationCenter.default.post(name: .GO_TAP_MESSAGE, object: nil, userInfo: response)
+//        }
 
     }
 }

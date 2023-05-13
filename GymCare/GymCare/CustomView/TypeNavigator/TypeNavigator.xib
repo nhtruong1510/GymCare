@@ -92,10 +92,10 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gL4-cl-XOD">
-                                    <rect key="frame" x="50" y="0.0" width="314" height="44"/>
+                                    <rect key="frame" x="50" y="0.0" width="344" height="44"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aox-CI-DFA">
-                                            <rect key="frame" x="0.0" y="0.0" width="314" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="344" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="Fgc-fe-ozA"/>
                                             </constraints>
@@ -104,10 +104,10 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="STZ-tD-3SV">
-                                            <rect key="frame" x="0.0" y="0.0" width="314" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="344" height="44"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iIW-xe-Slb">
-                                                    <rect key="frame" x="10" y="0.0" width="275" height="44"/>
+                                                    <rect key="frame" x="10" y="0.0" width="305" height="44"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="textColor" name="color_1F2026"/>
                                                     <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
@@ -117,13 +117,14 @@
                                                     </connections>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFd-bu-PIk">
-                                                    <rect key="frame" x="285" y="15" width="14" height="14"/>
+                                                    <rect key="frame" x="315" y="15" width="14" height="14"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="14" id="9A4-ts-J7a"/>
                                                         <constraint firstAttribute="height" constant="14" id="pp3-l2-p9n"/>
                                                     </constraints>
+                                                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal" image="ic_close_grey"/>
+                                                    <state key="normal" image="xmark.circle.fill" catalog="system"/>
                                                     <connections>
                                                         <action selector="onClickCloseSearch:" destination="-1" eventType="touchUpInside" id="vI1-wC-FWj"/>
                                                     </connections>
@@ -158,14 +159,15 @@
                                         <constraint firstAttribute="trailing" secondItem="Aox-CI-DFA" secondAttribute="trailing" id="vMx-Dn-HWf"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UK4-RN-oUw">
-                                    <rect key="frame" x="364" y="0.0" width="30" height="44"/>
+                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UK4-RN-oUw">
+                                    <rect key="frame" x="394" y="0.0" width="30" height="44"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="moX-UG-uaO">
                                             <rect key="frame" x="0.0" y="0.0" width="30" height="44"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c1B-Gk-R00">
-                                                    <rect key="frame" x="3" y="10" width="24" height="24"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="c1B-Gk-R00">
+                                                    <rect key="frame" x="3" y="10.999999999999996" width="24" height="22.333333333333332"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="IaV-4k-ifo"/>
                                                         <constraint firstAttribute="width" constant="24" id="YTW-h8-f4f"/>
@@ -271,8 +273,9 @@
     </objects>
     <resources>
         <image name="ic_back" width="9" height="16"/>
-        <image name="ic_close_grey" width="14" height="14"/>
         <image name="ic_down_white" width="84" height="48"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <image name="xmark.circle.fill" catalog="system" width="128" height="123"/>
         <namedColor name="color_1F2026">
             <color red="0.12200000137090683" green="0.125" blue="0.14900000393390656" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

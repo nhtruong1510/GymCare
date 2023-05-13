@@ -24,6 +24,7 @@ class MessageAndInfoVC: BaseViewController {
         super.viewDidLoad()
         configUI()
         configNavigator()
+        touchOut()
         add(asChildViewController: messageVC)
     }
     

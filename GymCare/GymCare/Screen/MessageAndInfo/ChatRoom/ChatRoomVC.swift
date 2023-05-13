@@ -30,7 +30,7 @@ class ChatRoomVC: KUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
-        getChatDetail()
+        getChatDetail(showLoading: true)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -66,9 +66,9 @@ class ChatRoomVC: KUIViewController {
         }
     }
     
-    @objc private func getChatDetail() {
+    @objc private func getChatDetail(showLoading: Bool) {
         guard let idChat = idChat else { return }
-        viewModel.getChatDetail(id: idChat) { [weak self] data, msg in
+        viewModel.getChatDetail(showLoading: showLoading, id: idChat) { [weak self] data, msg in
             guard let `self` = self else { return }
             if let data = data, let messages = data.messages {
                 self.chatDetail = data

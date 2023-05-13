@@ -42,7 +42,13 @@ class ProgramViewCell: UITableViewCell {
     
     func fillDataEdit1(data: Schedule) {
         titleLabel.text = data.address?.address
-        let date = castToString(data.start_date) + " - " + castToString(data.end_date)
+        let startDate = formatDateString(dateString: castToString(data.start_date),
+                                         Constants.DATE_PARAM_FORMAT,
+                                         Constants.DATE_FORMAT)
+        let endDate = formatDateString(dateString: castToString(data.end_date),
+                                         Constants.DATE_PARAM_FORMAT,
+                                         Constants.DATE_FORMAT)
+        let date = castToString(startDate) + " - " + castToString(endDate)
         timeLabel.text = date
         widthConstrant.constant = 0
         registerLabel.isHidden = true

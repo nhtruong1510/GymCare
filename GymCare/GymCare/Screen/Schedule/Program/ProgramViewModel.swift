@@ -22,12 +22,24 @@ class ProgramViewModel: BaseViewModel {
             buffer.append(item)
         }
         for buffer in buffer {
-            let schedules = listSchedule.filter({$0.scheduleClass?.name == buffer.name})
+            var schedules = listSchedule.filter({$0.scheduleClass?.name == buffer.name})
+            schedules = filterExpiredSchedule(schedules: schedules)
             let schedule = ScheduleModel()
             schedule.schedules = schedules
-            listSchedules.append(schedule)
+            if castToInt(schedule.schedules?.count) > 0 {
+                listSchedules.append(schedule)
+            }
         }
         return listSchedules
+    }
+    
+    func filterExpiredSchedule(schedules: [Schedule]) -> [Schedule] {
+        var newSchedules: [Schedule] = []
+        for schedule in schedules {
+            schedule.date = schedule.date?.filter({$0.date?.formatToDate(Constants.DATE_PARAM_FORMAT) ?? Date() > Date()})
+        }
+        newSchedules = schedules.filter({castToInt($0.date?.count) > 0})
+        return newSchedules
     }
 }
 

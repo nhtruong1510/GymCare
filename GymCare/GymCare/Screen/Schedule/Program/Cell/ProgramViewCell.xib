@@ -60,6 +60,11 @@
                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="tko-K6-Del"/>
                             <constraint firstItem="pnl-c3-yHF" firstAttribute="leading" secondItem="l46-0I-b5C" secondAttribute="leading" constant="10" id="wO0-ml-1my"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Còn 10 suất" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jxx-3P-w4G">
                         <rect key="frame" x="285.66666666666669" y="62.333333333333343" width="49" height="12"/>
@@ -93,7 +98,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="no_image" width="864" height="587"/>
+        <image name="no_image" width="640" height="480"/>
         <namedColor name="Color 1">
             <color red="1" green="0.17599999904632568" blue="0.33300000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

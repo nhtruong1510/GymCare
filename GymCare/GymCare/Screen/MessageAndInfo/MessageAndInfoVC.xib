@@ -33,7 +33,7 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="typeShowSearchButton" value="NO"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="typeShowBackButton" value="NO"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="infoShowBackButton" value="NO"/>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isBackButton" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isBackButton" value="NO"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isSearchButton" value="YES"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="title" value="Chat"/>
                     </userDefinedRuntimeAttributes>

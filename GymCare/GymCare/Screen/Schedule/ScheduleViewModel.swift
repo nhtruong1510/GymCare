@@ -12,8 +12,8 @@ final class ScheduleViewModel: BaseViewModel {
     var schedules: [Schedule]?
     var dateElements: [DateElementSchedule] = []
 
-    func callApiGetSchedule(customerId: Int, completion: @escaping (String?) -> Void) {
-        self.repository.getSchedule(customerId: customerId) { data, msg in
+    func callApiGetSchedule(showLoading: Bool, customerId: Int, completion: @escaping (String?) -> Void) {
+        self.repository.getSchedule(showLoading: showLoading, customerId: customerId) { data, msg in
             if let msg = msg {
                 completion(msg)
             } else {
@@ -59,6 +59,8 @@ final class ScheduleViewModel: BaseViewModel {
                 listNextSchedule.append(futureTimes[1])
             }
             ServiceSettings.shared.listLastestSchedule = listNextSchedule
+        } else {
+            ServiceSettings.shared.listLastestSchedule.removeAll()
         }
         return times
     }

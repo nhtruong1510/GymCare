@@ -10,6 +10,8 @@ import UIKit
 //import zpdk
 
 class AppDelegate: NSObject, UIApplicationDelegate {
+    var window: UIWindow?
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
 //        ZaloPaySDK.sharedInstance()?.initWithAppId(2554, uriScheme: "gymcare://app", environment: .sandbox)
         return true

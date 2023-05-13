@@ -9,9 +9,8 @@ import Foundation
 
 final class MessageViewModel: BaseViewModel {
     
-    func getTopics(completion: @escaping (TopicModel?, String?) -> Void) {
-        self.repository.getTopics(customerId: castToInt(ServiceSettings.shared.userInfo?.id)) { [weak self] data, msg in
-            guard let `self` = self else { return }
+    func getTopics(showLoading: Bool, completion: @escaping (TopicModel?, String?) -> Void) {
+        self.repository.getTopics(showLoading: showLoading, customerId: castToInt(ServiceSettings.shared.userInfo?.id)) { data, msg in
             completion(data, msg)
         }
     }

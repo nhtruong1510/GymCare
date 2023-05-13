@@ -9,8 +9,8 @@ import UIKit
 
 final class ChatRoomViewModel: BaseViewModel {
     
-    func getChatDetail(id: Int, completion: @escaping (TopicDetailModel?, String?) -> Void) {
-        self.repository.getTopicDetail(id: id) { data, msg in
+    func getChatDetail(showLoading: Bool, id: Int, completion: @escaping (TopicDetailModel?, String?) -> Void) {
+        self.repository.getTopicDetail(showLoading: showLoading, id: id) { data, msg in
             completion(data, msg)
         }
     }

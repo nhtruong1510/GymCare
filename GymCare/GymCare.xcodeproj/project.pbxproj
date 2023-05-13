@@ -112,6 +112,7 @@
 		0774F28029A738D200DD0200 /* SearchDataVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0774F27C29A738D200DD0200 /* SearchDataVC.xib */; };
 		0774F28229A738FA00DD0200 /* RegionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0774F28129A738FA00DD0200 /* RegionObject.swift */; };
 		07843F7529D164F200FEBF43 /* CustomProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07843F7429D164F100FEBF43 /* CustomProgressHUD.swift */; };
+		0785D4552A0FF4EA002DACD3 /* UIWindow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0785D4542A0FF4EA002DACD3 /* UIWindow+Extension.swift */; };
 		07B1F05629B9B4E300DA417D /* AddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B1F05529B9B4E300DA417D /* AddressModel.swift */; };
 		07C46B3929B646F9001134AD /* ClassModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C46B3829B646F9001134AD /* ClassModel.swift */; };
 		07CA3E56299EA1B80042232A /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CA3E55299EA1B80042232A /* TabbarView.swift */; };
@@ -320,6 +321,7 @@
 		0774F27C29A738D200DD0200 /* SearchDataVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchDataVC.xib; sourceTree = "<group>"; };
 		0774F28129A738FA00DD0200 /* RegionObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionObject.swift; sourceTree = "<group>"; };
 		07843F7429D164F100FEBF43 /* CustomProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomProgressHUD.swift; sourceTree = "<group>"; };
+		0785D4542A0FF4EA002DACD3 /* UIWindow+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extension.swift"; sourceTree = "<group>"; };
 		07B1F05529B9B4E300DA417D /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
 		07C46B3829B646F9001134AD /* ClassModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassModel.swift; sourceTree = "<group>"; };
 		07CA3E55299EA1B80042232A /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
@@ -455,6 +457,7 @@
 				07FBD90929A53B1600DCB5F7 /* UserDefaults+Extension.swift */,
 				0717234D29A2684C0022E71B /* Color.swift */,
 				07DFC7EA29AB74F000AD7512 /* Color+Extension.swift */,
+				0785D4542A0FF4EA002DACD3 /* UIWindow+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1511,6 +1514,7 @@
 				07E8E09929A9CE5100AE3AB1 /* HomeViewModel.swift in Sources */,
 				07FBD87529A498A000DCB5F7 /* ChatRoomViewModel.swift in Sources */,
 				07FBD8CC29A537AA00DCB5F7 /* ResponseModel.swift in Sources */,
+				0785D4552A0FF4EA002DACD3 /* UIWindow+Extension.swift in Sources */,
 				07E8E0A029A9CE5100AE3AB1 /* ManagementView.swift in Sources */,
 				07E4058029ABC60500E7D757 /* CreateTargetViewModel.swift in Sources */,
 				07FBD89229A5370B00DCB5F7 /* Constants.swift in Sources */,

@@ -10,13 +10,13 @@ import Foundation
 class HomeViewModel: BaseViewModel {
 
     func callApiGetClasses(completion: @escaping (ClassModel?, String?) -> Void) {
-        self.repository.getClasses { data, msg in
+        self.repository.getClasses(showLoading: true) { data, msg in
             completion(data, msg)
         }
     }
     
     func callApiGetNews(completion: @escaping ([NewsModel]?, String?) -> Void) {
-        self.repository.getNews { data, msg in
+        self.repository.getNews(showLoading: true) { data, msg in
             completion(data, msg)
         }
     }

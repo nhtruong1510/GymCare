@@ -94,9 +94,9 @@
             filePath = "GymCare/Screen/Schedule/ScheduleVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "getSchedule()"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "getSchedule(showLoading:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

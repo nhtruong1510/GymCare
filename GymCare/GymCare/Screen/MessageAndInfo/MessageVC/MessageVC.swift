@@ -19,7 +19,7 @@ class MessageVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
-        getTopics()
+        getTopics(showLoading: true)
     }
 
     private func configUI() {
@@ -29,11 +29,11 @@ class MessageVC: BaseViewController {
     }
 
     @objc private func refresh(_ sender: AnyObject) {
-        self.getTopics()
+        self.getTopics(showLoading: false)
     }
 
-    private func getTopics() {
-        viewModel.getTopics() { [weak self] data, msg in
+    private func getTopics(showLoading: Bool) {
+        viewModel.getTopics(showLoading: showLoading) { [weak self] data, msg in
             guard let `self` = self else { return }
             if let data = data?.chats {
                 self.topics = data

@@ -11,13 +11,20 @@ import Moya
 import Alamofire
 
 class NetworkPlugin: PluginType {
+    var showLoading: Bool = true
 
+    init(showLoading: Bool) {
+        self.showLoading = showLoading
+    }
+    
     func willSend(_ request: RequestType, target: TargetType) {
-//        CustomProgressHUD.showProgress()
+        if showLoading {
+            CustomProgressHUD.showProgress()
+        }
     }
 
     func didReceive(_ result: Result<Response, MoyaError>, target: TargetType) {
-//        CustomProgressHUD.dismissProgress()
+        CustomProgressHUD.dismissProgress()
         switch result {
         case .failure(let error):
             switch error {
@@ -62,7 +69,13 @@ private func JSONResponseDataFormatter(_ data: Data) -> String {
     }
 }
 
-let NetworkManager = MoyaProvider<APIRouter>(plugins: [NetworkPlugin(), NetworkLoggerPlugin(configuration: .init(formatter: .init(responseData: JSONResponseDataFormatter),logOptions: .verbose))])
+public class NetworkManager {
+    var moyaProvider = MoyaProvider<APIRouter>()
+
+    init(showLoading: Bool? = true) {
+        moyaProvider = MoyaProvider<APIRouter>(plugins: [NetworkPlugin(showLoading: showLoading!), NetworkLoggerPlugin(configuration: .init(formatter: .init(responseData: JSONResponseDataFormatter), logOptions: .verbose))])
+    }
+}
 
 enum APIRouter {
     case register(String, String, String)

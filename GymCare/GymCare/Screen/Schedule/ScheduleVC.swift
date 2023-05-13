@@ -23,6 +23,7 @@ class ScheduleVC: BaseViewController {
     private let viewModel = ScheduleViewModel()
     private let userInfo = ServiceSettings.shared.userInfo
     private var times: [Time] = []
+    private var isInit: Bool = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,12 @@ class ScheduleVC: BaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        getSchedule()
+        if isInit {
+            getSchedule(showLoading: true)
+            isInit = false
+        } else {
+            getSchedule(showLoading: false)
+        }
     }
     
     private func configUI() {
@@ -45,11 +51,11 @@ class ScheduleVC: BaseViewController {
     }
     
     @objc private func refresh(_ sender: AnyObject) {
-        getSchedule()
+        getSchedule(showLoading: false)
     }
     
-    func getSchedule() {
-        viewModel.callApiGetSchedule(customerId: castToInt(userInfo?.id)) { msg in
+    func getSchedule(showLoading: Bool) {
+        viewModel.callApiGetSchedule(showLoading: showLoading, customerId: castToInt(userInfo?.id)) { msg in
             if let msg = msg {
                 AlertVC.show(viewController: self, msg: msg)
             } else {
