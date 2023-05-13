@@ -67,6 +67,7 @@ public class ServiceSettings {
 
     func clearUserInfo() {
         ServiceSettings.shared.userInfo = nil
+        ServiceSettings.shared.listLastestSchedule.removeAll()
 //        AppDelegate.shared.setRootVC()
     }
 

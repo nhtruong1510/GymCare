@@ -7,16 +7,19 @@
 
 import SwiftUI
 import UIKit
-import zpdk
+//import zpdk
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        ZaloPaySDK.sharedInstance()?.initWithAppId(2554, uriScheme: "gymcare://app", environment: .sandbox)
+//        ZaloPaySDK.sharedInstance()?.initWithAppId(2554, uriScheme: "gymcare://app", environment: .sandbox)
         return true
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        return ZaloPaySDK.sharedInstance().application(app, open: url, sourceApplication:"vn.com.vng.zalopay", annotation: nil)
+        NotificationCenter.default.post(name: .RELOAD_PAYMENT_SCREEN, object: nil)
+
+        return true
+//        return ZaloPaySDK.sharedInstance().application(app, open: url, sourceApplication:"vn.com.vng.zalopay", annotation: nil)
     }
 }
 
@@ -25,12 +28,18 @@ struct GymCareApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     var body: some Scene {
         WindowGroup {
-            if ServiceSettings.shared.userInfo != nil {
-                TabbarView()
-                    .preferredColorScheme(.light)
-            } else {
-                ContentView()
-                    .preferredColorScheme(.light)
+            Group {
+                if ServiceSettings.shared.userInfo != nil {
+                    TabbarView()
+                        .preferredColorScheme(.light)
+                } else {
+                    ContentView()
+                        .preferredColorScheme(.light)
+                }
+            }
+            .onOpenURL { url in
+                NotificationCenter.default.post(name: .RELOAD_PAYMENT_SCREEN, object: nil)
+
             }
             
         }

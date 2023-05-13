@@ -50,7 +50,7 @@ class NotificationVC: BaseViewController {
 
     private func showDetail(noti: NotifiObject, index: Int) {
         if noti.status == TypeStatus.acceptCreate.rawValue {
-            let vc = PaymentVC()
+            let vc = PaymentVC1()
             let notify = listNotifi[index]
             let param = ScheduleParamObject(customer_id: castToInt(ServiceSettings.shared.userInfo?.id),
                                             address_id: castToInt(notify.address?.id),
@@ -60,9 +60,12 @@ class NotificationVC: BaseViewController {
                                             start_date: castToString(notify.start_date),
                                             end_date: castToString(notify.end_date),
                                             time: castToString(notify.time),
+                                            date_id: notify.date_id,
+                                            time_id: notify.time_id,
                                             money: notify.money)
             vc.param = param
             vc.address = listNotifi[index].address ?? Address()
+//            vc.classModel = listNotifi[index].classModel ?? ClassModel()
             nextScreen(ctrl: vc)
             return
         }

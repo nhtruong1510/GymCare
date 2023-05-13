@@ -92,6 +92,7 @@ enum APIRouter {
     case createTarget(TargetParamObject)
     case updateTarget(TargetParamObject)
     case news
+    case check(Int, String)
 
 }
 
@@ -127,6 +128,7 @@ extension APIRouter: TargetType {
         case .chatMessage: return EndPointURL.GET_TOPIC_DETAIL
         case .getTarget, .createTarget, .updateTarget: return EndPointURL.TARGET
         case .news: return EndPointURL.NEWS
+        case .check: return EndPointURL.CHECK
 
         }
     }
@@ -135,7 +137,7 @@ extension APIRouter: TargetType {
         switch self {
         case .login, .resetPass, .updatePass, .changePass, .chatMessage,
                 .createSchedule, .createNoti, .updateStatusNoti, .createTarget,
-                .register, .editProfile:
+                .register, .editProfile, .check:
             return .post
         case .updateSchedule, .updateTarget:
             return .put
@@ -206,6 +208,8 @@ extension APIRouter: TargetType {
             return .requestParameters(parameters: ["customer_id": customer_id], encoding: URLEncoding.queryString)
         case .getTarget(let customer_id):
             return .requestParameters(parameters: ["customer_id": customer_id], encoding: URLEncoding.queryString)
+        case .check(let vnp_Amount, let vnp_ExpireDate):
+            return .requestParameters(parameters: ["vnp_Amount": vnp_Amount, "vnp_ExpireDate": vnp_ExpireDate], encoding: JSONEncoding.default)
         default:
             return .requestPlain
         }

@@ -47,6 +47,18 @@ final class PaymentViewModel: BaseViewModel {
         }
     }
     
+    func check(vnp_Amount: Int, vnp_ExpireDate: String, completion: @escaping (String?, String?) -> Void) {
+        self.repository.check(vnp_Amount: vnp_Amount, vnp_ExpireDate: vnp_ExpireDate) { success, msg in
+            completion(success, msg)
+        }
+    }
+    
+    func callApiGetPayment(customerId: Int, completion: @escaping (PaymentModel?, String?) -> Void) {
+        self.repository.getPayment(customerId: customerId) { data, msg in
+            completion(data, msg)
+        }
+    }
+    
     func setTokenZLP(amount: String?, completion: @escaping (String?) -> Void) {
 
         let currentDate = Date()

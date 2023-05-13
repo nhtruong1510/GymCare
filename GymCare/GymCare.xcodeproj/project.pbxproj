@@ -135,8 +135,6 @@
 		07E4058B29ABD12800E7D757 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E4058A29ABD12800E7D757 /* UIFont+Extension.swift */; };
 		07E8E04129A7DB6300AE3AB1 /* SearchViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07E8E03F29A7DB6300AE3AB1 /* SearchViewCell.xib */; };
 		07E8E04229A7DB6300AE3AB1 /* SearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E8E04029A7DB6300AE3AB1 /* SearchViewCell.swift */; };
-		07E8E04629A7E31D00AE3AB1 /* PaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E8E04429A7E31D00AE3AB1 /* PaymentVC.swift */; };
-		07E8E04729A7E31D00AE3AB1 /* PaymentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07E8E04529A7E31D00AE3AB1 /* PaymentVC.xib */; };
 		07E8E04B29A7E36000AE3AB1 /* InfoTrainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E8E04929A7E36000AE3AB1 /* InfoTrainerVC.swift */; };
 		07E8E04C29A7E36000AE3AB1 /* InfoTrainerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07E8E04A29A7E36000AE3AB1 /* InfoTrainerVC.xib */; };
 		07E8E05729A88F8100AE3AB1 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E8E05629A88F8100AE3AB1 /* PaymentViewModel.swift */; };
@@ -166,6 +164,10 @@
 		07E8E0A629A9CE5100AE3AB1 /* BannerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07E8E09629A9CE5100AE3AB1 /* BannerViewCell.xib */; };
 		07E8E0A729A9CE5100AE3AB1 /* BannerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E8E09729A9CE5100AE3AB1 /* BannerViewCell.swift */; };
 		07E8E0A829A9CE5100AE3AB1 /* BannerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07E8E09829A9CE5100AE3AB1 /* BannerView.xib */; };
+		07FAC5AD2A080FFD00687AAD /* PaymentViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07FAC5AC2A080FFD00687AAD /* PaymentViewController.storyboard */; };
+		07FAC5B32A081A2400687AAD /* CallAppSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07373E322A07ACBF00A94106 /* CallAppSDK.framework */; };
+		07FAC5C02A08207300687AAD /* PaymentVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FAC5BE2A08207300687AAD /* PaymentVC1.swift */; };
+		07FAC5C12A08207300687AAD /* PaymentVC1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07FAC5BF2A08207300687AAD /* PaymentVC1.xib */; };
 		07FBD87329A498A000DCB5F7 /* ChatRoomVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07FBD87029A498A000DCB5F7 /* ChatRoomVC.xib */; };
 		07FBD87429A498A000DCB5F7 /* ChatRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBD87129A498A000DCB5F7 /* ChatRoomVC.swift */; };
 		07FBD87529A498A000DCB5F7 /* ChatRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBD87229A498A000DCB5F7 /* ChatRoomViewModel.swift */; };
@@ -239,6 +241,7 @@
 		0728DA7B29EE5175006571FF /* GymCare-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GymCare-Bridging-Header.h"; sourceTree = "<group>"; };
 		072CA7E0299BF2D700D473DA /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
 		072CA7E2299BF89700D473DA /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		07373E322A07ACBF00A94106 /* CallAppSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CallAppSDK.framework; sourceTree = "<group>"; };
 		0739AADB29BB3B62005E94D9 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
 		0739AADC29BB3B62005E94D9 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
 		0739AADD29BB3B62005E94D9 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
@@ -341,8 +344,6 @@
 		07E4058A29ABD12800E7D757 /* UIFont+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		07E8E03F29A7DB6300AE3AB1 /* SearchViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewCell.xib; sourceTree = "<group>"; };
 		07E8E04029A7DB6300AE3AB1 /* SearchViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewCell.swift; sourceTree = "<group>"; };
-		07E8E04429A7E31D00AE3AB1 /* PaymentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentVC.swift; sourceTree = "<group>"; };
-		07E8E04529A7E31D00AE3AB1 /* PaymentVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentVC.xib; sourceTree = "<group>"; };
 		07E8E04929A7E36000AE3AB1 /* InfoTrainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTrainerVC.swift; sourceTree = "<group>"; };
 		07E8E04A29A7E36000AE3AB1 /* InfoTrainerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoTrainerVC.xib; sourceTree = "<group>"; };
 		07E8E05629A88F8100AE3AB1 /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
@@ -372,6 +373,9 @@
 		07E8E09629A9CE5100AE3AB1 /* BannerViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BannerViewCell.xib; sourceTree = "<group>"; };
 		07E8E09729A9CE5100AE3AB1 /* BannerViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerViewCell.swift; sourceTree = "<group>"; };
 		07E8E09829A9CE5100AE3AB1 /* BannerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BannerView.xib; sourceTree = "<group>"; };
+		07FAC5AC2A080FFD00687AAD /* PaymentViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaymentViewController.storyboard; sourceTree = "<group>"; };
+		07FAC5BE2A08207300687AAD /* PaymentVC1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentVC1.swift; sourceTree = "<group>"; };
+		07FAC5BF2A08207300687AAD /* PaymentVC1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentVC1.xib; sourceTree = "<group>"; };
 		07FBD87029A498A000DCB5F7 /* ChatRoomVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatRoomVC.xib; sourceTree = "<group>"; };
 		07FBD87129A498A000DCB5F7 /* ChatRoomVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomVC.swift; sourceTree = "<group>"; };
 		07FBD87229A498A000DCB5F7 /* ChatRoomViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomViewModel.swift; sourceTree = "<group>"; };
@@ -420,6 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07CD55FC29FEA9C000A910D5 /* zpdk.framework in Frameworks */,
+				07FAC5B32A081A2400687AAD /* CallAppSDK.framework in Frameworks */,
 				002DCFAA67E2F62E9051B5E5 /* Pods_GymCare.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -575,6 +580,7 @@
 		0739AAEA29BB3BE4005E94D9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				07373E322A07ACBF00A94106 /* CallAppSDK.framework */,
 				07CD55FB29FEA9C000A910D5 /* zpdk.framework */,
 				671D79514AC0214C9BE1A7C8 /* Pods_GymCare.framework */,
 			);
@@ -915,9 +921,10 @@
 		07E8E04329A7E2FF00AE3AB1 /* Payment */ = {
 			isa = PBXGroup;
 			children = (
-				07E8E04429A7E31D00AE3AB1 /* PaymentVC.swift */,
-				07E8E04529A7E31D00AE3AB1 /* PaymentVC.xib */,
+				07FAC5BE2A08207300687AAD /* PaymentVC1.swift */,
+				07FAC5BF2A08207300687AAD /* PaymentVC1.xib */,
 				07E8E05629A88F8100AE3AB1 /* PaymentViewModel.swift */,
+				07FAC5AC2A080FFD00687AAD /* PaymentViewController.storyboard */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -1297,13 +1304,14 @@
 				07E8E0A829A9CE5100AE3AB1 /* BannerView.xib in Resources */,
 				07E8E09F29A9CE5100AE3AB1 /* NotiView.xib in Resources */,
 				0774F23829A685D500DD0200 /* OtherVC.xib in Resources */,
-				07E8E04729A7E31D00AE3AB1 /* PaymentVC.xib in Resources */,
 				075FFD8E29ACBC4E00EC5D7C /* ProgramViewCell.xib in Resources */,
 				0774F26029A6871C00DD0200 /* SFProDisplay-Light.ttf in Resources */,
 				07E8E07729A92EBA00AE3AB1 /* CreateTargetVC.xib in Resources */,
 				07DFC7E929AB635B00AD7512 /* DateHeader.xib in Resources */,
+				07FAC5AD2A080FFD00687AAD /* PaymentViewController.storyboard in Resources */,
 				0774F1BD29A67A1200DD0200 /* MessageAndInfoVC.xib in Resources */,
 				07E8E0A629A9CE5100AE3AB1 /* BannerViewCell.xib in Resources */,
+				07FAC5C12A08207300687AAD /* PaymentVC1.xib in Resources */,
 				0774F26329A6871C00DD0200 /* SFProDisplay-Bold.ttf in Resources */,
 				07255EF429D0899800157732 /* PaymentViewCell.xib in Resources */,
 				07E8E04C29A7E36000AE3AB1 /* InfoTrainerVC.xib in Resources */,
@@ -1433,7 +1441,6 @@
 				07E8E04229A7DB6300AE3AB1 /* SearchViewCell.swift in Sources */,
 				07FBD88929A5328800DCB5F7 /* ServiceSettings.swift in Sources */,
 				07CA3E64299EA6C80042232A /* ChatView.swift in Sources */,
-				07E8E04629A7E31D00AE3AB1 /* PaymentVC.swift in Sources */,
 				07C46B3929B646F9001134AD /* ClassModel.swift in Sources */,
 				07FBD89329A5370B00DCB5F7 /* Config.swift in Sources */,
 				07E8E05729A88F8100AE3AB1 /* PaymentViewModel.swift in Sources */,
@@ -1481,6 +1488,7 @@
 				07FBD90129A53A8D00DCB5F7 /* OwnerMessageDetailCell.swift in Sources */,
 				07FBD89429A5370B00DCB5F7 /* Enum.swift in Sources */,
 				076754D42998013A005FC40A /* GymCareApp.swift in Sources */,
+				07FAC5C02A08207300687AAD /* PaymentVC1.swift in Sources */,
 				075229C12A01276600BA7DFE /* PagingCollectionViewLayout.swift in Sources */,
 				071437F129AC778C0050C71B /* PitDefaultButton.swift in Sources */,
 				07E8E0A229A9CE5100AE3AB1 /* ManagementViewCell.swift in Sources */,
@@ -1677,7 +1685,7 @@
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "GymCare/Lib/CompressImage/GymCare-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1698,7 +1706,6 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				EXCLUDED_ARCHS = "";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GymCare/Screen/Schedule/Program/ContentProgram",
@@ -1736,7 +1743,7 @@
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "GymCare/Lib/CompressImage/GymCare-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

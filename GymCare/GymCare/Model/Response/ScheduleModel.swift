@@ -29,9 +29,13 @@ class Schedule: Codable {
     var day: String?
     var start_date: String?
     var end_date: String?
+    var change_number: Int?
+    var date_id: Int?
+    var time_id: Int?
 
     enum CodingKeys: String, CodingKey {
-        case id, date, trainer, address, time, day, start_date, end_date
+        case id, date, trainer, address, time, day, start_date, end_date,
+             change_number, date_id, time_id
         case scheduleClass = "class"
     }
 

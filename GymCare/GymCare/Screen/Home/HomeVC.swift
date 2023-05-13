@@ -10,6 +10,7 @@ import SwiftUI
 
 class HomeVC: BaseViewController {
 
+    @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var stackView: UIStackView!
     @IBOutlet private weak var avatarStudentView: AvatarView!
     @IBOutlet private weak var nameStudentLabel: UILabel!
@@ -17,7 +18,6 @@ class HomeVC: BaseViewController {
     @IBOutlet private weak var totalNotiUnreadView: UIView!
 
     private let viewModel = HomeViewModel()
-
     private lazy var bannerView = BannerView()
     private lazy var managementView = ManagementView()
     private lazy var notiView = NotiView()
@@ -55,14 +55,15 @@ class HomeVC: BaseViewController {
 
     private func configUI() {
         stackView.addArrangedSubview(bannerView)
-//        bannerView.isHidden = true
+        bannerView.isHidden = true
         stackView.addArrangedSubview(notiView)
-//        notiView.isHidden = true
+        notiView.isHidden = true
         stackView.addArrangedSubview(managementView)
-//        managementView.isHidden = true
+        managementView.isHidden = true
         fillData(classModel: ClassModel())
         avatarStudentView.setupAvatarView(avatar: userInfo?.avatar, gender: userInfo?.gender)
         nameStudentLabel.text = userInfo?.name
+        
     }
 
     private func setupNavi() {
@@ -93,7 +94,12 @@ class HomeVC: BaseViewController {
             vc.listSearchData = classModel.classes ?? []
             self.nextScreen(ctrl: vc)
         }
-        notiView.isHidden = false
+        if ServiceSettings.shared.listLastestSchedule.count > 0 {
+            notiView.isHidden = false
+            DispatchQueue.main.async {
+                self.notiView.reloadData(notis: ServiceSettings.shared.listLastestSchedule)
+            }
+        }
         notiView.onClickNoti = { [weak self] notiId in
             guard let `self` = self else  { return }
             let vc = BookingVC()
@@ -103,9 +109,7 @@ class HomeVC: BaseViewController {
             let response: [String: Int] = ["type": Constants.notification]
             NotificationCenter.default.post(name: .GO_TAP_MESSAGE, object: nil, userInfo: response)
         }
-        DispatchQueue.main.async {
-            self.notiView.reloadData(notis: ServiceSettings.shared.listLastestSchedule)
-        }
+
     }
 }
 

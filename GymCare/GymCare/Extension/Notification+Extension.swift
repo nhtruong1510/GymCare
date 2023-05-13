@@ -8,8 +8,8 @@
 import Foundation
 
 extension Notification.Name {
-    static let RELOAD_ALBUM_SCREEN = Notification.Name("RELOAD_ALBUM_SCREEN")
-    static let RELOAD_ALBUM_DETAIL_SCREEN = Notification.Name("RELOAD_ALBUM_DETAIL_SCREEN")
+    static let RELOAD_PAYMENT_SCREEN = Notification.Name("RELOAD_PAYMENT_SCREEN")
+    static let RELOAD_HEALTH_SCREEN = Notification.Name("RELOAD_HEALTH_SCREEN")
     static let GO_TAP_ALBUM = Notification.Name("GO_TAP_ALBUM")
     static let GO_TAP_IN_OUT = Notification.Name("GO_TAP_IN_OUT")
     static let GO_TAP_MESSAGE = Notification.Name("GO_TAP_MESSAGE")

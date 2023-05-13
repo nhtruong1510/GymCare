@@ -33,9 +33,12 @@ class NotifiObject: Codable {
     var status: Int?
     var money: Int?
     var schedule_id: Int?
+    var date_id: Int?
+    var time_id: Int?
 
     enum CodingKeys: String, CodingKey {
-        case id, content, is_read, date_create, start_date, end_date, time, day, address, customer, status, trainer, money, schedule_id
+        case id, content, is_read, date_create, start_date, end_date, time, day,
+             address, customer, status, trainer, money, schedule_id, date_id, time_id
         case classModel = "class"
     }
 

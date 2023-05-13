@@ -9,5 +9,6 @@
 #define GymCare_Bridging_Header_h
 
 #import "ImageCompresor.h"
+#import <CallAppSDK/CallAppInterface.h>
 
 #endif /* GymCare_Bridging_Header_h */

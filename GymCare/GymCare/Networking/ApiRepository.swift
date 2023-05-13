@@ -457,4 +457,17 @@ class ApiRepository: IApiRepository {
             }
         }
     }
+    
+    func check(vnp_Amount: Int, vnp_ExpireDate: String, completion: @escaping (String?, String?) -> Void) {
+        NetworkManager.request(.check(vnp_Amount, vnp_ExpireDate)) { result in
+            switch result {
+            case .success(let res):
+                if let response = try? JSONDecoder().decode(ResponsePaymentModel<String>.self, from: res.data) {
+                    completion(response.message, response.data)
+                }
+            case .failure(let err):
+                completion(nil, err.localizedDescription)
+            }
+        }
+    }
 }

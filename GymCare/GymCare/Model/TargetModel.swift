@@ -40,6 +40,9 @@ class TargetList {
     var activity: [(step: Double, date: String)] = []
     var sleep: [(sleep: Double, date: String)] = []
     var walkNumber: [(step: Double, date: String)] = []
+    var heartRate: [Double] = []
+    var distance: [(step: Double, date: String)] = []
+
     var date: String = ""
 
     init() {}

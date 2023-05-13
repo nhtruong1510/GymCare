@@ -12,6 +12,8 @@ import HealthKit
 
 class HealthVC: BaseViewController {
     
+    @IBOutlet private weak var scrollView: UIScrollView!
+    @IBOutlet private weak var targetView: UIView!
     @IBOutlet private weak var runSlider: CircularSlider!
     @IBOutlet private weak var runLabel: UILabel!
     @IBOutlet private weak var sleepSlider: CircularSlider!
@@ -27,6 +29,7 @@ class HealthVC: BaseViewController {
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var prevButton: UIButton!
     @IBOutlet private weak var nextButton: UIButton!
+    @IBOutlet private weak var targetButton: UIButton!
 
     private let viewModel = HealthViewModel()
     private let userHealthProfile = UserHealthProfile()
@@ -41,12 +44,15 @@ class HealthVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
+        getDataTarget()
         authorizeHealthKit()
+        configUI()
+
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        configUI()
+        loadInfoHealth(target: target?.target)
     }
     
     private func configUI() {
@@ -61,8 +67,9 @@ class HealthVC: BaseViewController {
         activitySlider.minimumValue = 0.0
         activitySlider.maximumValue = 1.0
         activitySlider.endPointValue = 0.0
-        
-        getDataTarget()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.getDataTarget), name: .RELOAD_HEALTH_SCREEN, object: nil)
+        scrollView.refreshControl = UIRefreshControl()
+        scrollView.refreshControl?.addTarget(self, action: #selector(self.getDataTarget), for: .valueChanged)
     }
     
     private func authorizeHealthKit() {
@@ -88,7 +95,7 @@ class HealthVC: BaseViewController {
     }
     
     private func updateCompleteTarget() {
-        completeLabel.text = "Bạn đã hoàn thành \(completeRun + completeSleep + completeActivity)/3 mục tiêu trong hôm nay"
+        completeLabel.text = "Bạn đã hoàn thành \(completeRun + completeSleep + completeActivity)/3 mục tiêu trong ngày \(castToString(dateLabel.text))"
     }
     
     private func resetCompleteTarget() {
@@ -105,6 +112,7 @@ class HealthVC: BaseViewController {
                 dateLabel.text = "Hôm nay"
             }
             self.runLabel.text = castToString(castToInt(listTarget.walkNumber[index].step))
+            self.run1Label.text = castToString(castToInt(listTarget.walkNumber[index].step))
             if castToInt(target?.target?.walkNumber) != 0 {
                 self.runSlider.endPointValue = CGFloat(listTarget.walkNumber[index].step/castToDouble(target?.target?.walkNumber))
                 self.completeRun = self.runSlider.endPointValue == 1 ? 1 : 0
@@ -112,7 +120,7 @@ class HealthVC: BaseViewController {
         }
 
         if index < listTarget.activity.count {
-            self.activityLabel.text = castToString(listTarget.activity[index].step)
+            self.activityLabel.text = castToString(castToInt(listTarget.activity[index].step))
             if castToInt(target?.target?.distance) != 0 {
                 self.activitySlider.endPointValue = CGFloat(castToDouble(listTarget.activity[index].step)/castToDouble(target?.target?.distance))
                 self.completeActivity = self.activitySlider.endPointValue == 1 ? 1 : 0
@@ -121,13 +129,25 @@ class HealthVC: BaseViewController {
         }
 
         if index < listTarget.sleep.count {
-            self.sleepLabel.text = castToString(castToInt(listTarget.sleep[index].sleep))
+            self.sleepLabel.text = castToString(listTarget.sleep[index].sleep.rounded(toPlaces: 1))
             if castToInt(target?.target?.sleep) != 0 {
                 self.sleepSlider.endPointValue = CGFloat(castToDouble(listTarget.sleep[index].sleep)/castToDouble(target?.target?.sleep))
                 self.completeSleep = self.sleepSlider.endPointValue == 1 ? 1 : 0
                 self.updateCompleteTarget()
             }
+            let sleep = self.listTarget.sleep[index].sleep
+            let minute = sleep.truncatingRemainder(dividingBy: 1)
+            self.sleep1Label.text = castToString(castToInt(sleep))
+            self.sleepMinuteLabel.text = castToString(castToInt(minute*60))
             updateCompleteTarget()
+        }
+        
+        if index < listTarget.distance.count {
+            self.distanceLabel.text = castToString(listTarget.distance[index].step.rounded(toPlaces: 2))
+        }
+        
+        if index < listTarget.heartRate.count {
+            self.heartLabel.text = castToString(castToInt(listTarget.heartRate[index]))
         }
     }
     
@@ -156,9 +176,9 @@ class HealthVC: BaseViewController {
     private func loadInfoHealth(target: Target?) {
         let healthStore = HKHealthStore()
         
-        if let target = target {
-            let startDate = Date().addingTimeInterval(-3600 * 24 * 7)
-            let endDate = Date()
+        if target != nil || target == nil {
+            let startDate = Date().addingTimeInterval(3600 * 7).addingTimeInterval(-3600 * 24 * 7)
+            let endDate = Date().addingTimeInterval(3600 * 7)
             
             let predicate = HKQuery.predicateForSamples(
                 withStart: startDate,
@@ -172,7 +192,7 @@ class HealthVC: BaseViewController {
             
             // start from midnight
             let calendar = Calendar.current
-            let anchorDate = calendar.date(bySettingHour: 12, minute: 0, second: 0, of: Date())
+            let anchorDate = calendar.date(bySettingHour: 12, minute: 0, second: 0, of: Date().addingTimeInterval(3600 * 7))
             
             let query = HKStatisticsCollectionQuery(
                 quantityType: HKSampleType.quantityType(forIdentifier: .stepCount)!,
@@ -197,6 +217,11 @@ class HealthVC: BaseViewController {
                                                                date:  castToString(result.startDate.toString(Constants.DATE_FORMAT))))
                             if self.listTarget.walkNumber.count == 8 {
                                 DispatchQueue.main.async {
+//                                    if self.listTarget.walkNumber[7].date != Date().toString() {
+//                                        self.listTarget.walkNumber.append((step: castToDouble(castToString(self.run1Label.text)) ,
+//                                                                        date: Date().toString()))
+//                                    }
+                                    self.run1Label.text = castToString(castToInt(self.listTarget.walkNumber[7].step))
                                     self.setTargetView()
                                 }
                             }
@@ -240,6 +265,69 @@ class HealthVC: BaseViewController {
 
             healthStore.execute(query1)
             
+            let query2 = HKStatisticsCollectionQuery(
+                quantityType: HKSampleType.quantityType(forIdentifier: .distanceWalkingRunning)!,
+                quantitySamplePredicate: predicate,
+                options: .cumulativeSum,
+                anchorDate: anchorDate!,
+                intervalComponents: interval
+            )
+            
+            query2.initialResultsHandler = { query, results, error in
+                guard let results = results else {
+                    return
+                }
+
+                results.enumerateStatistics(
+                    from: startDate,
+                    to: endDate,
+                    with: { (result, stop) in
+                        let totalStepForADay = result.sumQuantity()?.doubleValue(for: HKUnit.mile()) ?? 0
+                        if self.listTarget.distance.firstIndex(where: {$0.date == result.startDate.toString(Constants.DATE_FORMAT)}) == nil {
+                            self.listTarget.distance.append((step: totalStepForADay,
+                                                               date:  castToString(result.startDate.toString(Constants.DATE_FORMAT))))
+                            if self.listTarget.distance.count == 8 {
+                                DispatchQueue.main.async {
+                                    self.setTargetView()
+                                }
+                            }
+                        }
+                    }
+                )
+            }
+
+            healthStore.execute(query2)
+            
+            let query3 = HKStatisticsCollectionQuery(
+                quantityType: HKSampleType.quantityType(forIdentifier: .heartRate)!,
+                quantitySamplePredicate: predicate,
+                options: .discreteAverage,
+                anchorDate: anchorDate!,
+                intervalComponents: interval
+            )
+            query3.initialResultsHandler = { query, results, error in
+                guard let results = results else {
+                    return
+                }
+
+                results.enumerateStatistics(
+                    from: startDate,
+                    to: endDate,
+                    with: { (result, stop) in
+                        let totalStepForADay = result.sumQuantity()?.doubleValue(for: HKUnit(from: "count/min")) ?? 0
+//                        if self.listTarget.heartRate.firstIndex(where: {$0.date == result.startDate.toString(Constants.DATE_FORMAT)}) == nil {
+//                            self.listTarget.heartRate.append((step: totalStepForADay,
+//                                                               date:  castToString(result.startDate.toString(Constants.DATE_FORMAT))))
+//                            if self.listTarget.heartRate.count == 8 {
+//                                DispatchQueue.main.async {
+//                                    self.setTargetView()
+//                                }
+//                            }
+//                        }
+                    }
+                )
+            }
+            healthStore.execute(query3)
         }
         
         let date =  Date()
@@ -248,41 +336,41 @@ class HealthVC: BaseViewController {
         
         let predicate = HKQuery.predicateForSamples(withStart: newDate, end: Date(), options: .strictStartDate)
         
-        if let type = HKSampleType.quantityType(forIdentifier: .distanceWalkingRunning) {
-            let query = HKStatisticsQuery(quantityType: type, quantitySamplePredicate: predicate, options: [.cumulativeSum]) { (query, statistics, error) in
-                var value: Double = 0
-                
-                if error != nil {
-                    print("something went wrong")
-                } else if let quantity = statistics?.sumQuantity() {
-                    value = quantity.doubleValue(for: HKUnit.mile())
-                    DispatchQueue.main.async {
-                        self.distanceLabel.text = castToString(value.rounded(toPlaces: 2))
-                    }
-                }
-            }
-            healthStore.execute(query)
-        }
+//        if let type = HKSampleType.quantityType(forIdentifier: .distanceWalkingRunning) {
+//            let query = HKStatisticsQuery(quantityType: type, quantitySamplePredicate: predicate, options: [.cumulativeSum]) { (query, statistics, error) in
+//                var value: Double = 0
+//
+//                if error != nil {
+//                    print("something went wrong")
+//                } else if let quantity = statistics?.sumQuantity() {
+//                    value = quantity.doubleValue(for: HKUnit.mile())
+//                    DispatchQueue.main.async {
+//                        self.distanceLabel.text = castToString(value.rounded(toPlaces: 2))
+//                    }
+//                }
+//            }
+//            healthStore.execute(query)
+//        }
         
-        if let type = HKSampleType.quantityType(forIdentifier: .stepCount) {
-            let query = HKStatisticsQuery(quantityType: type, quantitySamplePredicate: predicate, options: [.cumulativeSum]) { (query, statistics, error) in
-                var value: Double = 0
-
-                if error != nil {
-                    print("something went wrong")
-                } else if let quantity = statistics?.sumQuantity() {
-                    value = quantity.doubleValue(for: HKUnit.count())
-                    DispatchQueue.main.async {
-                        self.run1Label.text = castToString(castToInt(value))
-                    }
-                }
-            }
-            healthStore.execute(query)
-        }
+//        if let type = HKSampleType.quantityType(forIdentifier: .stepCount) {
+//            let query = HKStatisticsQuery(quantityType: type, quantitySamplePredicate: predicate, options: [.cumulativeSum]) { (query, statistics, error) in
+//                var value: Double = 0
+//
+//                if error != nil {
+//                    print("something went wrong")
+//                } else if let quantity = statistics?.sumQuantity() {
+//                    value = quantity.doubleValue(for: HKUnit.count())
+//                    DispatchQueue.main.async {
+//                        self.run1Label.text = castToString(castToInt(value))
+//                    }
+//                }
+//            }
+//            healthStore.execute(query)
+//        }
         
         if let type = HKQuantityType.quantityType(forIdentifier: .heartRate) {
             let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
-            let query = HKSampleQuery(sampleType: type, predicate: nil, limit: 25, sortDescriptors: [sortDescriptor]) { (query, results, error) -> Void in
+            let query = HKSampleQuery(sampleType: type, predicate: nil, limit: 8, sortDescriptors: [sortDescriptor]) { (query, results, error) -> Void in
                 var value: Double = 0
 
                 if let error = error {
@@ -291,9 +379,7 @@ class HealthVC: BaseViewController {
                     for (_, sample) in results!.enumerated() {
                         if let quantity = sample as? HKQuantitySample {
                             value = quantity.quantity.doubleValue(for: HKUnit(from: "count/min"))
-                            DispatchQueue.main.async {
-                                self.heartLabel.text = castToString(castToInt(value))
-                            }
+                            self.listTarget.heartRate.append(value)
                         }
                     }
                 }
@@ -301,9 +387,10 @@ class HealthVC: BaseViewController {
             healthStore.execute(query)
         }
         
+        
         if let sleepType = HKObjectType.categoryType(forIdentifier: HKCategoryTypeIdentifier.sleepAnalysis) {
             let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
-            let start = Date().addingTimeInterval(-3600 * 24 * 7)
+            let start = Date().addingTimeInterval(-3600 * 24 * 8)
             let end = Date()
             
             let predicate = HKQuery.predicateForSamples(
@@ -326,17 +413,22 @@ class HealthVC: BaseViewController {
                         let minute = (sleepTimeForOneDay/3600).truncatingRemainder(dividingBy: 1)
                         DispatchQueue.main.asyncAfter(deadline: .now()) {
                             if self.listTarget.sleep.firstIndex(where: {$0.date == startDate.toString(Constants.DATE_FORMAT)}) == nil &&
-                                sleepTimeForOneDay/3600 > 1 {
+                                sleepTimeForOneDay/3600 > 2 {
                                 self.listTarget.sleep.append((sleep: (sleepTimeForOneDay/3600),
                                                                    date:  castToString(startDate.toString(Constants.DATE_FORMAT))))
                                 if self.listTarget.sleep.count == 8 {
+                                    self.listTarget.sleep = self.listTarget.sleep.reversed()
                                     DispatchQueue.main.async {
                                         self.setTargetView()
                                     }
                                 }
                             }
-                            self.sleep1Label.text = castToString(castToInt(sleepTimeForOneDay/3600))
-                            self.sleepMinuteLabel.text = castToString(castToInt(minute*60))
+                            if self.listTarget.sleep.count > 0 {
+                                let sleep = self.listTarget.sleep[self.listTarget.sleep.count - 1].sleep
+                                let minute = sleep.truncatingRemainder(dividingBy: 1)
+                                self.sleep1Label.text = castToString(castToInt(sleep))
+                                self.sleepMinuteLabel.text = castToString(castToInt(minute*60))
+                            }
                         }
                     }
                 }
@@ -357,15 +449,24 @@ class HealthVC: BaseViewController {
         
     }
     
-    private func getDataTarget() {
+    @objc private func refresh(_: AnyObject) {
+        getDataTarget()
+    }
+    
+    @objc private func getDataTarget() {
         viewModel.callApiGetTrainer(customerId: castToInt(userInfo?.id)) { [weak self] result, error in
             guard let `self` = self else { return }
             if let error = error {
                 AlertVC.show(viewController: self, msg: error)
                 return
             }
+            let titleButton = result?.target == nil ? "Tạo mục tiêu" : "Sửa mục tiêu"
             self.target = result
             self.loadInfoHealth(target: result?.target)
+            self.setTargetView()
+            self.targetButton.setTitle(titleButton, for: .normal)
+            self.targetView.isHidden = result?.target == nil
+            self.scrollView.refreshControl?.endRefreshing()
         }
     }
 }

@@ -41,7 +41,7 @@ struct RegisterView: View {
                     TextField("Nhập email hoặc số điện thoại", text: $phone)
                         .textFieldStyle(CustomTextField(systemImageString: "envelope.fill"))
                         .padding(.bottom)
-                    TextField("Nhập tên đăng nhập", text: $name)
+                    TextField("Nhập họ tên", text: $name)
                         .textFieldStyle(CustomTextField(systemImageString: "person.fill"))
                         .padding(.bottom)
                     SecureField("Nhập mật khẩu", text: $password)

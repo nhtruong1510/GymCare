@@ -25,9 +25,9 @@ class AddressViewCell: UITableViewCell {
         if let current = data.addressClass?.currentParticipate, let max = data.addressClass?.maxParticipate {
 //            registerButton.backgroundColor = current == max ? .lightGray : .color_46C0FF
             registerLabel.text = "Còn " + castToString(max - current) + " suất"
-            registerLabel.isHidden = false
+//            registerLabel.isHidden = false
         } else {
-            registerLabel.isHidden = true
+//            registerLabel.isHidden = true
         }
         if let lattitude = data.lattitude, let longitude = data.longitude {
             let distance = getDistance(lat1: Constants.LATITUDE, lon1: Constants.LONGTITUDE, lat2: lattitude, lon2: longitude, unit: "K")

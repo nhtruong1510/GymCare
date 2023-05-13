@@ -15,6 +15,7 @@ struct Constants {
     static let MAX_UPLOAD_IMAGE: Float = 2.0
     static let DEALY_TIME = DispatchTimeInterval.seconds(1)
     static let DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss"
+    static let DATE_TIME_FORMAT_IMAGE = "yyyyMMddHHmmss"
     static let DATE_MONTH_FORMAT = "dd/MM"
     static let DATE_FORMAT = "dd/MM/yyyy"
     static let DATE_FORMAT_2 = "yyyy/MM/dd"
@@ -78,6 +79,7 @@ struct EndPointURL {
     static let PAYMENT: String = versionJson + "payment" + Constants.SUFFIX_JSON
     static let TARGET: String = versionJson + "target" + Constants.SUFFIX_JSON
     static let NEWS: String = versionJson + "news" + Constants.SUFFIX_JSON
+    static let CHECK: String = versionJson + "check" + Constants.SUFFIX_JSON
 
 }
 

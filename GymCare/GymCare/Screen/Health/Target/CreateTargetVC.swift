@@ -23,6 +23,7 @@ class CreateTargetVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
+        touchOut()
         self.fillData()
     }
 
@@ -123,6 +124,7 @@ class CreateTargetVC: BaseViewController {
             ConfirmVC.show(viewController: self, title: "Xác nhận", msg: "Bạn có chắc chắn thực hiện thao tác này?") {
                 self.viewModel.updateTarget(param: param) { success, msg in
                     if success {
+                        NotificationCenter.default.post(name: .RELOAD_HEALTH_SCREEN, object: nil)
                         AlertVC.show(viewController: self, msg: msg) {
                             self.onClick?()
                             self.backScreen()
@@ -136,6 +138,7 @@ class CreateTargetVC: BaseViewController {
             ConfirmVC.show(viewController: self, title: "Xác nhận", msg: "Bạn có chắc chắn thực hiện thao tác này?") {
                 self.viewModel.createTarget(param: param) { success, msg in
                     if success {
+                        NotificationCenter.default.post(name: .RELOAD_HEALTH_SCREEN, object: nil)
                         AlertVC.show(viewController: self, msg: msg) {
                             self.onClick?()
                             self.backScreen()

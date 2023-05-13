@@ -18,6 +18,7 @@ class BookingVC: BaseViewController {
     @IBOutlet private weak var choosePTView: UIView!
     @IBOutlet private weak var avatarView: AvatarView!
     @IBOutlet private weak var namePTLabel: UILabel!
+    @IBOutlet private weak var changeNumberLabel: UILabel!
 
     private let viewModel = BookingViewModel()
     private var districtCode: String? = nil
@@ -93,6 +94,8 @@ class BookingVC: BaseViewController {
                 }
             }
         }
+        changeNumberLabel.text = "Bạn còn \(castToString(4-castToInt(schedule?.change_number))) lần thay đổi lịch tập này"
+        changeNumberLabel.isHidden = schedule == nil || schedule?.trainer == nil
     }
 
     private func fillData() {
@@ -125,6 +128,8 @@ class BookingVC: BaseViewController {
                                         start_date: fromDatePickerView.value,
                                         end_date: toDatePickerView.value,
                                         time: timePickerView.value,
+                                        date_id: day?._id,
+                                        time_id: time?._id,
                                         money: address.addressClass?.money,
                                         method: 0, status: status)
         param.start_date = formatDateString(dateString: castToString(param.start_date), Constants.DATE_FORMAT, Constants.DATE_PARAM_FORMAT)
@@ -132,6 +137,12 @@ class BookingVC: BaseViewController {
         if (trainer != nil) || schedule?.trainer != nil {
             param.is_create = schedule == nil ? 0 : 1
             param.schedule_id = schedule?.id
+            if day == nil {
+                param.date_id = schedule?.date_id
+            }
+            if time == nil {
+                param.time_id = schedule?.time_id
+            }
             ConfirmVC.show(viewController: self, title: "Xác nhận", msg: "Bạn có chắc chắn thực hiện thao tác này?") {
                 self.viewModel.createNoti(param: param) { success, msg in
                     if success {
@@ -160,7 +171,7 @@ class BookingVC: BaseViewController {
             }
             return
         }
-        let vc = PaymentVC()
+        let vc = PaymentVC1()
         vc.address = address
         vc.param = param
         self.nextScreen(ctrl: vc)

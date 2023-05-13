@@ -87,6 +87,7 @@
                 <outlet property="registerView" destination="l46-0I-b5C" id="nnP-Bk-HIt"/>
                 <outlet property="timeLabel" destination="pnl-c3-yHF" id="0ZI-zm-8iJ"/>
                 <outlet property="titleLabel" destination="2rF-KY-WHt" id="U2Y-2P-OrI"/>
+                <outlet property="widthConstrant" destination="f04-rR-0KN" id="cIE-Gc-k5w"/>
             </connections>
             <point key="canvasLocation" x="68.702290076335871" y="11.971830985915494"/>
         </tableViewCell>

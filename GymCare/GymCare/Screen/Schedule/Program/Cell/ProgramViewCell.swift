@@ -14,6 +14,7 @@ class ProgramViewCell: UITableViewCell {
     @IBOutlet private weak var registerLabel: UILabel!
     @IBOutlet private weak var registerView: UIView!
     @IBOutlet private weak var timeLabel: UILabel!
+    @IBOutlet private weak var widthConstrant: NSLayoutConstraint!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,7 +35,7 @@ class ProgramViewCell: UITableViewCell {
     
     func fillDataEdit(data: ScheduleModel) {
         titleLabel.text = castToInt(data.schedules?.count) > 0 ? data.schedules?[0].scheduleClass?.name : nil
-        iconImageView.isHidden = true
+        widthConstrant.constant = 0
         registerLabel.isHidden = true
         registerView.isHidden = true
     }
@@ -43,7 +44,7 @@ class ProgramViewCell: UITableViewCell {
         titleLabel.text = data.address?.address
         let date = castToString(data.start_date) + " - " + castToString(data.end_date)
         timeLabel.text = date
-        iconImageView.isHidden = true
+        widthConstrant.constant = 0
         registerLabel.isHidden = true
         registerView.isHidden = false
     }
