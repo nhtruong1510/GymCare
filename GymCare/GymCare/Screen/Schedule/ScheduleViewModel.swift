@@ -52,6 +52,10 @@ final class ScheduleViewModel: BaseViewModel {
             time.date = date
             times.append(time)
         }
+        times = times.sorted(by: {
+            castToInt($0.time?.components(separatedBy: ":")[0]) <
+                castToInt($1.time?.components(separatedBy: ":")[0])
+        })
         let futureTimes = times.filter({castToString($0.date).formatToDate(Constants.DATE_PARAM_FORMAT) >= Date()})
         if futureTimes.count > 0 {
             var listNextSchedule: [Time] = [futureTimes[0]]

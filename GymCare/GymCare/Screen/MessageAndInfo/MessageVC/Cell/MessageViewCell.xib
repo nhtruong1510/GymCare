@@ -74,12 +74,22 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ViK-Ox-dJi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="113"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <connections>
+                            <action selector="onClickMessage" destination="KGk-i7-Jjw" eventType="touchUpInside" id="JVK-G0-ikH"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="d3L-fR-w0E" firstAttribute="top" secondItem="u6E-1E-36e" secondAttribute="top" id="KsF-dE-fFi"/>
+                    <constraint firstItem="ViK-Ox-dJi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="KyK-WZ-9fp"/>
+                    <constraint firstAttribute="trailing" secondItem="ViK-Ox-dJi" secondAttribute="trailing" id="Ter-nw-Vqn"/>
                     <constraint firstItem="IgD-Mf-brM" firstAttribute="top" secondItem="edQ-FN-YEe" secondAttribute="bottom" constant="10" id="WB4-cP-hGG"/>
                     <constraint firstItem="IgD-Mf-brM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="YhN-B3-odv"/>
                     <constraint firstItem="d3L-fR-w0E" firstAttribute="leading" secondItem="u6E-1E-36e" secondAttribute="trailing" constant="10" id="aoB-di-jwb"/>
+                    <constraint firstItem="IgD-Mf-brM" firstAttribute="top" secondItem="ViK-Ox-dJi" secondAttribute="bottom" id="cTl-MI-KgA"/>
                     <constraint firstItem="u6E-1E-36e" firstAttribute="leading" secondItem="bjA-r5-wQP" secondAttribute="trailing" constant="10" id="csv-2N-ExH"/>
                     <constraint firstAttribute="trailing" secondItem="C2H-3M-DCA" secondAttribute="trailing" constant="20" id="eP5-Co-eyx"/>
                     <constraint firstItem="bjA-r5-wQP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="fnZ-DH-o8Y"/>
@@ -91,6 +101,7 @@
                     <constraint firstItem="u6E-1E-36e" firstAttribute="centerY" secondItem="bjA-r5-wQP" secondAttribute="centerY" id="nbB-6Y-EBy"/>
                     <constraint firstItem="edQ-FN-YEe" firstAttribute="top" secondItem="bjA-r5-wQP" secondAttribute="bottom" constant="8" id="qIU-yK-rk6"/>
                     <constraint firstAttribute="bottom" secondItem="IgD-Mf-brM" secondAttribute="bottom" id="uzn-L9-v8h"/>
+                    <constraint firstItem="ViK-Ox-dJi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="vZW-ud-59v"/>
                     <constraint firstItem="edQ-FN-YEe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="wKK-Rg-b4g"/>
                 </constraints>
             </tableViewCellContentView>

@@ -54,6 +54,7 @@ class BookingVC: BaseViewController {
         
         addressPickerView.value = address.address
         self.listDay = viewModel.setListRegion(data: address.addressClass?.date)
+        
         dayPickerView.onClickShowPopup = { [weak self] in
             guard let `self` = self, self.listDay.count > 0 else {
                 return
@@ -77,8 +78,12 @@ class BookingVC: BaseViewController {
                 AlertVC.show(viewController: self, msg: "Vui lòng chọn ngày tập")
                 return
             }
+            let times = self.listTime.sorted(by: {
+                castToInt($0.name?.components(separatedBy: ":")[0]) <
+                    castToInt($1.name?.components(separatedBy: ":")[0])
+            })
             self.showPopupSearchData(title: "Chọn thời điểm tập",
-                                     dataSource: self.listTime,
+                                     dataSource: times,
                                      selectedData: self.time) { [weak self] data in
                 guard let `self` = self else { return }
                 self.time = data
@@ -99,21 +104,19 @@ class BookingVC: BaseViewController {
     }
 
     private func fillData() {
-        if schedule != nil {
-            fromDatePickerView.editingIsAllow = false
-            toDatePickerView.editingIsAllow = false
-            fromDatePickerView.value = formatDateString(dateString: castToString(schedule?.start_date), Constants.DATE_PARAM_FORMAT, Constants.DATE_FORMAT)
-            toDatePickerView.value = formatDateString(dateString: castToString(schedule?.end_date), Constants.DATE_PARAM_FORMAT, Constants.DATE_FORMAT)
-            timePickerView.value = schedule?.time
-            dayPickerView.value = schedule?.day
-            choosePTView.isHidden = schedule?.trainer == nil
-            self.avatarView.setupAvatarView(avatar: schedule?.trainer?.avatar, gender: schedule?.trainer?.gender)
-            self.namePTLabel.text = schedule?.trainer?.name
-        }
-//        timePickerView.value = timeSelected
-//        if let date = address.addressClass?.date, date.count > 0 {
-//            dayPickerView.value = date[0].day
-//        }
+        guard let schedule = schedule else { return }
+        fromDatePickerView.editingIsAllow = false
+        toDatePickerView.editingIsAllow = false
+        fromDatePickerView.value = formatDateString(dateString: castToString(schedule.start_date), Constants.DATE_PARAM_FORMAT, Constants.DATE_FORMAT)
+        toDatePickerView.value = formatDateString(dateString: castToString(schedule.end_date), Constants.DATE_PARAM_FORMAT, Constants.DATE_FORMAT)
+        timePickerView.value = schedule.time
+        self.dateAddress = self.address.addressClass?.date?.filter({$0.day == schedule.day}).first
+        listTime = self.viewModel.setListRegion(data: self.dateAddress?.time)
+        day = RegionObject(id: schedule.date_id, name: schedule.day)
+        dayPickerView.value = schedule.day
+        choosePTView.isHidden = schedule.trainer == nil
+        self.avatarView.setupAvatarView(avatar: schedule.trainer?.avatar, gender: schedule.trainer?.gender)
+        self.namePTLabel.text = schedule.trainer?.name
     }
     
     @IBAction private func onClickSubmit(_ sender: UIButton) {
@@ -147,7 +150,7 @@ class BookingVC: BaseViewController {
                 self.viewModel.createNoti(param: param) { success, msg in
                     if success {
                         AlertVC.show(viewController: self, msg: msg) {
-                            self.backScreen()
+                            self.backToRootScreen()
                         }
                     } else {
                         AlertVC.show(viewController: self, msg: msg)

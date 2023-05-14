@@ -102,17 +102,15 @@ class PaymentVC1: BaseViewController {
     }
     
     @objc func createPayment() {
-//        ConfirmVC.show(viewController: self, title: "Xác nhận", msg: "Bạn có chắc chắn thực hiện thao tác này?") {
-            self.viewModel.createSchedule(param: self.param) { success, msg in
-                if success {
-                    AlertVC.show(viewController: self, msg: msg) {
-                        self.backScreen()
-                    }
-                } else {
-                    AlertVC.show(viewController: self, msg: msg)
+        self.viewModel.createSchedule(param: self.param) { success, msg in
+            if success {
+                AlertVC.show(viewController: self, msg: msg) {
+                    self.backToRootScreen()
                 }
+            } else {
+                AlertVC.show(viewController: self, msg: msg)
             }
-//        }
+        }
     }
     
     func installSandbox() {
@@ -177,60 +175,6 @@ class PaymentVC1: BaseViewController {
         let isSandbox = false //bắt buộc, YES <=> môi trường test, NO <=> môi trường live
         let paymentUrl = paymentUrl //@"https://sandbox.vnpayment.vn/tryitnow/Home/CreateOrder"; //bắt buộc, VNPAY cung cấp
         let tmn_code = "GJU252Q5" //bắt buộc, VNPAY cung cấp
-
-//        let vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html"
-//        let vnp_Returnurl = "https://localhost/vnpay_php/vnpay_return.php"
-//        let tmn_code = "GJU252Q5" //bắt buộc, VNPAY cung cấp
-//        let vnp_HashSecret = "VYOWUPSBQSMPAABYHFNGWSMCKXAYRHWW" //Chuỗi bí mật
-//        let vnp_TxnRef = paymentId //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này
-        let vnp_OrderInfo = "Thanh toan goi tap" //\(castToString(classModel.))";
-////        let vnp_OrderType = $_POST['order_type'];
-        let vnp_Amount = castToInt(param.money) * 100
-//        let vnp_Locale = "vn";
-//        let vnp_BankCode = "NCB";
-//        let vnp_IpAddr = castToString(getWiFiAddress());
-//        //Add Params of 2.0.1 Version
-//        let vnp_CreateDate = Date().toString(Constants.DATE_TIME_FORMAT_IMAGE) ?? ""
-        let vnp_ExpireDate = Date().addingTimeInterval(3600).toString(Constants.DATE_TIME_FORMAT_IMAGE) ?? ""
-//
-//        let inputData: [(key: String, value: Any)] = [
-//            (key: "vnp_Amount", value: vnp_Amount),
-//            (key: "vnp_Command", value: "pay"),
-//            (key: "vnp_CurrCode", value: "VND"),
-//            (key: "vnp_CreateDate", value: vnp_CreateDate),
-//            (key: "vnp_ExpireDate", value: vnp_ExpireDate),
-//            (key: "vnp_IpAddr", value: vnp_IpAddr),
-//            (key: "vnp_Locale", value: vnp_Locale),
-//            (key: "vnp_OrderInfo", value: vnp_OrderInfo),
-//            (key: "vnp_ReturnUrl", value: vnp_Returnurl),
-//            (key: "vnp_TmnCode", value: tmn_code),
-//            (key: "vnp_TxnRef", value: vnp_TxnRef),
-//            (key: "vnp_Version", value: "2.1.0"),
-//        ]
-//        //            "vnp_OrderType" : vnp_OrderType,
-//
-//        var hashdata = ""
-//        var query = ""
-//        var i = 0
-//        for input in inputData {
-//            if (i == 1) {
-//                hashdata += "&\(input.key)=\(input.value)"
-//            } else {
-//                hashdata += "\(input.key)=\(input.value)"
-//                i = 1
-//            }
-//            query += "\(input.key)=\(input.value)&";
-//        }
-////        hashdata = castToString(hashdata.dropLast())
-//        print(hashdata)
-//        let fromVC = self //bắt buộc
-//        let scheme = "gymcare" //bắt buộc, tên scheme bạn tự đặt theo app
-//        let isSandbox = true //bắt buộc, YES <=> môi trường test, NO <=> môi trường live
-//        var paymentUrl = "\(vnp_Url)?\(query)"
-//        print(paymentUrl) //bắt buộc, VNPAY cung cấp
-//        let vnp_SecureHash = hashdata.hmac(algorithm: .SHA256, key: vnp_HashSecret)
-//        paymentUrl += "vnp_SecureHash=\(vnp_SecureHash)"
-//        print(paymentUrl)
         let backAction = true //bắt buộc, YES <=> bấm back sẽ thoát SDK, NO <=> bấm back thì trang web sẽ back lại trang trước đó, nên set là YES, nên set là YES, vì trang thanh toán không nên cho người dùng back về trang trước
         let backAlert = "" //không bắt buộc, thông báo khi người dùng bấm back
         let title = "VNPAY" //bắt buộc, title của trang thanh toán

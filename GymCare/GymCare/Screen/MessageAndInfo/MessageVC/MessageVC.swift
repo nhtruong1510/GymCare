@@ -60,17 +60,20 @@ extension MessageVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = MessageViewCell.dequeueReuse(tableView: tableView)
         cell.fillData(data: topics[indexPath.row])
+        cell.onClick = {
+            let vc = ChatRoomVC()
+            vc.idChat = self.topics[indexPath.row].id
+            vc.trainer = self.topics[indexPath.row].trainer
+            self.nextScreen(ctrl: vc)
+            self.topics[indexPath.row].isReadCustomer = 1
+            tableView.reloadData()
+        }
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let vc = ChatRoomVC()
-        vc.idChat = self.topics[indexPath.row].id
-        vc.trainer = self.topics[indexPath.row].trainer
-        self.nextScreen(ctrl: vc)
-        topics[indexPath.row].isReadCustomer = 1
-        tableView.reloadData()
+
     }
 
 }
