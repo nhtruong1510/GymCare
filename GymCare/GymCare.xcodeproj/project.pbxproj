@@ -113,6 +113,8 @@
 		0774F28229A738FA00DD0200 /* RegionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0774F28129A738FA00DD0200 /* RegionObject.swift */; };
 		07843F7529D164F200FEBF43 /* CustomProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07843F7429D164F100FEBF43 /* CustomProgressHUD.swift */; };
 		0785D4552A0FF4EA002DACD3 /* UIWindow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0785D4542A0FF4EA002DACD3 /* UIWindow+Extension.swift */; };
+		07AA73352A13365E00A0133F /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AA73342A13365E00A0133F /* Firebase.swift */; };
+		07AA73372A133B3B00A0133F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07AA73362A133B3B00A0133F /* GoogleService-Info.plist */; };
 		07B1F05629B9B4E300DA417D /* AddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B1F05529B9B4E300DA417D /* AddressModel.swift */; };
 		07C46B3929B646F9001134AD /* ClassModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C46B3829B646F9001134AD /* ClassModel.swift */; };
 		07CA3E56299EA1B80042232A /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CA3E55299EA1B80042232A /* TabbarView.swift */; };
@@ -322,6 +324,8 @@
 		0774F28129A738FA00DD0200 /* RegionObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionObject.swift; sourceTree = "<group>"; };
 		07843F7429D164F100FEBF43 /* CustomProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomProgressHUD.swift; sourceTree = "<group>"; };
 		0785D4542A0FF4EA002DACD3 /* UIWindow+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extension.swift"; sourceTree = "<group>"; };
+		07AA73342A13365E00A0133F /* Firebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
+		07AA73362A133B3B00A0133F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		07B1F05529B9B4E300DA417D /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
 		07C46B3829B646F9001134AD /* ClassModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassModel.swift; sourceTree = "<group>"; };
 		07CA3E55299EA1B80042232A /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
@@ -446,6 +450,7 @@
 		0717234C29A2683E0022E71B /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				07AA73342A13365E00A0133F /* Firebase.swift */,
 				0739AAF629BB7424005E94D9 /* Double+Extension.swift */,
 				07E4058A29ABD12800E7D757 /* UIFont+Extension.swift */,
 				07FBD90829A53B1600DCB5F7 /* Date+Extension.swift */,
@@ -671,6 +676,7 @@
 			isa = PBXGroup;
 			children = (
 				07DDEE3229FEC05C0055D1C9 /* Info.plist */,
+				07AA73362A133B3B00A0133F /* GoogleService-Info.plist */,
 				0774F25729A6870A00DD0200 /* Resource */,
 				07FBD8ED29A5388600DCB5F7 /* Common */,
 				07FBD88E29A5370B00DCB5F7 /* Constant */,
@@ -1288,6 +1294,7 @@
 				07FBD87329A498A000DCB5F7 /* ChatRoomVC.xib in Resources */,
 				07E8E09D29A9CE5100AE3AB1 /* NotiViewCell.xib in Resources */,
 				071C766A29C784DB003587AE /* NotificationVC.xib in Resources */,
+				07AA73372A133B3B00A0133F /* GoogleService-Info.plist in Resources */,
 				07DFC7E529AB634300AD7512 /* DateCell.xib in Resources */,
 				071C766C29C784DB003587AE /* NotificationViewCell.xib in Resources */,
 				0774F26129A6871C00DD0200 /* SFProDisplay-Regular.ttf in Resources */,
@@ -1452,6 +1459,7 @@
 				07255EEF29D0880100157732 /* ListPaymentViewModel.swift in Sources */,
 				07FBD90229A53A8D00DCB5F7 /* TeacherMessageDetailCell.swift in Sources */,
 				07FBD91929A53BC300DCB5F7 /* ImagePickerView.swift in Sources */,
+				07AA73352A13365E00A0133F /* Firebase.swift in Sources */,
 				0704FEA729DB3B8B004D5DA5 /* TargetModel.swift in Sources */,
 				07FBD88829A5328800DCB5F7 /* AlertManager.swift in Sources */,
 				0753A62829AA1D7E00853301 /* MenuItemModel.swift in Sources */,

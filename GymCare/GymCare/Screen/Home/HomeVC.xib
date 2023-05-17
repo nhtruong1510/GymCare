@@ -112,7 +112,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fYu-X3-eVK">
                             <rect key="frame" x="329" y="7" width="30" height="30"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_notification" translatesAutoresizingMaskIntoConstraints="NO" id="rWz-wG-VgZ">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rWz-wG-VgZ">
                                     <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                 </imageView>
                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sas-a8-BNv">
@@ -223,7 +223,6 @@
         </view>
     </objects>
     <resources>
-        <image name="ic_notification" width="72" height="72"/>
         <namedColor name="color_7ECEF6">
             <color red="0.49399998784065247" green="0.80800002813339233" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

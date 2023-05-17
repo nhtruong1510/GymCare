@@ -11,9 +11,23 @@ import UIKit
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     var window: UIWindow?
+    
+    static var shared: AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
+
+    var topMost: UIViewController? {
+        var topController = window?.rootViewController
+
+        while let presentedController = topController?.presentedViewController {
+            topController = presentedController
+        }
+
+        return topController
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-//        ZaloPaySDK.sharedInstance()?.initWithAppId(2554, uriScheme: "gymcare://app", environment: .sandbox)
+        firebase(application)
         return true
     }
     

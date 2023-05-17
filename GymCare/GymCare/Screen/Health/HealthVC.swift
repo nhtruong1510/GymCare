@@ -117,6 +117,7 @@ class HealthVC: BaseViewController {
                 self.runSlider.endPointValue = CGFloat(listTarget.walkNumber[index].step/castToDouble(target?.target?.walkNumber))
                 self.completeRun = self.runSlider.endPointValue == 1 ? 1 : 0
             }
+            self.updateCompleteTarget()
         }
 
         if index < listTarget.activity.count {
@@ -133,7 +134,6 @@ class HealthVC: BaseViewController {
             if castToInt(target?.target?.sleep) != 0 {
                 self.sleepSlider.endPointValue = CGFloat(castToDouble(listTarget.sleep[index].sleep)/castToDouble(target?.target?.sleep))
                 self.completeSleep = self.sleepSlider.endPointValue == 1 ? 1 : 0
-                self.updateCompleteTarget()
             }
             let sleep = self.listTarget.sleep[index].sleep
             let minute = sleep.truncatingRemainder(dividingBy: 1)
@@ -177,8 +177,8 @@ class HealthVC: BaseViewController {
         let healthStore = HKHealthStore()
         
         if target != nil || target == nil {
-            let startDate = Date().addingTimeInterval(3600 * 7).addingTimeInterval(-3600 * 24 * 7)
-            let endDate = Date().addingTimeInterval(3600 * 7)
+            let startDate = Date().addingTimeInterval(-3600 * 24 * 7)
+            let endDate = Date()
             
             let predicate = HKQuery.predicateForSamples(
                 withStart: startDate,
@@ -192,7 +192,7 @@ class HealthVC: BaseViewController {
             
             // start from midnight
             let calendar = Calendar.current
-            let anchorDate = calendar.date(bySettingHour: 12, minute: 0, second: 0, of: Date().addingTimeInterval(3600 * 7))
+            let anchorDate = calendar.date(bySettingHour: 12, minute: 0, second: 0, of: Date())
             
             let query = HKStatisticsCollectionQuery(
                 quantityType: HKSampleType.quantityType(forIdentifier: .stepCount)!,
@@ -216,14 +216,8 @@ class HealthVC: BaseViewController {
                             self.listTarget.walkNumber.append((step: totalStepForADay,
                                                                date:  castToString(result.startDate.toString(Constants.DATE_FORMAT))))
                             if self.listTarget.walkNumber.count == 8 {
-                                DispatchQueue.main.async {
-//                                    if self.listTarget.walkNumber[7].date != Date().toString() {
-//                                        self.listTarget.walkNumber.append((step: castToDouble(castToString(self.run1Label.text)) ,
-//                                                                        date: Date().toString()))
-//                                    }
-                                    self.run1Label.text = castToString(castToInt(self.listTarget.walkNumber[7].step))
-                                    self.setTargetView()
-                                }
+                                self.setTodayStep()
+
                             }
                         }
                     }
@@ -287,9 +281,8 @@ class HealthVC: BaseViewController {
                             self.listTarget.distance.append((step: totalStepForADay,
                                                                date:  castToString(result.startDate.toString(Constants.DATE_FORMAT))))
                             if self.listTarget.distance.count == 8 {
-                                DispatchQueue.main.async {
-                                    self.setTargetView()
-                                }
+                                self.setTodayDistance()
+
                             }
                         }
                     }
@@ -305,68 +298,7 @@ class HealthVC: BaseViewController {
                 anchorDate: anchorDate!,
                 intervalComponents: interval
             )
-            query3.initialResultsHandler = { query, results, error in
-                guard let results = results else {
-                    return
-                }
-
-                results.enumerateStatistics(
-                    from: startDate,
-                    to: endDate,
-                    with: { (result, stop) in
-                        let totalStepForADay = result.sumQuantity()?.doubleValue(for: HKUnit(from: "count/min")) ?? 0
-//                        if self.listTarget.heartRate.firstIndex(where: {$0.date == result.startDate.toString(Constants.DATE_FORMAT)}) == nil {
-//                            self.listTarget.heartRate.append((step: totalStepForADay,
-//                                                               date:  castToString(result.startDate.toString(Constants.DATE_FORMAT))))
-//                            if self.listTarget.heartRate.count == 8 {
-//                                DispatchQueue.main.async {
-//                                    self.setTargetView()
-//                                }
-//                            }
-//                        }
-                    }
-                )
-            }
-            healthStore.execute(query3)
         }
-        
-        let date =  Date()
-        let cal = Calendar(identifier: Calendar.Identifier.gregorian)
-        let newDate = cal.startOfDay(for: date)
-        
-        let predicate = HKQuery.predicateForSamples(withStart: newDate, end: Date(), options: .strictStartDate)
-        
-//        if let type = HKSampleType.quantityType(forIdentifier: .distanceWalkingRunning) {
-//            let query = HKStatisticsQuery(quantityType: type, quantitySamplePredicate: predicate, options: [.cumulativeSum]) { (query, statistics, error) in
-//                var value: Double = 0
-//
-//                if error != nil {
-//                    print("something went wrong")
-//                } else if let quantity = statistics?.sumQuantity() {
-//                    value = quantity.doubleValue(for: HKUnit.mile())
-//                    DispatchQueue.main.async {
-//                        self.distanceLabel.text = castToString(value.rounded(toPlaces: 2))
-//                    }
-//                }
-//            }
-//            healthStore.execute(query)
-//        }
-        
-//        if let type = HKSampleType.quantityType(forIdentifier: .stepCount) {
-//            let query = HKStatisticsQuery(quantityType: type, quantitySamplePredicate: predicate, options: [.cumulativeSum]) { (query, statistics, error) in
-//                var value: Double = 0
-//
-//                if error != nil {
-//                    print("something went wrong")
-//                } else if let quantity = statistics?.sumQuantity() {
-//                    value = quantity.doubleValue(for: HKUnit.count())
-//                    DispatchQueue.main.async {
-//                        self.run1Label.text = castToString(castToInt(value))
-//                    }
-//                }
-//            }
-//            healthStore.execute(query)
-//        }
         
         if let type = HKQuantityType.quantityType(forIdentifier: .heartRate) {
             let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
@@ -410,7 +342,6 @@ class HealthVC: BaseViewController {
                         let startDate = sample.startDate
                         let endDate = sample.endDate
                         let sleepTimeForOneDay = sample.endDate.timeIntervalSince(sample.startDate)
-                        let minute = (sleepTimeForOneDay/3600).truncatingRemainder(dividingBy: 1)
                         DispatchQueue.main.asyncAfter(deadline: .now()) {
                             if self.listTarget.sleep.firstIndex(where: {$0.date == startDate.toString(Constants.DATE_FORMAT)}) == nil &&
                                 sleepTimeForOneDay/3600 > 2 {
@@ -435,7 +366,59 @@ class HealthVC: BaseViewController {
             }
             healthStore.execute(query)
         }
+    }
+    
+    private func setTodayStep() {
+        let healthStore = HKHealthStore()
+        let date =  Date()
+        let cal = Calendar(identifier: Calendar.Identifier.gregorian)
+        let newDate = cal.startOfDay(for: date)
         
+        let predicate = HKQuery.predicateForSamples(withStart: newDate, end: Date(), options: .strictStartDate)
+        
+        if let type = HKSampleType.quantityType(forIdentifier: .stepCount) {
+            let query = HKStatisticsQuery(quantityType: type, quantitySamplePredicate: predicate, options: [.cumulativeSum]) { (query, statistics, error) in
+                var value: Double = 0
+
+                if error != nil {
+                    print("something went wrong")
+                } else if let quantity = statistics?.sumQuantity() {
+                    value = quantity.doubleValue(for: HKUnit.count())
+                    self.listTarget.walkNumber[7] = (step: value, date: Date().toString(Constants.DATE_FORMAT) ?? "")
+                    DispatchQueue.main.async {
+                        self.run1Label.text = castToString(castToInt(self.listTarget.walkNumber[7].step))
+                        self.setTargetView()
+                    }
+                }
+            }
+            healthStore.execute(query)
+        }
+    }
+    
+    private func setTodayDistance() {
+        let healthStore = HKHealthStore()
+        let date =  Date()
+        let cal = Calendar(identifier: Calendar.Identifier.gregorian)
+        let newDate = cal.startOfDay(for: date)
+        
+        let predicate = HKQuery.predicateForSamples(withStart: newDate, end: Date(), options: .strictStartDate)
+        
+        if let type = HKSampleType.quantityType(forIdentifier: .distanceWalkingRunning) {
+            let query = HKStatisticsQuery(quantityType: type, quantitySamplePredicate: predicate, options: [.cumulativeSum]) { (query, statistics, error) in
+                var value: Double = 0
+
+                if error != nil {
+                    print("something went wrong")
+                } else if let quantity = statistics?.sumQuantity() {
+                    value = quantity.doubleValue(for: HKUnit.mile())
+                    self.listTarget.distance[7] = (step: value.rounded(toPlaces: 2), date: Date().toString(Constants.DATE_FORMAT) ?? "")
+                    DispatchQueue.main.async {
+                        self.setTargetView()
+                    }
+                }
+            }
+            healthStore.execute(query)
+        }
     }
     
     @IBAction private func createTarget() {
