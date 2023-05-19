@@ -122,13 +122,17 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
     }
 
     func processNotification(_ userInfo: [AnyHashable: Any]) {
-        guard let viewController = AppDelegate.shared.topMost else { return }
-        ServiceSettings.shared.isPushRemote = true
-        if ServiceSettings.shared.userInfo != nil {
-            let swiftUIView = TabbarView().preferredColorScheme(.light)
-            let hostingController = UIHostingController(rootView: swiftUIView)
-            hostingController.modalPresentationStyle = .fullScreen
-            viewController.present(hostingController, animated: false, completion: nil)
+        if var topController = UIApplication.shared.keyWindow?.rootViewController {
+            while let presentedViewController = topController.presentedViewController {
+                topController = presentedViewController
+            }
+            ServiceSettings.shared.isPushRemote = true
+            if ServiceSettings.shared.userInfo != nil {
+                let swiftUIView = TabbarView().preferredColorScheme(.light)
+                let hostingController = UIHostingController(rootView: swiftUIView)
+                hostingController.modalPresentationStyle = .fullScreen
+                topController.present(hostingController, animated: false, completion: nil)
+            }
         }
     }
 }

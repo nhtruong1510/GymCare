@@ -14,4 +14,9 @@ final class AddressViewModel: BaseViewModel {
             completion(data, msg)
         }
     }
+    
+//    func sortListAddress(addresses: [Address]) -> [Address] {
+//        var listAddress: [Address] = []
+//        return addresses.sorted(by: {$0.})
+//    }
 }

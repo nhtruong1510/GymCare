@@ -11,6 +11,10 @@ class InfoTrainerVC: BaseViewController {
     @IBOutlet private var imageAvatar: AvatarView!
     @IBOutlet private var nameTextField: UITextField!
     @IBOutlet private var addressTextField: UITextField!
+    @IBOutlet private var certificateTextField: UITextField!
+    @IBOutlet private var experienceTextField: UITextField!
+    @IBOutlet private var specializeTextField: UITextField!
+
     @IBOutlet private var nameLabel: UILabel!
     @IBOutlet private var nameTitleLabel: UILabel!
     @IBOutlet private var addressTitleLabel: UILabel!
@@ -43,7 +47,9 @@ class InfoTrainerVC: BaseViewController {
         imageAvatar.setupAvatarView(avatar: data.avatar, gender: data.gender)
         nameLabel.text = castToString(data.name)
         nameTextField.text = castToString(data.name)
-//        phoneTextField.text = castToString(data.phoneNumber)
+        experienceTextField.text = castToString(data.experience)
+        certificateTextField.text = castToString(data.certificate)
+        specializeTextField.text = castToString(data.specialize)
         addressTextField.text = castToString(data.address)
     }
 

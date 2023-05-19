@@ -13,7 +13,8 @@ class ScheduleVC: BaseViewController {
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var tableView: ContentSizedTableView!
     @IBOutlet private weak var calendarView: JTACMonthView!
-    
+    @IBOutlet private weak var heightTableConstraint: NSLayoutConstraint!
+
     var formatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = Constants.DATE_PARAM_FORMAT
@@ -24,6 +25,7 @@ class ScheduleVC: BaseViewController {
     private let userInfo = ServiceSettings.shared.userInfo
     private var times: [Time] = []
     private var isInit: Bool = true
+    private var heightCell: CGFloat = 60
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,12 +62,17 @@ class ScheduleVC: BaseViewController {
                 AlertVC.show(viewController: self, msg: msg)
             } else {
                 self.calendarView.reloadData()
-                self.tableView.reloadData()
+                self.reloadData()
             }
             self.scrollView.refreshControl?.endRefreshing()
         }
     }
     
+    func reloadData() {
+        tableView.reloadData()
+        heightTableConstraint.constant = CGFloat(times.count) * heightCell
+    }
+
     func configureCell(view: JTACDayCell?, cellState: CellState) {
         guard let cell = view as? DateCell  else { return }
         cell.dateLabel.text = cellState.text
@@ -155,7 +162,7 @@ extension ScheduleVC: JTACMonthViewDelegate {
     func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
         configureCell(view: cell, cellState: cellState)
         self.selectedDate = date
-        tableView.reloadData()
+        reloadData()
     }
     
     func calendar(_ calendar: JTACMonthView, didDeselectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
@@ -172,6 +179,10 @@ extension ScheduleVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         times = viewModel.getAllTimeElement(date: self.selectedDate.toString(Constants.DATE_PARAM_FORMAT))
         return times.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return heightCell
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

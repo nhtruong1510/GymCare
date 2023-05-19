@@ -156,6 +156,9 @@ class HealthVC1: BaseViewController {
         nextButton.setImage(.init(systemName: "arrow.right"), for: .normal)
         prevButton.setImage(.init(systemName: "arrow.left"), for: .normal)
         index -= 1
+        if index == 0 {
+            prevButton.setImage(nil, for: .normal)
+        }
         DispatchQueue.main.async {
             self.setTargetView()
         }
@@ -169,6 +172,9 @@ class HealthVC1: BaseViewController {
         nextButton.setImage(.init(systemName: "arrow.right"), for: .normal)
         prevButton.setImage(.init(systemName: "arrow.left"), for: .normal)
         index += 1
+        if index == listHealth.count - 1 {
+            nextButton.setImage(nil, for: .normal)
+        }
         DispatchQueue.main.async {
             self.setTargetView()
         }

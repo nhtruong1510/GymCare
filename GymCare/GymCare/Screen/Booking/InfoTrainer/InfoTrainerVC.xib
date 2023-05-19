@@ -21,10 +21,13 @@
             <connections>
                 <outlet property="addressTextField" destination="IPT-z3-IHY" id="XXV-cS-lAO"/>
                 <outlet property="addressTitleLabel" destination="j1i-fR-thY" id="QNb-1Y-lVf"/>
+                <outlet property="certificateTextField" destination="Laz-cy-Wdk" id="b00-gr-ibH"/>
+                <outlet property="experienceTextField" destination="dVt-Uf-WlP" id="mTl-8R-z27"/>
                 <outlet property="imageAvatar" destination="6So-9t-fKa" id="hXy-vF-SwW"/>
                 <outlet property="nameLabel" destination="t0B-Ge-hRc" id="Pls-E7-H5Q"/>
                 <outlet property="nameTextField" destination="83h-zj-6QV" id="xr3-vT-cH6"/>
                 <outlet property="nameTitleLabel" destination="vOD-dt-VUo" id="icd-Lo-gij"/>
+                <outlet property="specializeTextField" destination="g8K-5i-csQ" id="lT1-5z-Gwh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -122,7 +125,7 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="l5b-fu-lMw">
                                     <rect key="frame" x="50" y="0.0" width="303" height="44"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tuổi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAq-DG-aUe">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ngày sinh" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAq-DG-aUe">
                                             <rect key="frame" x="0.0" y="0.0" width="303" height="12"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="12" id="lRW-E5-cTx"/>

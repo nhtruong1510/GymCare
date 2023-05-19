@@ -30,6 +30,10 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HH0-PF-sd0">
+                        <rect key="frame" x="0.0" y="0.0" width="247" height="137"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01P-bJ-Jgv">
                         <rect key="frame" x="10" y="127" width="227" height="0.0"/>
                         <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="18"/>
@@ -42,11 +46,15 @@
             <color key="backgroundColor" name="color_FFC198"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="2hr-Na-n2F" secondAttribute="trailing" id="6tr-U2-FpW"/>
+                <constraint firstItem="HH0-PF-sd0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="CtN-Pg-CsA"/>
+                <constraint firstAttribute="trailing" secondItem="HH0-PF-sd0" secondAttribute="trailing" id="HBr-Pl-fHG"/>
+                <constraint firstAttribute="bottom" secondItem="HH0-PF-sd0" secondAttribute="bottom" id="WDp-g8-Ki8"/>
                 <constraint firstItem="01P-bJ-Jgv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="f3H-nT-bM5"/>
                 <constraint firstAttribute="bottom" secondItem="01P-bJ-Jgv" secondAttribute="bottom" constant="10" id="gvP-mz-0qU"/>
                 <constraint firstItem="2hr-Na-n2F" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="h5R-ii-tDI"/>
                 <constraint firstItem="2hr-Na-n2F" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="kcf-tW-5GN"/>
                 <constraint firstAttribute="bottom" secondItem="2hr-Na-n2F" secondAttribute="bottom" id="nNE-Ub-QC1"/>
+                <constraint firstItem="HH0-PF-sd0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="s28-Co-bBl"/>
                 <constraint firstAttribute="trailing" secondItem="01P-bJ-Jgv" secondAttribute="trailing" constant="10" id="yP4-fg-zDF"/>
             </constraints>
             <size key="customSize" width="247" height="137"/>

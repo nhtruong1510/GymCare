@@ -108,7 +108,6 @@
                                                     </constraints>
                                                     <color key="tintColor" name="main_color"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal" image="arrow.forward" catalog="system"/>
                                                     <connections>
                                                         <action selector="nextDateClick" destination="-1" eventType="touchUpInside" id="G5A-Hj-DwC"/>
                                                     </connections>
@@ -848,7 +847,6 @@
         </view>
     </objects>
     <resources>
-        <image name="arrow.forward" catalog="system" width="128" height="95"/>
         <image name="arrow.left" catalog="system" width="128" height="95"/>
         <image name="clock" width="32" height="32"/>
         <image name="header_fee" width="2000" height="530"/>

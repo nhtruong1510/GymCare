@@ -16,6 +16,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScheduleVC" customModule="GymCare" customModuleProvider="target">
             <connections>
                 <outlet property="calendarView" destination="nOX-oD-GMR" id="LXm-Z8-twi"/>
+                <outlet property="heightTableConstraint" destination="Au8-s8-Lzx" id="TJb-Sq-8ez"/>
                 <outlet property="scrollView" destination="CfR-7q-II7" id="mwd-My-KYK"/>
                 <outlet property="tableView" destination="ZY8-jb-26V" id="ZtJ-WB-Tvm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -43,7 +44,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CfR-7q-II7">
-                    <rect key="frame" x="0.0" y="110" width="393" height="708"/>
+                    <rect key="frame" x="0.0" y="110" width="393" height="742"/>
                     <subviews>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="nOX-oD-GMR" customClass="JTACMonthView" customModule="JTAppleCalendar">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="400"/>

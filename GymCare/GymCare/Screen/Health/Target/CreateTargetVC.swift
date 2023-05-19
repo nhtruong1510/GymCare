@@ -44,14 +44,6 @@ class CreateTargetVC: BaseViewController {
             guard let `self` = self else { return }
             
         }
-
-//        sleepPickerView.onClickShowPopup = { [weak self] in
-//            guard let `self` = self else {
-////                UIAlertController.showDefaultAlert(andMessage: "Vui lòng chọn cơ quan thuế cấp cục")
-//                return
-//            }
-            
-//        }
         
         roadFieldView.editingCallBack = { [weak self] value in
             guard let `self` = self else { return }
