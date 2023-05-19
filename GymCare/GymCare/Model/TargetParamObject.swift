@@ -12,7 +12,11 @@ class TargetParamObject: Codable {
     var distance: Int?
     var walk_number: Int?
     var sleep: Int?
-    
+    var sleepHealth: Double?
+    var distanceHealth: Double?
+    var heartRate: Int?
+    var excercise: Int?
+
     init() {}
 
     init(customer_id: Int?, distance: Int?, walk_number: Int?, sleep: Int?) {
@@ -22,12 +26,32 @@ class TargetParamObject: Codable {
         self.sleep = sleep
     }
     
+    init(distanceHealth: Double?, walk_number: Int?, sleepHealth: Double?,
+         heartRate: Int?, excercise: Int?) {
+        self.distanceHealth = distanceHealth
+        self.walk_number = walk_number
+        self.sleepHealth = sleepHealth
+        self.heartRate = heartRate
+        self.excercise = excercise
+    }
+    
     func toDictionary() -> [String: Any] {
         var dictionary = [String: Any]()
         dictionary.updateValue(castToString(self.customer_id), forKey: "customer_id")
         dictionary.updateValue(castToString(self.distance), forKey: "distance")
         dictionary.updateValue(castToString(self.walk_number), forKey: "walk_number")
         dictionary.updateValue(castToString(self.sleep), forKey: "sleep")
+        return dictionary
+    }
+    
+    func toDictionaryHealth() -> [String: Any] {
+        var dictionary = [String: Any]()
+        dictionary.updateValue(castToString(ServiceSettings.shared.userInfo?.id), forKey: "customer_id")
+        dictionary.updateValue(castToString(self.distanceHealth), forKey: "distance")
+        dictionary.updateValue(castToString(self.walk_number), forKey: "walk_number")
+        dictionary.updateValue(castToString(self.sleepHealth), forKey: "sleep")
+        dictionary.updateValue(castToString(self.heartRate), forKey: "heart_rate")
+        dictionary.updateValue(castToString(self.excercise), forKey: "excercise")
         return dictionary
     }
 }

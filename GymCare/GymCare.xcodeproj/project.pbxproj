@@ -115,6 +115,8 @@
 		0785D4552A0FF4EA002DACD3 /* UIWindow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0785D4542A0FF4EA002DACD3 /* UIWindow+Extension.swift */; };
 		07AA73352A13365E00A0133F /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AA73342A13365E00A0133F /* Firebase.swift */; };
 		07AA73372A133B3B00A0133F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07AA73362A133B3B00A0133F /* GoogleService-Info.plist */; };
+		07AA733A2A1489ED00A0133F /* HealthVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AA73382A1489ED00A0133F /* HealthVC1.swift */; };
+		07AA733B2A1489ED00A0133F /* HealthVC1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07AA73392A1489ED00A0133F /* HealthVC1.xib */; };
 		07B1F05629B9B4E300DA417D /* AddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B1F05529B9B4E300DA417D /* AddressModel.swift */; };
 		07C46B3929B646F9001134AD /* ClassModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C46B3829B646F9001134AD /* ClassModel.swift */; };
 		07CA3E56299EA1B80042232A /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CA3E55299EA1B80042232A /* TabbarView.swift */; };
@@ -326,6 +328,8 @@
 		0785D4542A0FF4EA002DACD3 /* UIWindow+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extension.swift"; sourceTree = "<group>"; };
 		07AA73342A13365E00A0133F /* Firebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		07AA73362A133B3B00A0133F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		07AA73382A1489ED00A0133F /* HealthVC1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthVC1.swift; sourceTree = "<group>"; };
+		07AA73392A1489ED00A0133F /* HealthVC1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HealthVC1.xib; sourceTree = "<group>"; };
 		07B1F05529B9B4E300DA417D /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
 		07C46B3829B646F9001134AD /* ClassModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassModel.swift; sourceTree = "<group>"; };
 		07CA3E55299EA1B80042232A /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
@@ -969,6 +973,8 @@
 				07E8E06A29A9293100AE3AB1 /* HealthVC.xib */,
 				0704FEAE29DC8A3F004D5DA5 /* HealthViewModel.swift */,
 				0704FEB429DC9773004D5DA5 /* ProfileDataStore.swift */,
+				07AA73382A1489ED00A0133F /* HealthVC1.swift */,
+				07AA73392A1489ED00A0133F /* HealthVC1.xib */,
 			);
 			path = Health;
 			sourceTree = "<group>";
@@ -1302,6 +1308,7 @@
 				0774F1C729A67A1300DD0200 /* MessageViewCell.xib in Resources */,
 				0774F1C829A67A1300DD0200 /* MessageVC.xib in Resources */,
 				0774F1F429A6815300DD0200 /* AvatarView.xib in Resources */,
+				07AA733B2A1489ED00A0133F /* HealthVC1.xib in Resources */,
 				0774F24829A685D500DD0200 /* EditInforAcCountVC.xib in Resources */,
 				07E8E06C29A9293100AE3AB1 /* HealthVC.xib in Resources */,
 				076754DC29980140005FC40A /* Preview Assets.xcassets in Resources */,
@@ -1483,6 +1490,7 @@
 				07E8E0A429A9CE5100AE3AB1 /* BannerView.swift in Sources */,
 				0704FEAF29DC8A3F004D5DA5 /* HealthViewModel.swift in Sources */,
 				076754D62998013A005FC40A /* ContentView.swift in Sources */,
+				07AA733A2A1489ED00A0133F /* HealthVC1.swift in Sources */,
 				07255EE329D0574A00157732 /* PaymentModel.swift in Sources */,
 				0704FEB329DC96D0004D5DA5 /* UserHealthProfile.swift in Sources */,
 				07FBD91029A53B1600DCB5F7 /* Date+Extension.swift in Sources */,

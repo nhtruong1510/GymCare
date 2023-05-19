@@ -14,6 +14,18 @@ final class HealthViewModel: BaseViewModel {
         }
     }
     
+    func createOrUpdateHealth(param: TargetParamObject, completion: @escaping (Bool, String?) -> Void) {
+        self.repository.createOrUpdateHealth(param: param) { success, msg in
+            completion(success, msg)
+        }
+    }
+    
+    func callApiGetHealth(completion: @escaping ([TargetHealth]?, String?) -> Void) {
+        self.repository.getHealth(showLoading: false) { data, msg in
+            completion(data, msg)
+        }
+    }
+    
     func setListData() -> [TargetList] {
         var listTarget: [TargetList] = []
         for _ in 0...7 {

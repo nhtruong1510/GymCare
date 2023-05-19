@@ -470,4 +470,36 @@ class ApiRepository: IApiRepository {
             }
         }
     }
+    
+    func getHealth(showLoading: Bool, completion: @escaping ([TargetHealth]?, String?) -> Void) {
+        NetworkManager(showLoading: showLoading).moyaProvider.request(.getHealth) { result in
+            switch result {
+            case .success(let res):
+                if let response = try? JSONDecoder().decode(ResponseModel<[TargetHealth]>.self, from: res.data),
+                   let status = response.status {
+                    if status {
+                        completion(response.data, nil)
+                    } else {
+                        completion(nil, response.message)
+                    }
+                }
+            case .failure(let err):
+                completion(nil, err.localizedDescription)
+            }
+        }
+    }
+    
+    func createOrUpdateHealth(param: TargetParamObject, completion: @escaping (Bool, String?) -> Void) {
+        NetworkManager(showLoading: false).moyaProvider.request(.createOrUpdateHealth(param)) { result in
+            switch result {
+            case .success(let res):
+                if let response = try? JSONDecoder().decode(ResponseModel<String>.self, from: res.data),
+                   let status = response.status {
+                    completion(status, response.message)
+                }
+            case .failure(let err):
+                completion(false, err.localizedDescription)
+            }
+        }
+    }
 }

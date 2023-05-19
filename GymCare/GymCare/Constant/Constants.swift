@@ -80,6 +80,7 @@ struct EndPointURL {
     static let TARGET: String = versionJson + "target" + Constants.SUFFIX_JSON
     static let NEWS: String = versionJson + "news" + Constants.SUFFIX_JSON
     static let CHECK: String = versionJson + "check" + Constants.SUFFIX_JSON
+    static let HEALTH: String = versionJson + "health" + Constants.SUFFIX_JSON
 
 }
 

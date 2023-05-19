@@ -106,6 +106,8 @@ enum APIRouter {
     case updateTarget(TargetParamObject)
     case news
     case check(Int, String)
+    case getHealth
+    case createOrUpdateHealth(TargetParamObject)
 
 }
 
@@ -142,6 +144,7 @@ extension APIRouter: TargetType {
         case .getTarget, .createTarget, .updateTarget: return EndPointURL.TARGET
         case .news: return EndPointURL.NEWS
         case .check: return EndPointURL.CHECK
+        case .getHealth, .createOrUpdateHealth: return EndPointURL.HEALTH
 
         }
     }
@@ -150,7 +153,7 @@ extension APIRouter: TargetType {
         switch self {
         case .login, .resetPass, .updatePass, .changePass, .chatMessage,
                 .createSchedule, .createNoti, .updateStatusNoti, .createTarget,
-                .register, .editProfile, .check:
+                .register, .editProfile, .check, .createOrUpdateHealth:
             return .post
         case .updateSchedule, .updateTarget:
             return .put
@@ -223,6 +226,10 @@ extension APIRouter: TargetType {
             return .requestParameters(parameters: ["customer_id": customer_id], encoding: URLEncoding.queryString)
         case .check(let vnp_Amount, let vnp_ExpireDate):
             return .requestParameters(parameters: ["vnp_Amount": vnp_Amount, "vnp_ExpireDate": vnp_ExpireDate], encoding: JSONEncoding.default)
+        case .getHealth:
+            return .requestParameters(parameters: ["customer_id": getCustomerId()], encoding: URLEncoding.queryString)
+        case .createOrUpdateHealth(let param):
+            return .requestParameters(parameters: param.toDictionaryHealth(), encoding: JSONEncoding.default)
         default:
             return .requestPlain
         }
@@ -247,6 +254,13 @@ extension APIRouter: TargetType {
             return "Bearer " + accessToken
         }
         return ""
+    }
+    
+    private func getCustomerId() -> Int {
+        if let userId = ServiceSettings.shared.userInfo?.id {
+            return userId
+        }
+        return 0
     }
     
     func createMultipartFormData(listImage: [UIImage], fileName: String) -> [Moya.MultipartFormData] {

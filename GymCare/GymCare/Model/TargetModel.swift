@@ -34,6 +34,22 @@ class Target: Codable {
     }
 }
 
+// MARK: - Target
+class TargetHealth: Codable {
+    var id, step, excercise, heartRate, customer_id: Int?
+    var sleep, distance: Double?
+    var date: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case step = "walk_number"
+        case sleep, distance
+        case heartRate = "heart_rate"
+        case date
+        case customer_id
+    }
+}
+
 
 // MARK: - Target
 class TargetList {

@@ -31,7 +31,7 @@ struct TabbarView: View {
                         Text("Chat")
                     }
                     .ignoresSafeArea()
-                HealthVCRepresentation()
+                HealthVC1Representation()
                     .tabItem {
                         Image(systemName: "heart.fill")
                         Text("Sức khoẻ")

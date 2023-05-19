@@ -183,7 +183,7 @@ extension ScheduleVC: UITableViewDelegate, UITableViewDataSource {
                 self.viewModel.callApiCancelSchedule(timeId: castToInt(self.times[indexPath.row].id)) { success, msg in
                     if success {
                         AlertVC.show(viewController: self, msg: msg) {
-                            self.tableView.reloadData()
+                            self.getSchedule(showLoading: true)
                         }
                     } else {
                         AlertVC.show(viewController: self, msg: msg)
