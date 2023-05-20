@@ -1,6 +1,6 @@
 //
 //  Constants.swift
-//  SchoolUpTeacher
+//  GymCare
 //
 //  Created by Nguyễn Hà on 27/12/2022.
 //
@@ -53,7 +53,6 @@ struct Constants {
 }
 
 struct EndPointURL {
-    static let BASE_URL: String = "https://paraline.s3.ap-southeast-1.amazonaws.com"
     static let BASE_API_URL: String = Config.shared.BASE_API_URL
     static let POLICY_URL: String = Config.shared.POLICY_URL
     static let versionJson = Config.shared.versionJson

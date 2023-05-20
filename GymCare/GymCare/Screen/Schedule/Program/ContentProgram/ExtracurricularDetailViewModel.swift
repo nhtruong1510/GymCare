@@ -1,6 +1,6 @@
 //
 //  ExtracurricularDetailViewModel.swift
-//  SchoolUp
+//  GymCare
 //
 //  Created by Truong Nguyen Huu on 17/02/2023.
 //

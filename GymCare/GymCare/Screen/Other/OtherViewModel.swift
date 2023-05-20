@@ -1,8 +1,7 @@
 //
 //  OtherViewModel.swift
-//  SchoolUpTeacher
+//  GymCare
 //
-//  Created by Nguyen Ha on 16/01/2023.
 //
 
 import Foundation

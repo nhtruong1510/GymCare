@@ -1,6 +1,6 @@
 //
 //  BabyManagerViewCell.swift
-//  SchoolUpTeacher
+//  GymCare
 //
 //  Created by Nguyễn Hà on 01/01/2023.
 //

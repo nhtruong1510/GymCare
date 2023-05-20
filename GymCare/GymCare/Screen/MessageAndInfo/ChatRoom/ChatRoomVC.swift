@@ -1,6 +1,6 @@
 //
 //  ChatRoomVC.swift
-//  SchoolUp
+//  GymCare
 //
 //  Created by Truong Nguyen Huu on 15/02/2023.
 //

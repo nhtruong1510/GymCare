@@ -1,8 +1,7 @@
 //
 //  ImagePickerView.swift
-//  SchoolUp
+//  GymCare
 //
-//  Created by Nguyen Ha on 02/02/2023.
 //
 
 import Foundation

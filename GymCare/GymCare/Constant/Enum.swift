@@ -1,8 +1,7 @@
 //
 //  Enum.swift
-//  SchoolUpTeacher
+//  GymCare
 //
-//  Created by Paraline App on 30/12/2022.
 //
 
 import Foundation

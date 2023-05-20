@@ -1,8 +1,7 @@
 //
 //  OwnerMessageDetailCell.swift
-//  SchoolUpTeacher
+//  GymCare
 //
-//  Created by Nguyen Ha on 12/01/2023.
 //
 
 import UIKit

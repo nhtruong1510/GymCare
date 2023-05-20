@@ -1,6 +1,6 @@
 //
 //  ContentProgramVC.swift
-//  SchoolUp
+//  GymCare
 //
 //  Created by Truong Nguyen Huu on 16/02/2023.
 //

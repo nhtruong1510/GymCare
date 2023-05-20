@@ -1,8 +1,7 @@
 //
 //  MessageAndInfoVC.swift
-//  SchoolUpTeacher
+//  GymCare
 //
-//  Created by Nguyen Ha on 09/01/2023.
 //
 
 import UIKit

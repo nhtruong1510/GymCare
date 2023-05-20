@@ -1,8 +1,7 @@
 //
 //  PagingCollectionViewLayout.swift
-//  SchoolUp
+//  GymCare
 //
-//  Created by Nguyen Ha on 07/02/2023.
 //
 
 import UIKit

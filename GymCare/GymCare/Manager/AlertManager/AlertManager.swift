@@ -1,8 +1,7 @@
 //
 //  AlertManager.swift
-//  SchoolUpTeacher
+//  GymCare
 //
-//  Created by Paraline App on 06/01/2023.
 //
 
 import UIKit

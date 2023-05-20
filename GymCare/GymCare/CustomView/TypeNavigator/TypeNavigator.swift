@@ -1,6 +1,6 @@
 //
 //  TypeNavigator.swift
-//  SchoolUpTeacher
+//  GymCare
 //
 //  Created by Nguyễn Hà on 31/12/2022.
 //

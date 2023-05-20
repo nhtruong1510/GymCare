@@ -38,7 +38,7 @@ class HealthKitSetupAssistant {
   }
   
   class func authorizeHealthKit(completion: @escaping (Bool, Error?) -> Swift.Void) {
-    
+
     //1. Check to see if HealthKit Is Available on this device
     guard HKHealthStore.isHealthDataAvailable() else {
       completion(false, HealthkitSetupError.notAvailableOnDevice)
@@ -46,12 +46,6 @@ class HealthKitSetupAssistant {
     }
     
     //2. Prepare the data types that will interact with HealthKit
-//      guard let heightType: HKQuantityType = HKObjectType.quantityType(forIdentifier: .height),
-//            let weightType: HKQuantityType = HKObjectType.quantityType(forIdentifier: .bodyMass),
-//            let systolic: HKQuantityType = HKObjectType.quantityType(forIdentifier: .bloodPressureSystolic),
-//            let dystolic: HKQuantityType = HKObjectType.quantityType(forIdentifier: .bloodPressureDiastolic),
-//            let cycling: HKQuantityType = HKObjectType.quantityType(forIdentifier: .distanceCycling),
-//            let basalEnergyBurned: HKQuantityType = HKObjectType.quantityType(forIdentifier: .basalEnergyBurned) else {
       guard   let dateOfBirth = HKObjectType.characteristicType(forIdentifier: .dateOfBirth),
               let bloodType = HKObjectType.characteristicType(forIdentifier: .bloodType),
               let biologicalSex = HKObjectType.characteristicType(forIdentifier: .biologicalSex),
@@ -64,40 +58,20 @@ class HealthKitSetupAssistant {
               let height = HKObjectType.quantityType(forIdentifier: .height),
               let bodyMass = HKObjectType.quantityType(forIdentifier: .bodyMass),
               let activeEnergy = HKObjectType.quantityType(forIdentifier: .activeEnergyBurned) else {
-        
             completion(false, HealthkitSetupError.dataTypeNotAvailable)
             return
     }
     
     //3. Prepare a list of types you want HealthKit to read and write
-//    let healthKitTypesToWrite: Set<HKSampleType> = [walking,
-//                                                    basalEnergyBurned,
-//                                                    HKObjectType.workoutType()]
       let healthKitTypesToWrite: Set<HKSampleType> = [bodyMassIndex,
                                                       activeEnergy,
                                                       HKObjectType.workoutType()]
-    
-//    let healthKitTypesToRead: Set<HKObjectType> = [heightType,
-//                                                   weightType,
-//                                                   systolic,
-//                                                   dystolic,
-//                                                   sleepAnalysis,
-//                                                   step,
-//                                                   walking,
-//                                                   cycling,
-//                                                   basalEnergyBurned]
-      let healthKitTypesToRead: Set<HKObjectType> = [dateOfBirth,
-                                                     bloodType,
-                                                     biologicalSex,
-                                                     bodyMassIndex,
-                                                     height,
-                                                     bodyMass,
-                                                     walking,
-                                                     step,
-                                                     sleepAnalysis,
-                                                     heartRate,
-                                                     exerciseTime,
-                                                     HKObjectType.workoutType()]
+      let healthKitTypesToRead: Set<HKObjectType> = [dateOfBirth, bloodType,
+                                                     biologicalSex, bodyMassIndex,
+                                                     height, bodyMass,
+                                                     walking, step,
+                                                     sleepAnalysis, heartRate,
+                                                     exerciseTime, HKObjectType.workoutType()]
     
     //4. Request Authorization
     HKHealthStore().requestAuthorization(toShare: healthKitTypesToWrite,

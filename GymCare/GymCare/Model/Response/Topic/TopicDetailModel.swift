@@ -1,8 +1,7 @@
 //
 //  TopicDetailModel.swift
-//  SchoolUpTeacher
+//  GymCare
 //
-//  Created by Nguyen Ha on 10/01/2023.
 //
 
 import Foundation

@@ -1,8 +1,7 @@
 //
 //  Config.swift
-//  SchoolUp
+//  GymCare
 //
-//  Created by Nguyen Ha on 20/02/2023.
 //
 
 import Foundation

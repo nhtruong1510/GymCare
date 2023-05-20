@@ -1,8 +1,7 @@
 //
 //  Notification+Extension.swift
-//  SchoolUpTeacher
+//  GymCare
 //
-//  Created by Nguyen Ha on 08/01/2023.
 //
 
 import Foundation

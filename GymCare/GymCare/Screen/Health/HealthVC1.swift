@@ -189,25 +189,9 @@ class HealthVC1: BaseViewController {
         
         let predicate = HKQuery.predicateForSamples(withStart: newDate, end: Date(), options: .strictStartDate)
         
-        if let type = HKSampleType.quantityType(forIdentifier: .distanceWalkingRunning) {
-            let query = HKStatisticsQuery(quantityType: type, quantitySamplePredicate: predicate, options: [.cumulativeSum]) { (query, statistics, error) in
-                var value: Double = 0
-
-                if error != nil {
-                    print("something went wrong")
-                } else if let quantity = statistics?.sumQuantity() {
-                    value = quantity.doubleValue(for: HKUnit.mile())
-                    DispatchQueue.main.async {
-                        self.listHealth[self.listHealth.count - 1].distance = value
-                        self.setTargetView()
-                    }
-                }
-            }
-            healthStore.execute(query)
-        }
-        
         if let type = HKSampleType.quantityType(forIdentifier: .stepCount) {
-            let query = HKStatisticsQuery(quantityType: type, quantitySamplePredicate: predicate, options: [.cumulativeSum]) { (query, statistics, error) in
+            let query = HKStatisticsQuery(quantityType: type, quantitySamplePredicate: predicate,
+                                          options: [.cumulativeSum]) { (query, statistics, error) in
                 var value: Double = 0
 
                 if error != nil {
