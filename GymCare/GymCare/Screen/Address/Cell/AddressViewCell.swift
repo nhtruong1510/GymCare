@@ -22,13 +22,14 @@ class AddressViewCell: UITableViewCell {
     func fillData(data: Address) {
         titleLabel.text = data.address
         iconImageView.loadImage(urlString: data.image, access: "address")
-        if let current = data.addressClass?.currentParticipate, let max = data.addressClass?.maxParticipate {
-//            registerButton.backgroundColor = current == max ? .lightGray : .color_46C0FF
-            registerLabel.text = "Còn " + castToString(max - current) + " suất"
-//            registerLabel.isHidden = false
-        } else {
-//            registerLabel.isHidden = true
-        }
+//        if let current = data.addressClass?.currentParticipate, let max = data.addressClass?.maxParticipate {
+////            registerButton.backgroundColor = current == max ? .lightGray : .color_46C0FF
+//            registerLabel.text = "Còn " + castToString(max - current) + " suất"
+////            registerLabel.isHidden = false
+//        } else {
+////            registerLabel.isHidden = true
+//        }
+        registerLabel.text = castToString(data.addressClass?.money).formatMoney() + " đ/tháng"
         if let lattitude = data.lattitude, let longitude = data.longitude {
             let distance = getDistance(lat1: Constants.LATITUDE, lon1: Constants.LONGTITUDE, lat2: lattitude, lon2: longitude, unit: "K")
             distanceLabel.text = distance

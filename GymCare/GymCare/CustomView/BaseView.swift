@@ -1,8 +1,6 @@
 //
 //  BaseView.swift
-//  AppPit
 //
-//  Created by Nguyễn Hà on 12/08/2022.
 //
 
 import Foundation

@@ -2,7 +2,6 @@
 //  OtherVC.swift
 //  GymCare
 //
-//  Created by Nguyễn Hà on 02/01/2023.
 //
 
 import UIKit

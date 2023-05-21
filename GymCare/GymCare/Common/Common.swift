@@ -2,7 +2,6 @@
 //  Common.swift
 //  GymCare
 //
-//  Created by Nguyễn Hà on 27/12/2022.
 //
 
 import Foundation

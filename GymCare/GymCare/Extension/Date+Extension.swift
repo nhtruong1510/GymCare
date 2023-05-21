@@ -1,8 +1,6 @@
 //
 //  Date+Extension.swift
-//  AppPit
 //
-//  Created by Nguyễn Hà on 26/08/2022.
 //
 
 import Foundation

@@ -80,4 +80,19 @@ final class BookingViewModel: BaseViewModel {
         let toMonth = formatDateString(dateString: toDate, Constants.DATE_FORMAT, Constants.MONTH_STRING)
         return castToInt(toMonth) - castToInt(fromMonth) + 1
     }
+    
+    func getSumMonth(fromDate: String, toDate: String) -> Int {
+        let calendar = Calendar.current
+        let fromMonth = fromDate.formatToDate()
+        let toMonth = toDate.formatToDate()
+        let components = calendar.dateComponents([.month], from: fromMonth, to: toMonth)
+
+        return components.year ?? 0
+    }
+    
+    func getToDate(fromDateStr: String, numberOfMonth: Int) -> String? {
+        let fromDate = fromDateStr.formatToDate()
+        let toDate = fromDate.dateByAdding(numberOfMonth, .month)
+        return toDate.date.toString()
+    }
 }

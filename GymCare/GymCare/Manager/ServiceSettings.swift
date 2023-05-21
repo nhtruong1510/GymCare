@@ -20,6 +20,8 @@ public class ServiceSettings {
         static let isRegisterDevice = "IS_REGISTER_DEVICE"
         static let isPushRemote = "KEY_PUSH_REMOTE"
         static let listLastestSchedule = "KEY_REGISTERED_CLASS"
+        static let pushInfoId = "KEY_PUSH_INFO"
+
     }
 
     public static var shared = ServiceSettings()
@@ -76,6 +78,16 @@ public class ServiceSettings {
         }
         set {
             userDefaults.set(newValue, forKey: Keys.isRegisterDevice)
+            userDefaults.synchronize()
+        }
+    }
+    
+    var pushInfoId: String? {
+        get {
+            return userDefaults.integer(forKey: Keys.pushInfoId)
+        }
+        set {
+            userDefaults.set(newValue, forKey: Keys.pushInfoId)
             userDefaults.synchronize()
         }
     }

@@ -1,6 +1,5 @@
 //
 //  MetaResponse.swift
-//  AppPit
 //
 //  Created by Truong Nguyen Huu on 04/10/2022.
 //

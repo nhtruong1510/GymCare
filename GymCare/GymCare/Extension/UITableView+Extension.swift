@@ -1,8 +1,6 @@
 //
 //  UITableView+Extension.swift
-//  AppPit
 //
-//  Created by Nguyễn Hà on 01/08/2022.
 //
 
 import Foundation

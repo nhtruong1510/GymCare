@@ -1,8 +1,6 @@
 //
 //  NotifiDetailVC.swift
-//  AppPit
 //
-//  Created by Nguyễn Hà on 04/08/2022.
 //
 
 import UIKit

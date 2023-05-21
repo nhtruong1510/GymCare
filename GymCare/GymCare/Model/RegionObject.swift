@@ -1,6 +1,5 @@
 //
 //  RegionObject.swift
-//  AppPit
 //
 //  Created by Truong Nguyen Huu on 18/08/2022.
 //

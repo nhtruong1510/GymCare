@@ -1,6 +1,5 @@
 //
 //  SearchViewCell.swift
-//  AppPit
 //
 //  Created by Truong Nguyen Huu on 11/09/2022.
 //

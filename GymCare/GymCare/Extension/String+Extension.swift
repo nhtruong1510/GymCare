@@ -2,7 +2,6 @@
 //  String+Extension.swift
 //  GymCare
 //
-//  Created by Nguyễn Hà on 29/12/2022.
 
 import Foundation
 import UIKit

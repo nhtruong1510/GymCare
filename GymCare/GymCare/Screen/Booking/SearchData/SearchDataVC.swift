@@ -1,8 +1,6 @@
 //
 //  SearchDataVC.swift
-//  AppPit
 //
-//  Created by Nguyễn Hà on 23/08/2022.
 //
 
 import UIKit

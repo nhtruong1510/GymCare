@@ -2,7 +2,6 @@
 //  Constants.swift
 //  GymCare
 //
-//  Created by Nguyễn Hà on 27/12/2022.
 //
 
 import Foundation
@@ -166,26 +165,7 @@ enum MENU_PUSH: String {
 
 enum KeyPushRemote: String {
     case type = "type"
-    case notificationId = "notification_id"
-    case classId = "class_id"
-    case topicId = "topic_id"
-    case busId = "bus_id"
-    case reminderId = "reminder_id"
-    case relationType = "relation_type"
-    case date = "date"
-    case monthYear = "month_year"
-    case studentId = "student_id"
     case id = "id"
-    case billId = "bill_id"
-    
-    //absence
-    case absenceId = "absence_id"
-    case absenceStatus = "absence_status"
-    case absenceReason = "absence_reason"
-    case absenceEndDate = "absence_end_date"
-    case absenceStartDate = "absence_start_date"
-    case absenceNote = "absence_note"
-    case absenceDate = "absence_date"
 
 }
 

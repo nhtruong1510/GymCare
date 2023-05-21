@@ -16,6 +16,7 @@ class NotificationVC: BaseViewController {
     private let viewModel = NotificationViewModel()
     private let refreshControl = UIRefreshControl()
     private let userInfo = ServiceSettings.shared.userInfo
+    var id: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,9 @@ class NotificationVC: BaseViewController {
             }
             if let notifications = result?.notifications {
                 self.listNotifi = notifications.reversed()
+                if let id = self.id, let index = self.listNotifi.firstIndex(where: {$0.id == id}) {
+                    self.showDetail(noti: self.listNotifi[index], index: index)
+                }
             }
             self.tableView.reloadData()
             self.refreshControl.endRefreshing()

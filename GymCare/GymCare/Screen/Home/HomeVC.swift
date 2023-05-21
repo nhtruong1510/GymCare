@@ -2,7 +2,6 @@
 //  HomeVC.swift
 //  GymCare
 //
-//  Created by Nguyễn Hà on 28/12/2022.
 //
 
 import UIKit

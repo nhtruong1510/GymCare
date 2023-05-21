@@ -1,8 +1,6 @@
 //
 //  CustomProgressHUD.swift
-//  AppPit
 //
-//  Created by Nguyễn Hà on 22/08/2022.
 //
 
 import Foundation

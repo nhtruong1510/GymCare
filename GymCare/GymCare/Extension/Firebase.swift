@@ -128,6 +128,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
             }
             ServiceSettings.shared.isPushRemote = true
             if ServiceSettings.shared.userInfo != nil {
+                ServiceSettings.shared.pushInfoId = userInfo["id"] as? String
                 let swiftUIView = TabbarView().preferredColorScheme(.light)
                 let hostingController = UIHostingController(rootView: swiftUIView)
                 hostingController.modalPresentationStyle = .fullScreen

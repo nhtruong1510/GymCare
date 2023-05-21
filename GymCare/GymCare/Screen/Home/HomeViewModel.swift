@@ -20,4 +20,13 @@ class HomeViewModel: BaseViewModel {
             completion(data, msg)
         }
     }
+    
+    func executePushRemote(_ viewController: BaseViewController) {
+        if let id = ServiceSettings.shared.pushInfoId {
+            let vc = NotificationVC()
+            vc.id = castToInt(id)
+            viewController.nextScreen(ctrl: vc)
+            ServiceSettings.shared.pushInfoId = nil
+        }
+    }
 }
