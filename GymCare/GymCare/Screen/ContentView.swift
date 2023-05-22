@@ -14,6 +14,9 @@ struct ContentView: View {
     @State var isHidden: Bool = true
     @State private var phone: String = ""
     @State private var password: String = ""
+    @State private var showingAlert = false
+    @State private var msg: String = ""
+
     let viewModel = LoginViewModel()
 
     var body: some View {
@@ -45,12 +48,18 @@ struct ContentView: View {
                         Button("Đăng nhập", action: {
                             viewModel.callApiLogin(email: $phone.wrappedValue, pass: $password.wrappedValue) { success, error in
                                 if success {
+                                    self.showingAlert = false
                                     self.showTabbarView = true
                                 } else {
+                                    self.msg = castToString(error)
+                                    self.showingAlert = true
                                     self.showTabbarView = false
                                 }
                             }
                         })
+                        .alert(msg, isPresented: $showingAlert) {
+                            Button("OK", role: .cancel) { }
+                        }
                             .padding()
                             .background(Color.main_color)
                             .foregroundColor(.white)

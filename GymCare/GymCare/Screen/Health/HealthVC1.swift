@@ -140,11 +140,12 @@ class HealthVC1: BaseViewController {
         
         self.heartLabel.text = castToString(health.heartRate)
         let lastHealth = listHealth[listHealth.count - 1]
-        guard let step = lastHealth.step, let excercise = lastHealth.excercise,
-                let sleep = lastHealth.sleep, let distance = lastHealth.distance,
-              let heartRate = lastHealth.heartRate, lastHealth.date == Date().toString(Constants.DATE_PARAM_FORMAT) else { return }
+        guard let step = lastHealth.step, let sleep = lastHealth.sleep,
+                let distance = lastHealth.distance, let heartRate = lastHealth.heartRate,
+              lastHealth.date == Date().toString(Constants.DATE_PARAM_FORMAT),
+                index == listHealth.count - 1 else { return }
         let param = TargetParamObject(distanceHealth: distance, walk_number: step, sleepHealth: sleep,
-                                      heartRate: heartRate, excercise: excercise)
+                                      heartRate: heartRate, excercise: castToInt(lastHealth.excercise))
         viewModel.createOrUpdateHealth(param: param) { _, _ in }
     }
     
@@ -200,6 +201,24 @@ class HealthVC1: BaseViewController {
                     value = quantity.doubleValue(for: HKUnit.count())
                     DispatchQueue.main.async {
                         self.listHealth[self.listHealth.count - 1].step = castToInt(value)
+                        self.setTargetView()
+                    }
+                }
+            }
+            healthStore.execute(query)
+        }
+        
+        if let type = HKSampleType.quantityType(forIdentifier: .distanceWalkingRunning) {
+            let query = HKStatisticsQuery(quantityType: type, quantitySamplePredicate: predicate,
+                                          options: [.cumulativeSum]) { (query, statistics, error) in
+                var value: Double = 0
+
+                if error != nil {
+                    print("something went wrong")
+                } else if let quantity = statistics?.sumQuantity() {
+                    value = quantity.doubleValue(for: HKUnit.mile())
+                    DispatchQueue.main.async {
+                        self.listHealth[self.listHealth.count - 1].distance = value
                         self.setTargetView()
                     }
                 }
@@ -326,17 +345,19 @@ class HealthVC1: BaseViewController {
                     $0.date?.formatToDate(Constants.DATE_PARAM_FORMAT) ?? Date() <
                         $1.date?.formatToDate(Constants.DATE_PARAM_FORMAT) ?? Date()})
                 if self.listHealth.count > 0 {
-                    self.index = self.listHealth.count - 1
                     if self.listHealth[self.listHealth.count - 1].date != Date().toString(Constants.DATE_PARAM_FORMAT) {
                         let health = TargetHealth()
                         health.date = Date().toString(Constants.DATE_PARAM_FORMAT)
                         self.listHealth.append(health)
                     }
+                    self.index = self.listHealth.count - 1
+                    self.setTargetView() 
                 }
                 if self.listHealth.count == 0 {
                     let health = TargetHealth()
                     health.date = Date().toString(Constants.DATE_PARAM_FORMAT)
                     self.listHealth.append(health)
+                    self.prevButton.setImage(nil, for: .normal)
                 }
                 self.loadInfoHealth()
 

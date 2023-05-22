@@ -47,6 +47,7 @@ class TargetHealth: Codable {
         case heartRate = "heart_rate"
         case date
         case customer_id
+        case excercise
     }
 }
 

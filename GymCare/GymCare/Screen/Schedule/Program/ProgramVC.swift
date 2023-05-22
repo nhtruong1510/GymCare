@@ -101,7 +101,7 @@ extension ProgramVC: UITableViewDataSource, UITableViewDelegate {
                 AlertVC.show(viewController: self, msg: msg)
             } else {
                 if let data = data, castToInt(data.classes?.count) > 0 {
-                    let vc = BookingVC()
+                    let vc = BookingVC1()
                     self.listAddress[index].addressClass = data.classes?[0]
                     vc.address = self.listAddress[index]
                     vc.schedule = self.listSchedule[index]

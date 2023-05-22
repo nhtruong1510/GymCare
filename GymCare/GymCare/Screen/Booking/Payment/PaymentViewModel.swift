@@ -35,10 +35,13 @@ final class PaymentViewModel: BaseViewModel {
         return days.count
     }
     
-    func getSumMonth(fromDate: String, toDate: String, day: String) -> Int {
-        let fromMonth = formatDateString(dateString: fromDate, Constants.DATE_FORMAT, Constants.MONTH_STRING)
-        let toMonth = formatDateString(dateString: toDate, Constants.DATE_FORMAT, Constants.MONTH_STRING)
-        return castToInt(toMonth) - castToInt(fromMonth) + 1
+    func getSumMonth(fromDate: String, toDate: String, format: String = Constants.DATE_FORMAT) -> Int {
+        let calendar = Calendar.current
+        let fromMonth = fromDate.formatToDate(format)
+        let toMonth = toDate.formatToDate(format)
+        let components = calendar.dateComponents([.month], from: fromMonth, to: toMonth)
+
+        return components.month ?? 0
     }
     
     func createSchedule(param: ScheduleParamObject, completion: @escaping (Bool, String?) -> Void) {

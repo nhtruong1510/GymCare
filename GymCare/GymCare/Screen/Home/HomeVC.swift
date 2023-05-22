@@ -26,6 +26,7 @@ class HomeVC: BaseViewController {
         super.viewDidLoad()
         getData()
         configUI()
+        viewModel.executePushRemote(self)
     }
 
     override func viewWillAppear(_ animated: Bool) {

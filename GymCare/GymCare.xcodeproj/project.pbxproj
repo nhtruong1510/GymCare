@@ -138,6 +138,8 @@
 		07E4058529ABC70100E7D757 /* InputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E4058329ABC70000E7D757 /* InputFieldView.swift */; };
 		07E4058729ABC95800E7D757 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E4058629ABC95800E7D757 /* BaseView.swift */; };
 		07E4058B29ABD12800E7D757 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E4058A29ABD12800E7D757 /* UIFont+Extension.swift */; };
+		07E899662A19D45C001FDD17 /* BookingVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E899642A19D45C001FDD17 /* BookingVC1.swift */; };
+		07E899672A19D45C001FDD17 /* BookingVC1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07E899652A19D45C001FDD17 /* BookingVC1.xib */; };
 		07E8E04129A7DB6300AE3AB1 /* SearchViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07E8E03F29A7DB6300AE3AB1 /* SearchViewCell.xib */; };
 		07E8E04229A7DB6300AE3AB1 /* SearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E8E04029A7DB6300AE3AB1 /* SearchViewCell.swift */; };
 		07E8E04B29A7E36000AE3AB1 /* InfoTrainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E8E04929A7E36000AE3AB1 /* InfoTrainerVC.swift */; };
@@ -352,6 +354,8 @@
 		07E4058329ABC70000E7D757 /* InputFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputFieldView.swift; sourceTree = "<group>"; };
 		07E4058629ABC95800E7D757 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		07E4058A29ABD12800E7D757 /* UIFont+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		07E899642A19D45C001FDD17 /* BookingVC1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingVC1.swift; sourceTree = "<group>"; };
+		07E899652A19D45C001FDD17 /* BookingVC1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookingVC1.xib; sourceTree = "<group>"; };
 		07E8E03F29A7DB6300AE3AB1 /* SearchViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewCell.xib; sourceTree = "<group>"; };
 		07E8E04029A7DB6300AE3AB1 /* SearchViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewCell.swift; sourceTree = "<group>"; };
 		07E8E04929A7E36000AE3AB1 /* InfoTrainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTrainerVC.swift; sourceTree = "<group>"; };
@@ -848,6 +852,8 @@
 				0774F26729A735DE00DD0200 /* BookingVC.swift */,
 				0774F26829A735DE00DD0200 /* BookingVC.xib */,
 				0774F27029A737F100DD0200 /* BookingViewModel.swift */,
+				07E899642A19D45C001FDD17 /* BookingVC1.swift */,
+				07E899652A19D45C001FDD17 /* BookingVC1.xib */,
 			);
 			path = Booking;
 			sourceTree = "<group>";
@@ -1306,6 +1312,7 @@
 				0774F26129A6871C00DD0200 /* SFProDisplay-Regular.ttf in Resources */,
 				0774F18429A5EC9100DD0200 /* TypeNavigator.xib in Resources */,
 				0774F1C729A67A1300DD0200 /* MessageViewCell.xib in Resources */,
+				07E899672A19D45C001FDD17 /* BookingVC1.xib in Resources */,
 				0774F1C829A67A1300DD0200 /* MessageVC.xib in Resources */,
 				0774F1F429A6815300DD0200 /* AvatarView.xib in Resources */,
 				07AA733B2A1489ED00A0133F /* HealthVC1.xib in Resources */,
@@ -1532,6 +1539,7 @@
 				07FBD8CC29A537AA00DCB5F7 /* ResponseModel.swift in Sources */,
 				0785D4552A0FF4EA002DACD3 /* UIWindow+Extension.swift in Sources */,
 				07E8E0A029A9CE5100AE3AB1 /* ManagementView.swift in Sources */,
+				07E899662A19D45C001FDD17 /* BookingVC1.swift in Sources */,
 				07E4058029ABC60500E7D757 /* CreateTargetViewModel.swift in Sources */,
 				07FBD89229A5370B00DCB5F7 /* Constants.swift in Sources */,
 				0728DA7729EE2F78006571FF /* EditProfileViewModel.swift in Sources */,

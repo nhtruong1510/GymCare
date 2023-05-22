@@ -14,6 +14,8 @@ struct RegisterView: View {
     @State private var password: String = ""
     @State private var name: String = ""
     @State private var confirmPassword: String = ""
+    @State private var showingAlert = false
+    @State private var msg: String = ""
     let viewModel = RegisterViewModel()
 
     var body: some View {
@@ -58,11 +60,19 @@ struct RegisterView: View {
                                                   pass: $password.wrappedValue, confirmPass: $confirmPassword.wrappedValue) { success, error in
                             if success {
                                 self.showLoginView = true
+                                self.showingAlert = false
                             } else {
+                                self.msg = castToString(error)
+                                self.showingAlert = true
                                 self.showLoginView = false
                             }
                         }
-                    }.buttonStyle(DefaultButton())
+                    }
+                    .alert(msg, isPresented: $showingAlert) {
+                        Button("OK", role: .cancel) { }
+                    }
+                    .buttonStyle(DefaultButton())
+
                 }
                 .background(Color.main_color)
                 .clipShape(Capsule())

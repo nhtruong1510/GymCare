@@ -79,7 +79,7 @@ extension AddressVC: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = BookingVC()
+        let vc = BookingVC1()
         vc.address = listSearchData[indexPath.row]
         self.nextScreen(ctrl: vc)
     }

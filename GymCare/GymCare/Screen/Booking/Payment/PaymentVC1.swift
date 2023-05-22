@@ -79,19 +79,19 @@ class PaymentVC1: BaseViewController {
         let start_date = formatDateString(dateString: castToString(param.start_date), Constants.DATE_PARAM_FORMAT, Constants.DATE_FORMAT)
         let end_date = formatDateString(dateString: castToString(param.end_date), Constants.DATE_PARAM_FORMAT, Constants.DATE_FORMAT)
         expiredLabel.text = castToString(start_date) + " - " + castToString(end_date)
-        if param.trainer_id != nil {
-            let sumSession = viewModel.getSumSession(fromDate: castToString(start_date),
-                                                     toDate: castToString(end_date),
-                                                     day: castToString(param.day))
-            sumMoney = castToInt(param.money) * sumSession
-            amountLabel.text = castToString(param.money).formatMoney()  + "đ" + "*" + castToString(sumSession) + " buổi = " + castToString(sumMoney).formatMoney() + " VNĐ"
-        } else {
-            let sumMonth = viewModel.getSumMonth(fromDate: castToString(start_date),
-                                                 toDate: castToString(end_date),
-                                                 day: castToString(param.day))
-            sumMoney = castToInt(param.money) * sumMonth
-            amountLabel.text = castToString(param.money).formatMoney()  + "đ" + "*" + castToString(sumMonth) + " tháng = " + castToString(sumMoney).formatMoney() + " VNĐ"
-        }
+        let sumMonth = viewModel.getSumMonth(fromDate: castToString(start_date),
+                                             toDate: castToString(end_date))
+        sumMoney = castToInt(param.money) * sumMonth
+        amountLabel.text = castToString(param.money).formatMoney()  + "đ" + "*" + castToString(sumMonth) + " tháng = " + castToString(sumMoney).formatMoney() + " VNĐ"
+//        if param.trainer_id != nil {
+//            let sumSession = viewModel.getSumSession(fromDate: castToString(start_date),
+//                                                     toDate: castToString(end_date),
+//                                                     day: castToString(param.day))
+//            sumMoney = castToInt(param.money) * sumSession
+//            amountLabel.text = castToString(param.money).formatMoney()  + "đ" + "*" + castToString(sumSession) + " buổi = " + castToString(sumMoney).formatMoney() + " VNĐ"
+//        } else {
+//
+//        }
         param.money = sumMoney
         //        param.start_date = formatDateString(dateString: castToString(param.start_date), Constants.DATE_FORMAT, Constants.DATE_PARAM_FORMAT)
         //        param.end_date = formatDateString(dateString: castToString(param.end_date), Constants.DATE_FORMAT, Constants.DATE_PARAM_FORMAT)

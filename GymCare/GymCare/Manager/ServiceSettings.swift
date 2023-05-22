@@ -84,7 +84,7 @@ public class ServiceSettings {
     
     var pushInfoId: String? {
         get {
-            return userDefaults.integer(forKey: Keys.pushInfoId)
+            return userDefaults.string(forKey: Keys.pushInfoId)
         }
         set {
             userDefaults.set(newValue, forKey: Keys.pushInfoId)

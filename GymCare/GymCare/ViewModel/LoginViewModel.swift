@@ -10,6 +10,7 @@ final class LoginViewModel: BaseViewModel {
 
     func callApiLogin(email: String?, pass: String?, completion: @escaping (_ result: Bool, _ error: String?) -> Void) {
         if let error = validate(email: email, pass: pass) {
+            completion(false, error)
             return
         }
         self.repository.callApiLogin(email: email!, pass: pass!) { userObject, msgError in

@@ -12,6 +12,7 @@ final class RegisterViewModel: BaseViewModel {
 
     func callApiRegister(email: String?, name: String?, pass: String?, confirmPass: String?, completion: @escaping (_ result: Bool, _ error: String?) -> Void) {
         if let error = validate(email: email, pass: pass, confirmPass: confirmPass) {
+            completion(false, error)
             return
         }
         self.repository.callApiRegister(phone: email!, name: name!, pass: pass!) { success, msgError in
