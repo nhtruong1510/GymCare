@@ -7,7 +7,7 @@
 
 import SwiftUI
 import UIKit
-//import zpdk
+import BackgroundTasks
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     var window: UIWindow?
@@ -28,6 +28,10 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         firebase(application)
+        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
+        BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.example.BGTask.refresh", using: nil) { task in
+            self.handleAppRefresh(task: task as! BGAppRefreshTask)
+        }
         return true
     }
     
@@ -36,6 +40,41 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
         return true
 //        return ZaloPaySDK.sharedInstance().application(app, open: url, sourceApplication:"vn.com.vng.zalopay", annotation: nil)
+    }
+    
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        print("background")
+        let viewModel = HealthViewModel()
+        viewModel.loadInfoHealth()
+        completionHandler(.newData)
+    }
+    
+    
+    
+    func scheduleAppRefresh() {
+
+        let request = BGProcessingTaskRequest(identifier: "com.example.BGTask.refresh")
+        request.requiresNetworkConnectivity = false
+        request.requiresExternalPower = false
+
+        do {
+            try BGTaskScheduler.shared.submit(request)
+        } catch {
+            print("Could not schedule app refresh: \(error)")
+        }
+    }
+
+    func handleAppRefresh(task: BGAppRefreshTask) {
+        scheduleAppRefresh()
+        
+        task.expirationHandler = {
+            task.setTaskCompleted(success: false)
+        }
+        
+        // increment instead of a fixed number
+        UserDefaults.standard.set(UserDefaults.standard.integer(forKey: "bgtask")+1, forKey: "bgtask")
+
+        task.setTaskCompleted(success: true)
     }
 }
 

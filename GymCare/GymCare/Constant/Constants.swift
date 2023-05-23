@@ -223,4 +223,5 @@ enum TypeStatus: Int {
     case acceptCreate
     case create
     case update
+    case cancel
 }

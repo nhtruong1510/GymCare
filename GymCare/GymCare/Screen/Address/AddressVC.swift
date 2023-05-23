@@ -27,12 +27,18 @@ class AddressVC: BaseViewController {
             } else {
                 if let data = data, let address = data.address {
                     self.listSearchData = address
-                    self.tableView.reloadData()
+                    self.reloadData()
                 }
             }
         }
     }
 
+    private func reloadData() {
+        self.viewModel.setAddressDistance(addresses: listSearchData)
+        self.listSearchData.sort(by: {$0.distance ?? 0 < $1.distance ?? 0})
+        self.tableView.reloadData()
+    }
+    
     private func configUI() {
         cutomNavi.onClickBack = { [weak self] in
             guard let `self` = self else { return }
@@ -93,7 +99,7 @@ extension AddressVC: CLLocationManagerDelegate {
         locationManager.stopUpdatingLocation()
         Constants.LONGTITUDE = userLocation.coordinate.longitude
         Constants.LATITUDE = userLocation.coordinate.latitude
-        tableView.reloadData()
+        self.reloadData()
     }
 
     private func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {

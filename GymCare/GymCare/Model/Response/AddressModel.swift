@@ -17,7 +17,8 @@ class Address: Codable {
     var image: String?
     var address: String?
     var addressClass: Class?
-    
+    var distance: Double?
+
     enum CodingKeys: String, CodingKey {
         case id, lattitude, longitude, image
         case addressClass = "class"
