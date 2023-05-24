@@ -16,6 +16,7 @@ class TargetParamObject: Codable {
     var distanceHealth: Double?
     var heartRate: Int?
     var excercise: Int?
+    var date: String?
 
     init() {}
 
@@ -27,12 +28,13 @@ class TargetParamObject: Codable {
     }
     
     init(distanceHealth: Double?, walk_number: Int?, sleepHealth: Double?,
-         heartRate: Int?, excercise: Int?) {
+         heartRate: Int?, excercise: Int?, date: String?) {
         self.distanceHealth = distanceHealth
         self.walk_number = walk_number
         self.sleepHealth = sleepHealth
         self.heartRate = heartRate
         self.excercise = excercise
+        self.date = date
     }
     
     func toDictionary() -> [String: Any] {
@@ -52,6 +54,7 @@ class TargetParamObject: Codable {
         dictionary.updateValue(castToString(self.sleepHealth), forKey: "sleep")
         dictionary.updateValue(castToString(self.heartRate), forKey: "heart_rate")
         dictionary.updateValue(castToString(self.excercise), forKey: "excercise")
+        dictionary.updateValue(castToString(self.date), forKey: "date")
         return dictionary
     }
 }

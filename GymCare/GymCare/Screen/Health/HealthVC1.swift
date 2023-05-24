@@ -44,7 +44,7 @@ class HealthVC1: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
-        getDataHealth()
+        
         getDataTarget()
         authorizeHealthKit()
         configUI()
@@ -69,6 +69,9 @@ class HealthVC1: BaseViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.getDataTarget), name: .RELOAD_HEALTH_SCREEN, object: nil)
         scrollView.refreshControl = UIRefreshControl()
         scrollView.refreshControl?.addTarget(self, action: #selector(self.getDataTarget), for: .valueChanged)
+        viewModel.getDataHealthOfWeek() {
+            self.getDataHealth()
+        }
     }
     
     private func authorizeHealthKit() {
@@ -145,7 +148,7 @@ class HealthVC1: BaseViewController {
               lastHealth.date == Date().toString(Constants.DATE_PARAM_FORMAT),
                 index == listHealth.count - 1 else { return }
         let param = TargetParamObject(distanceHealth: distance, walk_number: step, sleepHealth: sleep,
-                                      heartRate: heartRate, excercise: castToInt(lastHealth.excercise))
+                                      heartRate: heartRate, excercise: castToInt(lastHealth.excercise), date: Date().toString(Constants.DATE_PARAM_FORMAT))
         viewModel.createOrUpdateHealth(param: param) { _, _ in }
     }
     
