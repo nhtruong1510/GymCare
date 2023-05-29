@@ -44,14 +44,15 @@ class HealthVC1: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
-        
-        getDataTarget()
+        getDataTarget(updateView: false)
         authorizeHealthKit()
         configUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        loadInfoHealth(target: target?.target)
+        if listHealth.count > 0 {
+            loadInfoHealth()
+        }
     }
     
     private func configUI() {
@@ -66,9 +67,9 @@ class HealthVC1: BaseViewController {
         activitySlider.minimumValue = 0.0
         activitySlider.maximumValue = 1.0
         activitySlider.endPointValue = 0.0
-        NotificationCenter.default.addObserver(self, selector: #selector(self.getDataTarget), name: .RELOAD_HEALTH_SCREEN, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.refresh), name: .RELOAD_HEALTH_SCREEN, object: nil)
         scrollView.refreshControl = UIRefreshControl()
-        scrollView.refreshControl?.addTarget(self, action: #selector(self.getDataTarget), for: .valueChanged)
+        scrollView.refreshControl?.addTarget(self, action: #selector(self.refresh), for: .valueChanged)
         viewModel.getDataHealthOfWeek() {
             self.getDataHealth()
         }
@@ -268,7 +269,6 @@ class HealthVC1: BaseViewController {
             healthStore.execute(query)
         }
         
-        
         if let sleepType = HKObjectType.categoryType(forIdentifier: HKCategoryTypeIdentifier.sleepAnalysis) {
             let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
             let start = Date().addingTimeInterval(-3600 * 24)
@@ -308,18 +308,18 @@ class HealthVC1: BaseViewController {
         let vc = CreateTargetVC()
         vc.target = target?.target
         vc.onClick = {
-            self.getDataTarget()
-            self.resetCompleteTarget()
+//            self.getDataTarget(updateView: <#Bool#>)
+//            self.resetCompleteTarget()
         }
         self.nextScreen(ctrl: vc)
         
     }
     
     @objc private func refresh(_: AnyObject) {
-        getDataTarget()
+        getDataTarget(updateView: true)
     }
     
-    @objc private func getDataTarget() {
+    private func getDataTarget(updateView: Bool) {
         viewModel.callApiGetTrainer(customerId: castToInt(userInfo?.id)) { [weak self] result, error in
             guard let `self` = self else { return }
             if let error = error {
@@ -328,7 +328,9 @@ class HealthVC1: BaseViewController {
             }
             let titleButton = result?.target == nil ? "Tạo mục tiêu" : "Sửa mục tiêu"
             self.target = result
-//            self.setTargetView()
+            if updateView {
+                self.setTargetView()
+            }
             self.targetButton.setTitle(titleButton, for: .normal)
             self.targetView.isHidden = result?.target == nil
             self.scrollView.refreshControl?.endRefreshing()

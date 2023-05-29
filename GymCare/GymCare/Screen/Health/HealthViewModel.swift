@@ -28,7 +28,7 @@ final class HealthViewModel: BaseViewModel {
     }
     
     func callApiGetHealth(completion: @escaping ([TargetHealth]?, String?) -> Void) {
-        self.repository.getHealth(showLoading: false) { data, msg in
+        self.repository.getHealth(showLoading: true) { data, msg in
             completion(data, msg)
         }
     }
@@ -284,11 +284,13 @@ final class HealthViewModel: BaseViewModel {
 
         healthStore.execute(query1)
         
+        let anchorDate1 = calendar.date(bySettingHour: 0, minute: 0, second: 0, of: Date())
+
         let query2 = HKStatisticsCollectionQuery(
             quantityType: HKSampleType.quantityType(forIdentifier: .distanceWalkingRunning)!,
             quantitySamplePredicate: predicate,
             options: .cumulativeSum,
-            anchorDate: anchorDate!,
+            anchorDate: anchorDate1!,
             intervalComponents: interval
         )
         
@@ -357,7 +359,7 @@ final class HealthViewModel: BaseViewModel {
         if let sleepType = HKObjectType.categoryType(forIdentifier: HKCategoryTypeIdentifier.sleepAnalysis) {
             let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
             let start = Date().addingTimeInterval(-3600 * 24 * 8)
-            let end = Date()
+            let end = Date().addingTimeInterval(-3600 * 24)
             
             let predicate = HKQuery.predicateForSamples(
                 withStart: start,
@@ -377,16 +379,32 @@ final class HealthViewModel: BaseViewModel {
                         let endDate = sample.endDate
                         let sleepTimeForOneDay = sample.endDate.timeIntervalSince(sample.startDate)
                         DispatchQueue.main.asyncAfter(deadline: .now()) {
-                            if self.listTarget.sleep.firstIndex(where: {$0.date == startDate.toString(Constants.DATE_PARAM_FORMAT)}) == nil &&
-                                sleepTimeForOneDay/3600 > 2 {
+                            if let index = self.listTarget.sleep.firstIndex(where: {$0.date == startDate.toString(Constants.DATE_PARAM_FORMAT)}) {
+//                                if sleepTimeForOneDay/3600 > 1 {
+                                    let sleep = self.listTarget.sleep[index].sleep + sleepTimeForOneDay/3600
+                                    self.listTarget.sleep[index].sleep = sleep
+//                                }
+                            } else {
                                 self.listTarget.sleep.append((sleep: (sleepTimeForOneDay/3600),
                                                                    date:  castToString(startDate.toString(Constants.DATE_PARAM_FORMAT))))
-                                if self.listTarget.sleep.count == 6 {
-                                    self.listTarget.sleep = self.listTarget.sleep.reversed()
-                                    self.setParamWeekHealth(completion: completion)
-
-                                }
                             }
+                            if self.listTarget.sleep.count == 6 {
+                                self.listTarget.sleep.sort(by: {
+                                    $0.date.formatToDate(Constants.DATE_PARAM_FORMAT) <
+                                        $1.date.formatToDate(Constants.DATE_PARAM_FORMAT)})
+                                self.setParamWeekHealth(completion: completion)
+
+                            }
+//                            if self.listTarget.sleep.firstIndex(where: {$0.date == startDate.toString(Constants.DATE_PARAM_FORMAT)}) == nil &&
+//                                sleepTimeForOneDay/3600 > 2 {
+//                                self.listTarget.sleep.append((sleep: (sleepTimeForOneDay/3600),
+//                                                                   date:  castToString(startDate.toString(Constants.DATE_PARAM_FORMAT))))
+//                                if self.listTarget.sleep.count == 6 {
+//                                    self.listTarget.sleep = self.listTarget.sleep.reversed()
+//                                    self.setParamWeekHealth(completion: completion)
+//
+//                                }
+//                            }
                         }
                     }
                 }
@@ -396,15 +414,4 @@ final class HealthViewModel: BaseViewModel {
     }
 }
 
-//if let index = self.listTarget.sleep.firstIndex(where: {$0.date == startDate.toString(Constants.DATE_PARAM_FORMAT)}) {
-//    let sleep = self.listTarget.sleep[index].sleep + sleepTimeForOneDay/3600
-//    self.listTarget.sleep[index].sleep = sleep
-//} else {
-//    self.listTarget.sleep.append((sleep: (sleepTimeForOneDay/3600),
-//                                       date:  castToString(startDate.toString(Constants.DATE_PARAM_FORMAT))))
-//}
-//if self.listTarget.sleep.count == 6 {
-//    self.listTarget.sleep = self.listTarget.sleep.reversed()
-//    self.setParamWeekHealth(completion: completion)
-//
-//}
+
