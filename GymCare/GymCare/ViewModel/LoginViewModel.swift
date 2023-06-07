@@ -7,6 +7,8 @@
 import Foundation
 
 final class LoginViewModel: BaseViewModel {
+    
+    let PHONE_REGEX = "(84|0[3|5|7|8|9])+([0-9]{8})$"
 
     func callApiLogin(email: String?, pass: String?, completion: @escaping (_ result: Bool, _ error: String?) -> Void) {
         if let error = validate(email: email, pass: pass) {
@@ -24,6 +26,7 @@ final class LoginViewModel: BaseViewModel {
     }
 
     func validate(email: String?, pass: String?) -> String? {
+        let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
         if castToString(email).isEmpty {
             return "Email không được để trống"
         }
@@ -31,6 +34,9 @@ final class LoginViewModel: BaseViewModel {
         if castToString(email).isNumeric {
             if !castToString(email).isValidPhoneSize() {
                 return "Số điện thoại phải từ 9-11 kí tự"
+            }
+            if !phoneTest.evaluate(with: email) {
+                return "Số điện thoại không đúng định dạng"
             }
         } else {
             if !castToString(email).isValidEmail() {
