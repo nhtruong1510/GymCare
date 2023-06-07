@@ -29,7 +29,6 @@ class BannerView: UIView {
         super.layoutSubviews()
         collectionView.delegate = self
         collectionView.registerCells(from: .bannerViewCell)
-        collectionView.isPagingEnabled = true
     }
 
     private func setupView() {
